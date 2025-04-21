@@ -1,5 +1,5 @@
 import "./App.scss";
 
 export const App = () => {
-  return <>Hello</>;
+  return <>There's no page yet :(</>;
 };
