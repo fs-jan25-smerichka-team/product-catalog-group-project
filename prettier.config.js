@@ -1,9 +1,12 @@
-/** @type {import("prettier").Config} */
-export default {
-  semi: true,
-  singleQuote: true,
-  trailingComma: 'all',
-  printWidth: 100,
-  tabWidth: 2,
-  arrowParens: 'avoid',
-};
+export default
+  {
+    "arrowParens": "avoid",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "jsxSingleQuote": false,
+    "printWidth": 80,
+    "semi": true,
+    "bracketSpacing": true,
+    "bracketSameLine": false
+  };
