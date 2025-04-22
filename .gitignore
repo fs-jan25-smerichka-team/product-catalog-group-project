@@ -25,4 +25,6 @@ dist-ssr
 
 # Custom
 
-description/
+.description/
+.package-lock.json
+.package.json
