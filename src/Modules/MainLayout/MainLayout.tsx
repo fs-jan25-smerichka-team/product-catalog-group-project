@@ -39,7 +39,7 @@ const Footer = () => (
   </Box>
 );
 
-export const MainLayout: React.FC = ({ children }) => {
+export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header />
