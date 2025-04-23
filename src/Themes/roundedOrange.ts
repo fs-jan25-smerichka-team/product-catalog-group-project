@@ -67,26 +67,26 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Mont',
     h1: {
-      fontSize: '3rem',
+      fontSize: '48px',
       fontWeight: 800,
-      lineHeight: '3.5rem',
+      lineHeight: '56px',
       letterSpacing: '-0.01em',
     },
     h2: {
-      fontSize: '2rem',
+      fontSize: '32px',
       fontWeight: 800,
-      lineHeight: '2.5rem',
+      lineHeight: '40px',
       letterSpacing: '-0.01em',
     },
     h3: {
       fontSize: '22px',
-      fontWeight: '800px',
+      fontWeight: 800,
       lineHeight: '31px',
       letterSpacing: 0,
     },
     h4: {
       fontSize: '20px',
-      fontWeight: '700px',
+      fontWeight: 700,
       lineHeight: '26px',
       letterSpacing: 0,
     },
