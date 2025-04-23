@@ -7,7 +7,7 @@ import {
 import { ThemeProvider } from '@mui/material';
 
 import { App } from './App';
-import roundedOrange from './Themes/roundedOrange';
+import roundedOrange from './themes/roundedOrange';
 
 export const Root = () => {
   return (

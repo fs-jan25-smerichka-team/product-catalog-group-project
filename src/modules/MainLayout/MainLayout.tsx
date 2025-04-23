@@ -1,7 +1,7 @@
 import { Container, Typography, Box } from '@mui/material';
 
 import { HomePage } from '../HomePage/HomePage';
-import { FOOTER_HEIGHT } from '../../Constants/constants';
+import { FOOTER_HEIGHT } from '../../constants/constants';
 
 // TODO: remove temporary components Header and Footer
 const Header = () => (
