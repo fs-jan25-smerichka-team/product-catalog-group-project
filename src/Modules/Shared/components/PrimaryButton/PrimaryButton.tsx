@@ -5,10 +5,16 @@ type Props = {
   onClick: () => void;
   isActive: boolean;
   children: React.ReactNode;
-  size?: 'small' | 'medium'
-}
+  size?: 'small' | 'medium';
+};
 
-export const PrimaryButton: React.FC<Props> = ({ isActive, size, onClick, children, ...rest }) => {
+export const PrimaryButton: React.FC<Props> = ({
+  isActive,
+  size,
+  onClick,
+  children,
+  ...rest
+}) => {
   return (
     <Button
       variant={isActive ? 'contained' : 'outlined'}
@@ -18,5 +24,5 @@ export const PrimaryButton: React.FC<Props> = ({ isActive, size, onClick, childr
     >
       {children}
     </Button>
-  )
-}
+  );
+};
