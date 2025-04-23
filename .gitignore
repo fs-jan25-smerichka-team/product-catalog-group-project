@@ -23,6 +23,18 @@ dist-ssr
 *.sln
 *.sw?
 
-# Custom
+# Prettier & ESLint cache
+.prettierignore
+.prettiercache
+.eslintcache
 
-description/
+# Husky
+.husky/_
+
+# GitHub Pages
+gh-pages/
+
+# Other
+description
+package-lock.json
+package.json

@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material/styles';
 
-import theme from './Themes/roundedOrange';
+import theme from './themes/roundedOrange';
 import './App.scss';
 
 export const App = () => {
