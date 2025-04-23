@@ -1,11 +1,18 @@
+import { ThemeProvider } from '@mui/material/styles';
+import { Outlet } from 'react-router-dom';
+
+import theme from './themes/roundedOrange';
+
 import './App.scss';
-//import { Outlet } from 'react-router-dom';
+
+import MainLayout from './modules/MainLayout/MainLayout';
 
 export const App = () => {
   return (
-    <>somethingthatnotvvoid</>
-    /*
-      <MainLayout><Outlet /></MainLayout>
-      */
+    <ThemeProvider theme={theme}>
+      <MainLayout>
+        <Outlet />
+      </MainLayout>
+    </ThemeProvider>
   );
 };

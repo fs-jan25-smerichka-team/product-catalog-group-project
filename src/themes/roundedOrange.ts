@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -19,6 +19,25 @@ const theme = createTheme({
       desktop: 1200,
       tablet: 640,
       mobile: 320,
+    },
+  },
+  components: {
+    MuiGrid: {
+      defaultProps: {
+        columns: {
+          mobile: 4,
+          tablet: 12,
+          desktop: 24,
+        },
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        h1: { margin: 0 },
+        h2: { margin: 0 },
+        h3: { margin: 0 },
+        h4: { margin: 0 },
+      },
     },
   },
   palette: {
