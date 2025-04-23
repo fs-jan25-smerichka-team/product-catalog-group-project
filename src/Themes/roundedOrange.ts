@@ -48,78 +48,78 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Mont',
     h1: {
-      fontSize: '3rem',
+      fontSize: '48px',
       fontWeight: 800,
-      lineHeight: '3.5rem',
+      lineHeight: '56px',
       letterSpacing: '-0.01em',
     },
     h2: {
-      fontSize: '2rem',
+      fontSize: '32px',
       fontWeight: 800,
-      lineHeight: '2.5rem',
+      lineHeight: '40px',
       letterSpacing: '-0.01em',
     },
     h3: {
-      fontSize: 22,
+      fontSize: '22px',
       fontWeight: 800,
-      lineHeight: 31,
+      lineHeight: '31px',
       letterSpacing: 0,
     },
     h4: {
-      fontSize: 20,
+      fontSize: '20px',
       fontWeight: 700,
-      lineHeight: 26,
+      lineHeight: '26px',
       letterSpacing: 0,
     },
     button: {
-      fontSize: 14,
+      fontSize: '14px',
       fontWeight: 700,
-      lineHeight: 21,
+      lineHeight: '21px',
       letterSpacing: 0,
     },
     subtitle1: {
-      fontSize: 12,
+      fontSize: '12px',
       fontWeight: 800,
-      lineHeight: 11,
+      lineHeight: '11px',
       letterSpacing: '0.04em',
     }, // Figma UPPERCASE
     body1: {
-      fontSize: 14,
+      fontSize: '14px',
       fontWeight: 600,
       lineHeight: 21,
       letterSpacing: 0,
     }, // Body text
     body2: {
-      fontSize: 12,
+      fontSize: '12px',
       fontWeight: 700,
-      lineHeight: 15,
+      lineHeight: '15px',
       letterSpacing: 0,
     }, // Figma Small text
   },
 });
 
 theme.typography.h1[theme.breakpoints.down('tablet')] = {
-  fontSize: 32,
+  fontSize: '32px',
   fontWeight: 800,
-  lineHeight: 41,
+  lineHeight: '41px',
   letterSpacing: '-0.01em',
 };
 theme.typography.h2[theme.breakpoints.down('tablet')] = {
-  fontSize: 22,
+  fontSize: '22px',
   fontWeight: 800,
-  lineHeight: 31,
+  lineHeight: '31px',
   letterSpacing: 0,
 };
 theme.typography.h3[theme.breakpoints.down('tablet')] = {
-  fontSize: 20,
+  fontSize: '20px',
   fontWeight: 700,
-  lineHeight: 26,
+  lineHeight: '26px',
   letterSpacing: 0,
 };
 theme.typography.h4[theme.breakpoints.down('tablet')] = {
-  fontSize: 16,
+  fontSize: '16px',
   fontWeight: 700,
-  lineHeight: 20,
+  lineHeight: '20px',
   letterSpacing: 0,
 };
 
