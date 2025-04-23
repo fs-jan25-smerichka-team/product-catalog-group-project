@@ -20,8 +20,6 @@ const theme = createTheme({
       tablet: 640,
       mobile: 320,
     },
-    unit: 'px',
-    step: 5,
   },
   palette: {
     primary: {
@@ -84,19 +82,19 @@ const theme = createTheme({
       fontWeight: 800,
       lineHeight: 11,
       letterSpacing: '0.04em',
-    },
+    }, // Figma UPPERCASE
     body1: {
       fontSize: 14,
       fontWeight: 600,
       lineHeight: 21,
       letterSpacing: 0,
-    },
+    }, // Body text
     body2: {
       fontSize: 12,
       fontWeight: 700,
       lineHeight: 15,
       letterSpacing: 0,
-    },
+    }, // Figma Small text
   },
 });
 
