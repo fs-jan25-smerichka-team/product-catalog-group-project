@@ -86,7 +86,7 @@ const theme = createTheme({
     body1: {
       fontSize: '14px',
       fontWeight: 600,
-      lineHeight: 21,
+      lineHeight: '21px',
       letterSpacing: 0,
     }, // Body text
     body2: {
