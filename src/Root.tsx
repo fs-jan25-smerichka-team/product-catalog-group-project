@@ -15,9 +15,10 @@ export const Root = () => {
     <ThemeProvider theme={roundedOrange}>
       <Router>
         <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route index element={<HomePage />} />
+          <Route path="/" element={<App />}>
+            <Route path="/home" element={<Navigate to="/" replace />} />
+            <Route index element={<HomePage />} />
+          </Route>
           {/* other pages */}
         </Routes>
       </Router>
