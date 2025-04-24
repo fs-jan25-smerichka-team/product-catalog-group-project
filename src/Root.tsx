@@ -19,7 +19,11 @@ export const Root = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route index element={<HomePage />} />
           </Route>
-          {/* other pages */}
+          {/* other pages
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/:category" element={<CatalogPage />} />
+          
+          */}
         </Routes>
       </Router>
     </ThemeProvider>
