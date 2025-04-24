@@ -21,7 +21,7 @@ const Header = () => (
 const Footer = () => (
   <Box
     sx={{
-      position: 'fixed',
+      // position: 'fixed',
       bottom: 0,
       left: 0,
       right: 0,
