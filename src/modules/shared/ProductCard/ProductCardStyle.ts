@@ -9,13 +9,18 @@ export const cardStyle: SxProps<Theme> = {
   boxShadow: 'none',
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'space-between',
   gap: '8px',
-  minHeight: '439px',
+  height: '100%',
 };
 
 export const imageBoxStyle: SxProps<Theme> = {
   display: 'flex',
-  maxHeight: '196px',
+  height: {
+    mobile: '130px',
+    tablet: '175px',
+    desktop: '196px',
+  },
 };
 
 export const cardMediaStyle: SxProps<Theme> = {
