@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 
-import { ProductCard } from '../Shared/ProductCard/ProductCard';
+import { ProductCard } from '../shared/ProductCard/ProductCard';
 
 export const HomePage: React.FC = () => {
   return (
