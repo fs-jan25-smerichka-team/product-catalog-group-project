@@ -1,5 +1,7 @@
 import { Box, Grid, Typography } from '@mui/material';
 
+import { ProductCard } from '../Shared/ProductCard/ProductCard.tsx';
+
 export const HomePage: React.FC = () => {
   return (
     <>
@@ -38,8 +40,26 @@ export const HomePage: React.FC = () => {
 
         {/* Hot prices */}
         <Grid>
-          <Box sx={{ bgcolor: '#ccc', height: '500px' }}>
+          <Box sx={{ bgcolor: '#ccc', height: '600px' }}>
             <Typography variant="h2">Hot prices</Typography>
+            <Box sx={{ maxWidth: '272px', maxHeight: '450px' }}>
+              <ProductCard
+                product={{
+                  id: 0,
+                  category: '',
+                  itemId: '',
+                  name: 'Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)',
+                  fullPrice: 999,
+                  price: 799,
+                  screen: "4.7' IPS",
+                  capacity: '32GB',
+                  color: 'black',
+                  ram: '2GB',
+                  year: 0,
+                  image: 'img/phones/apple-iphone-11-pro-max/spacegray/00.webp',
+                }}
+              ></ProductCard>
+            </Box>
           </Box>
         </Grid>
       </Grid>
