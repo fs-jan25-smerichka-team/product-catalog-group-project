@@ -8,6 +8,7 @@ import { ThemeProvider } from '@mui/material';
 
 import { App } from './App';
 import roundedOrange from './themes/roundedOrange';
+import { HomePage } from './modules/HomePage';
 
 export const Root = () => {
   return (
@@ -16,6 +17,7 @@ export const Root = () => {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route index element={<HomePage />} />
           {/* other pages */}
         </Routes>
       </Router>
