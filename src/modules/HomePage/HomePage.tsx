@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 
-import { ProductCard } from '../shared/ProductCard/ProductCard';
+import { ProductCard } from '../Shared/ProductCard/ProductCard';
 import {
   brandNewModelsBoxStyle,
   categoryBoxStyle,

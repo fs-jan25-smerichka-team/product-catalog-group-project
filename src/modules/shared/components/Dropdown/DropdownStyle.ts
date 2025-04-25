@@ -1,6 +1,7 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const DropdownStyle = (theme: Theme): SxProps<Theme> => ({
+  height: '40px',
   borderColor: theme.palette.secondary.main,
   '&:hover': {
     borderColor: theme.palette.secondary.dark,
