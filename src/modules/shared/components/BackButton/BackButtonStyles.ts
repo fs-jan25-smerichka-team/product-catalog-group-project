@@ -25,3 +25,8 @@ export const buttonTextStyle: SxProps<Theme> = {
   position: 'relative',
   top: '1px',
 };
+
+export const buttonIconStyle = {
+  width: 16,
+  height: 16,
+};
