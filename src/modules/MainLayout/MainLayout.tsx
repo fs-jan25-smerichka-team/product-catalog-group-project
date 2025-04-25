@@ -21,7 +21,6 @@ const Header = () => (
 const Footer = () => (
   <Box
     sx={{
-      // position: 'fixed',
       bottom: 0,
       left: 0,
       right: 0,
@@ -44,8 +43,6 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       <Header />
       <Box sx={{ pb: `${FOOTER_HEIGHT}px` }}>
         <Container maxWidth={false} sx={{ maxWidth: 1200, mx: 'auto', px: 2 }}>
-          {/* TODO: remove <HomePage, use only children> */}
-          {/* <HomePage /> */}
           {children}
         </Container>
       </Box>
