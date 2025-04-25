@@ -2,8 +2,8 @@ import { Box, Grid, IconButton, SvgIcon, Typography } from '@mui/material';
 import React from 'react';
 
 import homeIcon from '../../assets/icons/home.svg';
-import { Dropdown } from '../Shared/components/Dropdown/Dropdown';
-import { ProductCard } from '../Shared/ProductCard/ProductCard';
+import { Dropdown } from '../shared/components/Dropdown/Dropdown';
+import { ProductCard } from '../shared/ProductCard/ProductCard';
 import {
   breadcrumbsStyle,
   containerStyle,
