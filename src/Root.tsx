@@ -6,9 +6,16 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 
-import { App } from './App';
 import roundedOrange from './themes/roundedOrange';
-import { HomePage } from './modules/HomePage';
+import { App } from './App';
+import {
+  HomePage,
+  CatalogPage,
+  NotFoundPage,
+  ProductDetailsPage,
+  CartPage,
+  FavoritesPage,
+} from './modules/pagesIndex';
 
 export const Root = () => {
   return (
@@ -16,14 +23,17 @@ export const Root = () => {
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route index element={<HomePage />} />
+            <Route path=":category">
+              <Route index element={<CatalogPage />} />
+              <Route path=":deviceId" element={<ProductDetailsPage />} />
+            </Route>
+            <Route path="favorites" element={<FavoritesPage />} />
+            <Route path="cart" element={<CartPage />} />
+
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-          {/* other pages
-          <Route path="*" element={<NotFoundPage />} />
-          <Route path="/:category" element={<CatalogPage />} />
-          
-          */}
         </Routes>
       </Router>
     </ThemeProvider>
