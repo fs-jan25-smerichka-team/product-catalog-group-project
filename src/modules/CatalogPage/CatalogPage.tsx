@@ -173,7 +173,7 @@ export const CatalogPage: React.FC = () => {
           <Grid container spacing={2}>
             {products.map(product => (
               <Grid
-                size={{ mobile: 4, tablet: 6, desktop: 6 }}
+                size={{ mobile: 4, tablet: 6, custom: 4, desktop: 6 }}
                 key={product.id}
               >
                 <ProductCard product={product} />

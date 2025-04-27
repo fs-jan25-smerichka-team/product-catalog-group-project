@@ -41,7 +41,9 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header />
-      <Box sx={{ pb: `${FOOTER_HEIGHT}px` }}>
+      <Box
+      // sx={{ pb: `${FOOTER_HEIGHT}px` }}
+      >
         <Container maxWidth={false} sx={{ maxWidth: 1200, mx: 'auto', px: 2 }}>
           {children}
         </Container>
