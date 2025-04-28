@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 
-import roundedOrange from './themes/roundedOrange';
+import { theme } from './themes/roundedOrange';
 import { App } from './App';
 import {
   HomePage,
@@ -19,7 +19,7 @@ import {
 
 export const Root = () => {
   return (
-    <ThemeProvider theme={roundedOrange}>
+    <ThemeProvider theme={theme}>
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
