@@ -48,3 +48,12 @@ export type CartItem = {
   price: number;
   quantity: number;
 };
+
+export const footerLinks = [
+  {
+    text: 'Github',
+    href: 'https://github.com/fs-jan25-smerichka-team/product-catalog-group-project',
+  },
+  { text: 'Contacts', href: '' },
+  { text: 'Rights', href: '' },
+];
