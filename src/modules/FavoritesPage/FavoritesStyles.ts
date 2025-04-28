@@ -15,15 +15,6 @@ export const containerStyle: SxProps<Theme> = {
   },
 };
 
-export const breadcrumbsStyle: SxProps<Theme> = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
-  backgroundColor: '#F0E68C',
-  height: '16px',
-  marginTop: '24px',
-};
-
 export const titleStyle: SxProps<Theme> = {
   marginBottom: '8px',
 };
