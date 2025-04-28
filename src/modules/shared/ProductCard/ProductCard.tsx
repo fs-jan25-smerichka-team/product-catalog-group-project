@@ -18,17 +18,18 @@ import {
   imageBoxStyle,
   nameTypographyStyle,
   priceBoxStyle,
-  specLabelTypographyStyle,
-  specRowBoxStyle,
+  priceTypographyStyle,
   specsBoxStyle,
 } from './ProductCardStyle';
+import { SpecsInfo } from '../components/SpecsInfo/SpecsInfo';
+import { getCardSpecs } from '../../../utils/functions/getProductSpecs';
 
 type Props = {
   product: ProductCardInfo;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { name, price, fullPrice, screen, capacity, ram, image } = product;
+  const { name, price, fullPrice, image } = product;
 
   return (
     <Card sx={cardStyle}>
@@ -42,16 +43,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </Box>
 
       <CardContent sx={cardContentStyle}>
-        <Typography
-          variant="body1"
-          color="primary.main"
-          sx={nameTypographyStyle}
-        >
+        <Typography variant="body1" sx={nameTypographyStyle}>
           {name}
         </Typography>
 
         <Box sx={priceBoxStyle}>
-          <Typography variant="h3" color="primary.main">
+          <Typography variant="h3" sx={priceTypographyStyle}>
             ${price}
           </Typography>
           {price !== fullPrice && (
@@ -64,9 +61,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         <Divider sx={dividerStyle} />
 
         <Box sx={specsBoxStyle}>
-          <SpecRow label="Screen" value={screen} />
-          <SpecRow label="Capacity" value={capacity} />
-          <SpecRow label="RAM" value={ram} />
+          <SpecsInfo specs={getCardSpecs(product)} textVariant={'body2'} />
         </Box>
 
         <Box sx={buttonBoxStyle}>
@@ -79,12 +74,3 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     </Card>
   );
 };
-
-const SpecRow = ({ label, value }: { label: string; value: string }) => (
-  <Box sx={specRowBoxStyle}>
-    <Typography variant="body2" sx={specLabelTypographyStyle}>
-      {label}
-    </Typography>
-    <Typography variant="body2">{value}</Typography>
-  </Box>
-);

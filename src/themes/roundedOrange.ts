@@ -14,7 +14,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-const theme = createTheme({
+export const theme = createTheme({
   breakpoints: {
     values: {
       desktop: 1200,
@@ -144,5 +144,3 @@ theme.typography.h4[theme.breakpoints.down('tablet')] = {
   lineHeight: '20px',
   letterSpacing: 0,
 };
-
-export default theme;
