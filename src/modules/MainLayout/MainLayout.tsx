@@ -1,22 +1,9 @@
 import { Container, Typography, Box } from '@mui/material';
 
+import { Header } from '../Header/Header';
 import { FOOTER_HEIGHT } from '../../constants/constants';
 
-// TODO: remove temporary components Header and Footer
-const Header = () => (
-  <Box
-    sx={{
-      position: 'sticky',
-      top: 0,
-      zIndex: 1100,
-      color: 'primary.contrastText',
-      p: 2,
-      bgcolor: '#222',
-    }}
-  >
-    <Typography variant="h6">Sticky Header</Typography>
-  </Box>
-);
+// TODO: remove temporary component Footer
 
 const Footer = () => (
   <Box
