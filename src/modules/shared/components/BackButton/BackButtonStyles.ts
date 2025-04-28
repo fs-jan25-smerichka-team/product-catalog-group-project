@@ -1,6 +1,6 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-import theme from '../../../../themes/roundedOrange';
+import { theme } from '../../../../themes/roundedOrange';
 
 export const backButtonStyle: SxProps<Theme> = {
   color: theme.palette.secondary.dark,
