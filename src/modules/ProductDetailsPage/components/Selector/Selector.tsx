@@ -1,4 +1,4 @@
-import { ToggleButtonGroup, Typography, Box, Stack } from '@mui/material';
+import { Typography, Box, Stack } from '@mui/material';
 
 import { SelectorButton } from './components/SelectorButton/SelectorButton';
 import { SelectorStyle } from './SelectorStyles';
