@@ -4,7 +4,7 @@ import { ProductCardInfo } from '../Types';
 import { DEVICE_SLIDER_ITEMS_MAX } from '../../constants/constants';
 
 //Use all products from Redux there
-export const useRandomDevices = (
+export const useSuggestedProducts = (
   products: ProductCardInfo[],
 ): ProductCardInfo[] => {
   return useMemo(() => {
