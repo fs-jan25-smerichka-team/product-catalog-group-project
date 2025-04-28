@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
 
 import { ProductDetailsInfo } from '../../../../utils/Types';
@@ -8,13 +8,10 @@ import { OrangeButton } from '../../../shared/components/OrangeButton/OrangeButt
 import { FavoriteButton } from '../../../shared/components/FavoriteButton/FavoriteButton';
 import { SpecsInfo } from '../../../shared/components/SpecsInfo/SpecsInfo';
 import {
-  buttonsContainerStyle,
-  capacitySelectorContainer,
-  colorSelectorAndIdBoxStyle,
+  capacitySelectorContainerStyle,
   colorSelectorAndIdContainerStyle,
   dividerControlsStyle,
-  PriceAndButtonsContainerStyle,
-  priceContainerStyle,
+  PriceAndButtonsStyle,
   specsInfoContainerStyle,
 } from './ControlsSectionStyles';
 import { fullPriceTypographyStyle } from '../../../shared/ProductCard/ProductCardStyle';
@@ -28,12 +25,6 @@ type Props = {
 export const ControlsSection: React.FC<Props> = ({ product }) => (
   <>
     <Box sx={colorSelectorAndIdContainerStyle}>
-      <Box sx={colorSelectorAndIdBoxStyle}>
-        <Typography variant="body2" color="secondary.main">
-          ID: {product.id}
-        </Typography>
-      </Box>
-
       <Selector
         label={'Available colors'}
         options={product.colorsAvailable}
@@ -41,11 +32,17 @@ export const ControlsSection: React.FC<Props> = ({ product }) => (
         OptionButton={SelectorColorButton}
         onSelect={() => {}}
       />
+
+      <Box>
+        <Typography variant="body2" color="secondary.main">
+          ID: {product.name}
+        </Typography>
+      </Box>
     </Box>
 
     <Divider sx={dividerControlsStyle} />
 
-    <Box sx={capacitySelectorContainer}>
+    <Box sx={capacitySelectorContainerStyle}>
       <Selector
         label={'Select capacity'}
         options={product.capacityAvailable}
@@ -57,8 +54,8 @@ export const ControlsSection: React.FC<Props> = ({ product }) => (
 
     <Divider sx={dividerControlsStyle} />
 
-    <Box sx={PriceAndButtonsContainerStyle}>
-      <Box sx={priceContainerStyle}>
+    <Box sx={PriceAndButtonsStyle.container}>
+      <Box sx={PriceAndButtonsStyle.priceContainer}>
         <Typography variant="h3" color="primary.main">
           ${product.priceDiscount}
         </Typography>
@@ -69,11 +66,12 @@ export const ControlsSection: React.FC<Props> = ({ product }) => (
         )}
       </Box>
 
-      <Box sx={buttonsContainerStyle}>
+      <Box sx={PriceAndButtonsStyle.buttonsContainer}>
         <OrangeButton onClick={() => {}} isSelected={false}>
           <Typography variant="button">Add to cart</Typography>
         </OrangeButton>
-        <FavoriteButton onClick={() => {}} isSelected={false} />
+
+        <FavoriteButton onClick={() => {}} isSelected={false} size="big" />
       </Box>
     </Box>
 

@@ -4,11 +4,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 import { BackButton } from '../shared/components/BackButton/BackButton';
 import { ProductDetailsInfo } from '../../utils/Types';
 import { titleStyle } from '../CatalogPage/CatalogStyles';
-import {
-  backButtonBoxStyle,
-  productDetailsPageContainerStyle,
-  titleBoxStyle,
-} from './ProductDetailsStyles';
+import { productDetailsStyle } from './ProductDetailsStyles';
 import {
   AboutSection,
   ControlsSection,
@@ -70,14 +66,14 @@ export const ProductDetailsPage: React.FC = () => {
   const product: ProductDetailsInfo = productFromServer;
 
   return (
-    <Stack sx={productDetailsPageContainerStyle}>
+    <Stack sx={productDetailsStyle.pageContainer}>
       <BreadcrumbsSection />
 
-      <Box sx={backButtonBoxStyle}>
+      <Box sx={productDetailsStyle.backButtonContainer}>
         <BackButton />
       </Box>
 
-      <Box sx={titleBoxStyle}>
+      <Box sx={productDetailsStyle.titleContainer}>
         <Typography variant="h1" sx={titleStyle}>
           {product.name}
         </Typography>
@@ -85,11 +81,12 @@ export const ProductDetailsPage: React.FC = () => {
 
       <Grid
         container
-        rowSpacing={{ mobile: '56px', tablet: '64px', desktop: '80px' }}
-        columnSpacing={{ mobile: 0, desktop: 1 }}
         columns={{ mobile: 4, tablet: 12, desktop: 24 }}
+        rowSpacing={{ mobile: 7, tablet: 8, desktop: 10 }}
+        columnSpacing={{ mobile: 0, desktop: 8 }}
+        sx={productDetailsStyle.gridContainer}
       >
-        <Grid size={{ mobile: 4, tablet: 6, desktop: 12 }}>
+        <Grid size={{ mobile: 4, tablet: 7, desktop: 12 }} mb={{ mobile: 3 }}>
           <Gallery product={product} />
         </Grid>
 
@@ -97,11 +94,11 @@ export const ProductDetailsPage: React.FC = () => {
           <ControlsSection product={product} />
         </Grid>
 
-        <Grid size={{ mobile: 4, tablet: 12 }}>
+        <Grid size={{ mobile: 4, tablet: 12, desktop: 12 }}>
           <AboutSection description={product.description} />
         </Grid>
 
-        <Grid size={{ mobile: 4, tablet: 12, desktop: 11 }}>
+        <Grid size={{ mobile: 4, tablet: 12, desktop: 12 }}>
           <FullSpecsSection product={product} />
         </Grid>
 

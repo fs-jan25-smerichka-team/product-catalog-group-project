@@ -15,8 +15,8 @@ export const Gallery: React.FC<Props> = ({ product }) => {
         <img
           src={product.images[0]}
           alt="product image"
-          width={464}
-          height={464}
+          width={288}
+          height={288}
         />
       </Box>
     </>

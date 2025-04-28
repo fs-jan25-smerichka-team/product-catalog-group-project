@@ -8,13 +8,21 @@ import { FavoriteButtonStyle } from './FavoriteButtonStyle.ts';
 type Props = {
   onClick: () => void;
   isSelected: boolean;
+  size?: 'small' | 'big';
 };
 
-export const FavoriteButton: React.FC<Props> = ({ isSelected, onClick }) => {
+export const FavoriteButton: React.FC<Props> = ({
+  isSelected,
+  onClick,
+  size = 'small',
+}) => {
   const theme = useTheme();
 
   return (
-    <IconButton onClick={onClick} sx={FavoriteButtonStyle(isSelected, theme)}>
+    <IconButton
+      onClick={onClick}
+      sx={FavoriteButtonStyle(isSelected, theme, size)}
+    >
       {isSelected ? (
         <img
           src={favoriteFilledIcon}
