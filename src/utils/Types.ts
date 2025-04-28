@@ -1,6 +1,6 @@
 type Description = {
   title: string;
-  text: string;
+  text: string[];
 };
 
 export type SortBy = 'Newest' | 'Alphabetically' | 'Cheapest';
@@ -37,8 +37,8 @@ export type ProductDetailsInfo = {
   resolution: string;
   processor: string;
   ram: string;
-  camera: string;
-  zoom: string;
+  camera?: string;
+  zoom?: string;
   cell: string[];
 };
 export type CartItem = {

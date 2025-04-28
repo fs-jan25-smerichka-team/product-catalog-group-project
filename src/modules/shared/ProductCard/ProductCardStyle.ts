@@ -37,11 +37,16 @@ export const cardContentStyle: SxProps<Theme> = {
 
 export const nameTypographyStyle: SxProps<Theme> = {
   paddingTop: '16px',
+  color: 'primary.main',
 };
 
 export const priceBoxStyle: SxProps<Theme> = {
   display: 'flex',
   gap: '8px',
+};
+
+export const priceTypographyStyle: SxProps<Theme> = {
+  color: 'primary.main',
 };
 
 export const fullPriceTypographyStyle: SxProps<Theme> = {
@@ -54,9 +59,6 @@ export const dividerStyle: SxProps<Theme> = {
 };
 
 export const specsBoxStyle: SxProps<Theme> = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px',
   paddingTop: '8px',
   paddingBottom: '8px',
 };
@@ -66,13 +68,4 @@ export const buttonBoxStyle: SxProps<Theme> = {
   flexDirection: 'row',
   gap: '8px',
   height: '40px',
-};
-
-export const specRowBoxStyle: SxProps<Theme> = {
-  display: 'flex',
-  justifyContent: 'space-between',
-};
-
-export const specLabelTypographyStyle: SxProps<Theme> = {
-  color: 'secondary.dark',
 };

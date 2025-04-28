@@ -14,7 +14,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-const theme = createTheme({
+export const theme = createTheme({
   breakpoints: {
     values: {
       mobile: 320,
@@ -171,5 +171,3 @@ theme.typography.h4 = {
     letterSpacing: 0,
   },
 };
-
-export default theme;
