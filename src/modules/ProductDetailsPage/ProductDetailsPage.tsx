@@ -11,7 +11,7 @@ import {
 } from './ProductDetailsStyles';
 import {
   AboutSection,
-  ControlsPanel,
+  ControlsSection,
   FullSpecsSection,
   Gallery,
   SuggestedProducts,
@@ -94,7 +94,7 @@ export const ProductDetailsPage: React.FC = () => {
         </Grid>
 
         <Grid size={{ mobile: 4, tablet: 5, desktop: 7 }}>
-          <ControlsPanel product={product} />
+          <ControlsSection product={product} />
         </Grid>
 
         <Grid size={{ mobile: 4, tablet: 12 }}>

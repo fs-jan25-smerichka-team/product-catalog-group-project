@@ -1,10 +1,13 @@
+import { Theme } from '@mui/material';
+
 export const headerStyles = {
-  bgcolor: 'primary.background',
+  bgcolor: 'primary.contrastText',
   height: {
     mobile: '48px',
     desktop: '64px',
   },
-  boxShadow: theme => `0px 1px 0px 0px ${theme.palette.secondary.light}`,
+  boxShadow: (theme: Theme) =>
+    `0px 1px 0px 0px ${theme.palette.secondary.light}`,
 };
 
 export const logoStyles = {
@@ -39,7 +42,8 @@ export const burgerButtonStyles = {
     height: '16px',
   },
   borderRadius: 0,
-  boxShadow: theme => `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
+  boxShadow: (theme: Theme) =>
+    `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
 };
 
 export const headerTabsContainer = {

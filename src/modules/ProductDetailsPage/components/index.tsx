@@ -1,1 +1,6 @@
-export * from '.';
+export { AboutSection } from './AboutSection/AboutSection';
+export { ControlsSection } from './ControlsSection/ControlsSection';
+export { FullSpecsSection } from './FullSpecsSection/FullSpecsSection';
+export { Gallery } from './Gallery/Gallery';
+export { Selector } from './Selector/Selector';
+export { SuggestedProducts } from './SuggestedDevices/SuggestedDevices';

@@ -46,7 +46,6 @@ export const theme = createTheme({
     primary: {
       main: '#0F0F11',
       contrastText: '#FFF', // Figma White
-      background: '#FFF',
     },
     secondary: {
       main: '#B4BDC3', //Figma Icons

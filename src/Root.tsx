@@ -7,7 +7,7 @@ import {
 import { ThemeProvider } from '@mui/material';
 
 import { App } from './App';
-import roundedOrange from './themes/roundedOrange';
+import { theme } from './themes/roundedOrange';
 import {
   CartPage,
   CatalogPage,
@@ -19,7 +19,7 @@ import {
 
 export const Root = () => {
   return (
-    <ThemeProvider theme={roundedOrange}>
+    <ThemeProvider theme={theme}>
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
