@@ -6,15 +6,15 @@ import {
 } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 
-import roundedOrange from './themes/roundedOrange';
 import { App } from './App';
+import roundedOrange from './themes/roundedOrange';
 import {
-  HomePage,
+  CartPage,
   CatalogPage,
+  FavoritesPage,
   NotFoundPage,
   ProductDetailsPage,
-  CartPage,
-  FavoritesPage,
+  HomePage,
 } from './modules/pagesIndex';
 
 export const Root = () => {

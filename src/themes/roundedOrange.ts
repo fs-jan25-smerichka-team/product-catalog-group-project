@@ -46,6 +46,7 @@ const theme = createTheme({
     primary: {
       main: '#0F0F11',
       contrastText: '#FFF', // Figma White
+      background: '#FFF',
     },
     secondary: {
       main: '#B4BDC3', //Figma Icons
@@ -104,6 +105,7 @@ const theme = createTheme({
       fontWeight: 800,
       lineHeight: '11px',
       letterSpacing: '0.04em',
+      textTransform: 'uppercase',
     }, // Figma UPPERCASE
     body1: {
       fontSize: '14px',
