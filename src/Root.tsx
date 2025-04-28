@@ -4,10 +4,10 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import { App } from './App';
 import { theme } from './themes/roundedOrange';
+import { App } from './App';
 import {
   CartPage,
   CatalogPage,
@@ -20,6 +20,7 @@ import {
 export const Root = () => {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
