@@ -1,4 +1,4 @@
-import { theme } from '../../themes/roundedOrange';
+import { Theme } from '@mui/material';
 
 export const headerStyles = {
   bgcolor: 'primary.contrastText',
@@ -6,7 +6,8 @@ export const headerStyles = {
     mobile: '48px',
     desktop: '64px',
   },
-  boxShadow: `0px 1px 0px 0px ${theme.palette.secondary.light}`,
+  boxShadow: (theme: Theme) =>
+    `0px 1px 0px 0px ${theme.palette.secondary.light}`,
 };
 
 export const logoStyles = {
@@ -41,7 +42,8 @@ export const burgerButtonStyles = {
     height: '16px',
   },
   borderRadius: 0,
-  boxShadow: `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
+  boxShadow: (theme: Theme) =>
+    `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
 };
 
 export const headerTabsContainer = {

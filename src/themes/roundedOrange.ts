@@ -114,6 +114,7 @@ export const theme = createTheme({
       textTransform: 'none',
     },
     subtitle1: {
+      // Figma UPPERCASE
       fontSize: '12px',
       fontWeight: 800,
       lineHeight: '11px',
@@ -127,6 +128,7 @@ export const theme = createTheme({
       letterSpacing: 0,
     },
     body2: {
+      // Figma small text
       fontSize: '12px',
       fontWeight: 700,
       lineHeight: '15px',
