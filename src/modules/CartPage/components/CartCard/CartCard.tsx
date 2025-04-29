@@ -6,12 +6,19 @@ import {
   Box,
   CardActions,
   CardContent,
-  CardHeader,
   CardMedia,
   Typography,
 } from '@mui/material';
 
 import { CartItem } from '../../../../utils/Types';
+import {
+  CardActionsStyle,
+  CardImageStyle,
+  CardPriceStyle,
+  CardTextStyle,
+  CartCardStyle,
+  DeleteButtonStyle,
+} from './CartCardStyles';
 
 interface Props {
   item: CartItem;
@@ -21,38 +28,38 @@ export const CartCard: React.FC<Props> = ({ item }) => {
   const theme = useTheme();
 
   return (
-    <Card
-      variant="outlined"
-      sx={{ padding: { mobile: '16px', tablet: '24px', desktop: '24px' } }}
-    >
-      <Grid container gap={{ mobile: '16px', tablet: '24px', desktop: '24px' }}>
+    <Card variant="outlined" sx={CartCardStyle}>
+      <Grid
+        container
+        spacing={{ mobile: '16px', tablet: '24px', desktop: '24px' }}
+        justifyContent="center"
+        alignItems="center"
+      >
         <Grid size="auto">
-          <Box sx={{ w: '16px', h: '16px', bgcolor: 'red' }} />
-          //TODO - replace placeholder with IconButton
+          <Box sx={DeleteButtonStyle} />
+          {
+            //TODO - replace placeholder with IconButton
+          }
         </Grid>
         <Grid size="auto">
-          <CardMedia src={item.image} sx={{ w: '80px', h: '80px' }} />
+          <CardMedia component="image" image={item.image} sx={CardImageStyle} />
         </Grid>
-        <Grid size="grow">
-          <CardContent>
-            <Typography
-              variant="body1"
-              color={theme.palette.primary.main}
-              sx={{ minWidth: '128px' }}
-            >
+        <Grid size={{ mobile: 2, tablet: 'grow', desktop: 'grow' }}>
+          <CardContent sx={CardTextStyle}>
+            <Typography variant="body1" color={theme.palette.primary.main}>
               {item.name}
             </Typography>
           </CardContent>
         </Grid>
-        <Grid size="auto">
-          <CardActions
-            sx={{ h: '32px', w: '96px', bgcolor: 'navy' }} //TODO - replace placeholder with iconbuttons
-          ></CardActions>
+        <Grid size={{ mobile: 2, tablet: 'auto', desktop: 'auto' }}>
+          <CardActions sx={CardActionsStyle}>
+            {/* TODO - replace placeholder with iconbuttons */}
+          </CardActions>
         </Grid>
-        <Grid size="auto">
-          <CardHeader sx={{ w: '80px', justifySelf: 'right' }}>
-            <Typography variant="h2">`$${item.price}`</Typography>
-          </CardHeader>
+        <Grid size="auto" offset="auto">
+          <CardContent sx={CardPriceStyle}>
+            <Typography variant="h2">${item.price}</Typography>
+          </CardContent>
         </Grid>
       </Grid>
     </Card>

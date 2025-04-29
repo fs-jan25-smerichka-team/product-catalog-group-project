@@ -1,7 +1,6 @@
 import {
   CardActions,
   CardContent,
-  CardHeader,
   Divider,
   Typography,
   useTheme,
@@ -10,6 +9,11 @@ import Card from '@mui/material/Card';
 import React from 'react';
 
 import { OrangeButton } from '../../../shared/components/OrangeButton/OrangeButton';
+import {
+  CartSummaryCardStyle,
+  CartSummaryContentStyle,
+  CartSummaryDividerStyle,
+} from './CartSummaryStyles';
 
 interface Props {
   cost: number;
@@ -19,26 +23,29 @@ interface Props {
 export const CartSummary: React.FC<Props> = ({ cost, quantity }) => {
   const theme = useTheme();
   return (
-    <Card variant="outlined" sx={{ padding: '24px' }}>
-      <CardHeader>
-        <Typography variant="h2" color={theme.palette.primary.main}>
-          `$${cost}`
-        </Typography>
-      </CardHeader>
-      <CardContent>
-        <Typography variant="body1" color={theme.palette.secondary.dark}>
-          `Total for ${quantity} items`
+    <Card variant="outlined" sx={CartSummaryCardStyle}>
+      <CardContent sx={CartSummaryContentStyle}>
+        <Typography
+          variant="h2"
+          color={theme.palette.primary.main}
+          textAlign="center"
+        >
+          ${cost}
         </Typography>
       </CardContent>
-      <Divider
-        variant="middle"
-        sx={theme => ({
-          color: theme.palette.secondary.light,
-        })}
-      />
+      <CardContent sx={CartSummaryContentStyle}>
+        <Typography
+          variant="body1"
+          color={theme.palette.secondary.dark}
+          textAlign="center"
+        >
+          Total for {quantity} items
+        </Typography>
+      </CardContent>
+      <Divider variant="middle" sx={CartSummaryDividerStyle(theme)} />
       <CardActions>
         <OrangeButton isSelected={false} onClick={() => {}}>
-          'Checkout'
+          Checkout {/*TODO - modal window on button click} */}
         </OrangeButton>
       </CardActions>
     </Card>

@@ -1,12 +1,14 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, useTheme } from '@mui/material';
 import React, { useState } from 'react';
 
 import { BackButton } from '../shared/components/BackButton/BackButton';
 import { CartList } from './components/CartList/CartList';
 import { CartSummary } from './components/CartSummary/CartSummary';
 import { CartItem } from '../../utils/Types';
+import { CartGridStyle } from './CartStyles';
 
 export const CartPage: React.FC = () => {
+  const theme = useTheme();
   const [cart] = useState<CartItem[]>([
     {
       id: 'apple-iphone-11-128gb-black',
@@ -32,22 +34,17 @@ export const CartPage: React.FC = () => {
   ]);
 
   return (
-    <Grid
-      container
-      rowSpacing={4}
-      columnSpacing={2}
-      sx={{ maxWidth: '1136px', mx: 'auto' }}
-    >
-      <Grid size={12}>
+    <Grid container rowSpacing={4} columnSpacing={2} sx={CartGridStyle(theme)}>
+      <Grid size={{ mobile: 4, tablet: 12, desktop: 24 }}>
         <BackButton />
       </Grid>
-      <Grid size={12}>
-        <Typography variant="h1"></Typography>
+      <Grid size={{ mobile: 4, tablet: 12, desktop: 24 }}>
+        <Typography variant="h1">Cart</Typography>
       </Grid>
-      <Grid size={{ mobile: 12, tablet: 12, desktop: 8 }}>
+      <Grid size={{ mobile: 4, tablet: 12, desktop: 16 }}>
         <CartList cart={cart} />
       </Grid>
-      <Grid size={{ mobile: 12, tablet: 12, desktop: 4 }}>
+      <Grid size={{ mobile: 4, tablet: 12, desktop: 8 }}>
         <CartSummary
           cost={cart.reduce(
             (acc: number, item) => acc + item.price * item.quantity,
