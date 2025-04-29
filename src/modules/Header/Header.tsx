@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   AppBar,
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
     <>
       <HideOnScroll>
         <AppBar position="sticky" sx={headerStyles}>
-          <Toolbar disabledutters="true" sx={toolbarStyles}>
+          <Toolbar disableGutters={true} sx={toolbarStyles}>
             <Box sx={logoStyles}>
               <AppIcon />
             </Box>
