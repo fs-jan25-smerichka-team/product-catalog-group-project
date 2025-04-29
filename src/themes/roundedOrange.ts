@@ -12,6 +12,13 @@ declare module '@mui/material/styles' {
     custom: true;
     desktop: true;
   }
+
+  interface Shape {
+    headerHeight: {
+      mobile: number;
+      desktop: number;
+    };
+  }
 }
 
 export const theme = createTheme({
@@ -133,6 +140,12 @@ export const theme = createTheme({
       fontWeight: 700,
       lineHeight: '15px',
       letterSpacing: 0,
+    },
+  },
+  shape: {
+    headerHeight: {
+      mobile: 48,
+      desktop: 64,
     },
   },
 });
