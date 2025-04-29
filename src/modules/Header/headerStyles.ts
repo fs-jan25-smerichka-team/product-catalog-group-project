@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material';
+import { Theme } from '@mui/material/styles';
 
 export const headerStyles = {
   bgcolor: 'primary.contrastText',
@@ -10,16 +10,31 @@ export const headerStyles = {
     `0px 1px 0px 0px ${theme.palette.secondary.light}`,
 };
 
-export const logoStyles = {
-  height: '28px',
-  width: '80px',
-  marginRight: {
-    tablet: '32px',
-    desktop: '48px',
+export const headerAppIconStyles = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: {
+    mobile: '48px',
+    desktop: '64px',
   },
-  marginLeft: {
+  px: {
     mobile: '16px',
     desktop: '24px',
+  },
+  mr: {
+    tablet: '16px',
+    desktop: '24px',
+  },
+  '& img': {
+    width: {
+      mobile: '64px',
+      desktop: '80px',
+    },
+    height: {
+      mobile: '22px',
+      desktop: '28px',
+    },
   },
 };
 
@@ -44,18 +59,70 @@ export const burgerButtonStyles = {
   ml: 'auto',
   width: '48px',
   p: 0,
-  '& img': {
-    height: '16px',
-  },
   borderRadius: 0,
   boxShadow: (theme: Theme) =>
     `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
+  '& img': {
+    height: '16px',
+  },
 };
 
-export const headerTabsContainer = {
+export const drawerStyles = {
+  display: {
+    mobile: 'block',
+    tablet: 'none',
+  },
+};
+
+export const mobileNavigationTabsStyles = {
+  marginTop: '24px',
+};
+
+export const mobileNavigationIconTabsContainerStyles = {
+  marginTop: 'auto',
+  borderTop: (theme: Theme) => `1px solid ${theme.palette.secondary.light}`,
+};
+
+export const mobileNavigationIconTabsStyles = {
+  '& .MuiTab-root': {
+    flex: 1,
+    '& > span': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  },
+};
+
+export const drawerPaperStyles = theme => {
+  const headerHeightMobile = theme.shape.headerHeight.mobile;
+  const headerHeightWithBorder = `${headerHeightMobile + 1}px`;
+
+  return {
+    mt: headerHeightWithBorder,
+    height: `calc(100vh - ${headerHeightWithBorder})`,
+    width: '100vw',
+    borderRadius: 0,
+    backgroundColor: theme.palette.primary.contrastText,
+    boxShadow: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+  };
+};
+
+export const drawerModalProps = {
+  BackdropProps: {
+    sx: {
+      backgroundColor: 'transparent',
+    },
+  },
+};
+
+export const desktopNavContainer = {
   display: {
     mobile: 'none',
     tablet: 'flex',
   },
   width: '100%',
+  alignItems: 'center',
 };
