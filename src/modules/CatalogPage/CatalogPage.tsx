@@ -1,18 +1,21 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Dropdown } from '../shared/components/Dropdown/Dropdown';
-import { ProductCard } from '../shared/ProductCard/ProductCard';
 import {
-  containerStyle,
-  paginationBoxStyle,
-  sortBoxStyle,
+  pageContainerStyle,
+  titleContainerStyle,
   sortingContainerStyle,
-  titleStyle,
+  dropdownContainerStyle,
+  productGridContainerStyle,
+  paginationBoxStyle,
 } from './CatalogStyles';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
+import { catalogTitles } from '../../constants/constants';
+import { ProductGrid, Pagination } from './components';
 
-const products = [
+const productsFromserver = [
   {
     id: 1,
     category: 'phones',
@@ -114,68 +117,59 @@ const products = [
 ];
 
 export const CatalogPage: React.FC = () => {
+  const location = useLocation();
+  const activeTitle = catalogTitles[location.pathname];
+  const products = productsFromserver;
+
   return (
     <>
-      <Box sx={containerStyle}>
-        {/* Breadcrumbs */}
+      <Stack sx={pageContainerStyle}>
         <BreadcrumbsSection />
 
         {/* Title + number of models */}
-        <Box sx={{ backgroundColor: '#8FBC8F' }}>
-          <Typography variant="h1" sx={titleStyle}>
-            Mobile phones
-          </Typography>
-          <Typography variant="body1">95 models</Typography>
-        </Box>
+        <Stack spacing={1} sx={titleContainerStyle}>
+          <Typography variant="h1">{activeTitle}</Typography>
 
-        <Box sx={{ backgroundColor: '#E0FFFF' }}>
-          {/* Sorting */}
-          <Box sx={sortingContainerStyle}>
-            {/* Sort by */}
-            <Box sx={sortBoxStyle}>
-              <Typography variant="body2" color="textSecondary">
-                Sort by
-              </Typography>
-              <Dropdown
-                items={[]}
-                activeItem={''}
-                helperText={''}
-                onSelect={() => {}}
-              />
-            </Box>
+          <Typography variant="body1">{products.length} models</Typography>
+        </Stack>
 
-            {/* Items on page */}
-            <Box sx={sortBoxStyle}>
-              <Typography variant="body2" color="textSecondary">
-                Items on page
-              </Typography>
-              <Dropdown
-                items={[]}
-                activeItem={''}
-                helperText={''}
-                onSelect={() => {}}
-              />
-            </Box>
+        {/* Sorting */}
+        <Stack direction={'row'} spacing={2} sx={sortingContainerStyle}>
+          {/* Sort by */}
+          <Box sx={dropdownContainerStyle}>
+            <Typography variant="body2" color="textSecondary">
+              Sort by
+            </Typography>
+            <Dropdown
+              items={['Newest', 'Alphabetically ', 'Cheapest']}
+              activeItem={'Newest'}
+              helperText={''}
+              onSelect={() => {}}
+            />
           </Box>
 
-          {/* grid of card */}
-          <Grid container spacing={2}>
-            {products.map(product => (
-              <Grid
-                size={{ mobile: 4, tablet: 6, custom: 4, desktop: 6 }}
-                key={product.id}
-              >
-                <ProductCard product={product} />
-              </Grid>
-            ))}
-          </Grid>
-
-          {/* Pages */}
-          <Box sx={paginationBoxStyle}>
-            <Typography>Pagination</Typography>
+          {/* Items on page */}
+          <Box sx={dropdownContainerStyle}>
+            <Typography variant="body2" color="textSecondary">
+              Items on page
+            </Typography>
+            <Dropdown
+              items={['4', '8', '16', 'All']}
+              activeItem={'16'}
+              helperText={''}
+              onSelect={() => {}}
+            />
           </Box>
+        </Stack>
+
+        <Box sx={productGridContainerStyle}>
+          <ProductGrid products={products} />
         </Box>
-      </Box>
+
+        <Box sx={paginationBoxStyle}>
+          <Pagination />
+        </Box>
+      </Stack>
     </>
   );
 };

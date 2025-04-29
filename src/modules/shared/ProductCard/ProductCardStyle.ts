@@ -1,6 +1,8 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const cardStyle: SxProps<Theme> = {
+  minWidth: '286px',
+  minHeight: '440px',
   boxSizing: 'border-box',
   padding: '32px',
   borderRadius: '8px',

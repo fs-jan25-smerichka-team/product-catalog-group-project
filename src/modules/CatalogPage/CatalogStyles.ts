@@ -1,38 +1,23 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const containerStyle: SxProps<Theme> = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: {
-    mobile: '24px',
-    tablet: '40px',
-    desktop: '40px',
-  },
+export const pageContainerStyle: SxProps<Theme> = {
   marginBottom: {
     mobile: '64px',
-    tablet: '64px',
     desktop: '80px',
   },
 };
 
-export const titleStyle: SxProps<Theme> = {
-  marginBottom: '8px',
-};
-
-export const titleBoxStyle: SxProps<Theme> = {
-  backgroundColor: '#8FBC8F',
+export const titleContainerStyle: SxProps<Theme> = {
+  marginTop: { mobile: '24px', tablet: '40px' },
 };
 
 export const sortingContainerStyle: SxProps<Theme> = {
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  gap: '16px',
   height: '59px',
+  marginTop: { mobile: '32px', tablet: '40px' },
   marginBottom: '24px',
 };
 
-export const sortBoxStyle: SxProps<Theme> = {
+export const dropdownContainerStyle: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
   gap: '4px',
@@ -44,15 +29,19 @@ export const sortBoxStyle: SxProps<Theme> = {
   },
 };
 
+export const productGridContainerStyle: SxProps<Theme> = {
+  marginTop: '24px',
+};
+
 export const paginationBoxStyle: SxProps<Theme> = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#BC8F8F',
   height: '32px',
+
   marginTop: {
     mobile: '24px',
     tablet: '40px',
-    desktop: '40px',
   },
 };
