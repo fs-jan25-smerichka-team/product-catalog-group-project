@@ -12,7 +12,11 @@ import {
   paginationBoxStyle,
 } from './CatalogStyles';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
-import { catalogTitles } from '../../constants/constants';
+import {
+  CATALOG_TITLES,
+  PER_PAGE_OPTIONS,
+  SORTY_BY_OPTIONS,
+} from '../../constants/constants';
 import { ProductGrid, Pagination } from './components';
 
 const productsFromserver = [
@@ -118,7 +122,7 @@ const productsFromserver = [
 
 export const CatalogPage: React.FC = () => {
   const location = useLocation();
-  const activeTitle = catalogTitles[location.pathname];
+  const activeTitle = CATALOG_TITLES[location.pathname];
   const products = productsFromserver;
 
   return (
@@ -141,9 +145,8 @@ export const CatalogPage: React.FC = () => {
               Sort by
             </Typography>
             <Dropdown
-              items={['Newest', 'Alphabetically ', 'Cheapest']}
-              activeItem={'Newest'}
-              helperText={''}
+              items={SORTY_BY_OPTIONS}
+              activeItem={'newest'}
               onSelect={() => {}}
             />
           </Box>
@@ -154,9 +157,8 @@ export const CatalogPage: React.FC = () => {
               Items on page
             </Typography>
             <Dropdown
-              items={['4', '8', '16', 'All']}
+              items={PER_PAGE_OPTIONS}
               activeItem={'16'}
-              helperText={''}
               onSelect={() => {}}
             />
           </Box>

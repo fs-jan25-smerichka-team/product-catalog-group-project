@@ -1,4 +1,3 @@
-import { FormHelperText } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -6,39 +5,33 @@ import { useTheme } from '@mui/material/styles';
 import React from 'react';
 
 import { DropdownElementStyle, DropdownStyle } from './DropdownStyle';
+import { PerPage, SortBy } from '../../../../utils/Types';
 
 interface Props {
-  items: string[]; //SortType[] | PerPage[];
+  items: SortBy[] | PerPage[];
   activeItem: string;
-  helperText: string;
   onSelect: (value: string) => void;
 }
 
-export const Dropdown: React.FC<Props> = ({
-  items,
-  activeItem,
-  helperText,
-  onSelect,
-}) => {
+export const Dropdown: React.FC<Props> = ({ items, activeItem, onSelect }) => {
   const theme = useTheme();
 
   return (
     <FormControl fullWidth>
       <Select
         value={activeItem}
-        onChange={event => onSelect(event.target.value as string)}
+        onChange={event => onSelect(event.target.value)}
         sx={DropdownStyle(theme)}
         MenuProps={{
           sx: { borderColor: theme.palette.secondary.contrastText },
         }}
       >
         {items.map(item => (
-          <MenuItem sx={DropdownElementStyle(theme)} value={item}>
+          <MenuItem sx={DropdownElementStyle(theme)} value={item.toLowerCase()}>
             {item}
           </MenuItem>
         ))}
       </Select>
-      <FormHelperText>{helperText}</FormHelperText>
     </FormControl>
   );
 };
