@@ -14,6 +14,7 @@ import {
   CartSummaryContentStyle,
   CartSummaryDividerStyle,
 } from './CartSummaryStyles';
+import CartCheckout from '../CartCheckout/CartCheckout';
 
 interface Props {
   cost: number;
@@ -44,9 +45,7 @@ export const CartSummary: React.FC<Props> = ({ cost, quantity }) => {
       </CardContent>
       <Divider variant="middle" sx={CartSummaryDividerStyle(theme)} />
       <CardActions>
-        <OrangeButton isSelected={false} onClick={() => {}}>
-          Checkout {/*TODO - modal window on button click} */}
-        </OrangeButton>
+        <CartCheckout />
       </CardActions>
     </Card>
   );
