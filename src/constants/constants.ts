@@ -1,3 +1,16 @@
-export const FOOTER_HEIGHT = 96;
+import { PerPage, SortBy } from '../utils/Types';
 
 export const DEVICE_SLIDER_ITEMS_MAX = 16;
+
+export const CATALOG_TITLES: Record<string, string> = {
+  '/phones': 'Mobile phones',
+  '/tablets': 'Tablets',
+  '/accessories': 'Accessories',
+};
+
+export const SORTY_BY_OPTIONS: SortBy[] = [
+  'Newest',
+  'Alphabetically',
+  'Cheapest',
+];
+export const PER_PAGE_OPTIONS: PerPage[] = ['4', '8', '16', 'All'];

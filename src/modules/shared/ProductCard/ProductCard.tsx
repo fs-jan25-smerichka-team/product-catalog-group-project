@@ -3,7 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Divider } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { ProductCardInfo } from '../../../utils/Types';
 import { OrangeButton } from '../components/OrangeButton/OrangeButton';
@@ -17,41 +18,39 @@ import {
   fullPriceTypographyStyle,
   imageBoxStyle,
   nameTypographyStyle,
-  priceBoxStyle,
-  specLabelTypographyStyle,
-  specRowBoxStyle,
+  priceTypographyStyle,
   specsBoxStyle,
 } from './ProductCardStyle';
+import { SpecsInfo } from '../components/SpecsInfo/SpecsInfo';
+import { getCardSpecs } from '../../../utils/functions/getProductSpecs';
 
 type Props = {
   product: ProductCardInfo;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { name, price, fullPrice, screen, capacity, ram, image } = product;
+  const { name, price, fullPrice, image } = product;
 
   return (
     <Card sx={cardStyle}>
-      <Box sx={imageBoxStyle}>
-        <CardMedia
-          component="img"
-          image={image}
-          alt={name}
-          sx={cardMediaStyle}
-        />
-      </Box>
-
       <CardContent sx={cardContentStyle}>
-        <Typography
-          variant="body1"
-          color="primary.main"
-          sx={nameTypographyStyle}
-        >
-          {name}
-        </Typography>
+        <Link to={`${product.itemId}`} style={{ textDecoration: 'none' }}>
+          <Box sx={imageBoxStyle}>
+            <CardMedia
+              component="img"
+              image={image}
+              alt={name}
+              sx={cardMediaStyle}
+            />
+          </Box>
 
-        <Box sx={priceBoxStyle}>
-          <Typography variant="h3" color="primary.main">
+          <Typography variant="body1" sx={nameTypographyStyle}>
+            {name}
+          </Typography>
+        </Link>
+
+        <Stack direction={'row'} spacing={1}>
+          <Typography variant="h3" sx={priceTypographyStyle}>
             ${price}
           </Typography>
           {price !== fullPrice && (
@@ -59,32 +58,22 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               ${fullPrice}
             </Typography>
           )}
-        </Box>
+        </Stack>
 
         <Divider sx={dividerStyle} />
 
         <Box sx={specsBoxStyle}>
-          <SpecRow label="Screen" value={screen} />
-          <SpecRow label="Capacity" value={capacity} />
-          <SpecRow label="RAM" value={ram} />
+          <SpecsInfo specs={getCardSpecs(product)} textVariant={'body2'} />
         </Box>
 
-        <Box sx={buttonBoxStyle}>
+        <Stack direction={'row'} spacing={1} sx={buttonBoxStyle}>
           <OrangeButton onClick={() => {}} isSelected={false}>
             <Typography variant="button">Add to cart</Typography>
           </OrangeButton>
+
           <FavoriteButton onClick={() => {}} isSelected={false} />
-        </Box>
+        </Stack>
       </CardContent>
     </Card>
   );
 };
-
-const SpecRow = ({ label, value }: { label: string; value: string }) => (
-  <Box sx={specRowBoxStyle}>
-    <Typography variant="body2" sx={specLabelTypographyStyle}>
-      {label}
-    </Typography>
-    <Typography variant="body2">{value}</Typography>
-  </Box>
-);

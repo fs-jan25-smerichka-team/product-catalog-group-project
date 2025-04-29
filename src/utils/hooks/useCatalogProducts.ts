@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ProductCardInfo } from '../Types';
 
 //Use products with category from Redux there
-export const useCatalogDevices = (products: ProductCardInfo[]) => {
+export const useCatalogProducts = (products: ProductCardInfo[]) => {
   const [searchParams] = useSearchParams();
 
   const sortBy = searchParams.get('sort') || 'Newest';

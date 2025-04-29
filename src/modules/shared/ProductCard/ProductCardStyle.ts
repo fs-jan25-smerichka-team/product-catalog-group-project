@@ -1,17 +1,28 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const cardStyle: SxProps<Theme> = {
+  minWidth: '286px',
+  minHeight: '440px',
+
   boxSizing: 'border-box',
   padding: '32px',
+
   borderRadius: '8px',
   border: '1px solid',
   borderColor: 'secondary.light',
   boxShadow: 'none',
+
+  '&:hover': {
+    boxShadow: '0px 2px 16px 0px #0000001A',
+  },
+};
+
+export const cardContentStyle: SxProps<Theme> = {
+  padding: 0,
+  paddingBottom: '0px !important',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
   gap: '8px',
-  height: '100%',
 };
 
 export const imageBoxStyle: SxProps<Theme> = {
@@ -27,21 +38,13 @@ export const cardMediaStyle: SxProps<Theme> = {
   objectFit: 'contain',
 };
 
-export const cardContentStyle: SxProps<Theme> = {
-  padding: 0,
-  paddingBottom: '0px !important',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px',
-};
-
 export const nameTypographyStyle: SxProps<Theme> = {
   paddingTop: '16px',
+  color: 'primary.main',
 };
 
-export const priceBoxStyle: SxProps<Theme> = {
-  display: 'flex',
-  gap: '8px',
+export const priceTypographyStyle: SxProps<Theme> = {
+  color: 'primary.main',
 };
 
 export const fullPriceTypographyStyle: SxProps<Theme> = {
@@ -54,25 +57,9 @@ export const dividerStyle: SxProps<Theme> = {
 };
 
 export const specsBoxStyle: SxProps<Theme> = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px',
-  paddingTop: '8px',
-  paddingBottom: '8px',
+  paddingY: '8px',
 };
 
 export const buttonBoxStyle: SxProps<Theme> = {
-  display: 'flex',
-  flexDirection: 'row',
-  gap: '8px',
   height: '40px',
-};
-
-export const specRowBoxStyle: SxProps<Theme> = {
-  display: 'flex',
-  justifyContent: 'space-between',
-};
-
-export const specLabelTypographyStyle: SxProps<Theme> = {
-  color: 'secondary.dark',
 };

@@ -4,22 +4,23 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import roundedOrange from './themes/roundedOrange';
+import { theme } from './themes/roundedOrange';
 import { App } from './App';
 import {
-  HomePage,
+  CartPage,
   CatalogPage,
+  FavoritesPage,
   NotFoundPage,
   ProductDetailsPage,
-  CartPage,
-  FavoritesPage,
+  HomePage,
 } from './modules/pagesIndex';
 
 export const Root = () => {
   return (
-    <ThemeProvider theme={roundedOrange}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
