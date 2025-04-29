@@ -38,8 +38,10 @@ export const Header: React.FC = () => {
     <>
       <HideOnScroll>
         <AppBar position="sticky" sx={headerStyles}>
-          <Toolbar disabledgutters="true" sx={toolbarStyles}>
-            <AppIcon sx={logoStyles} />
+          <Toolbar disabledutters="true" sx={toolbarStyles}>
+            <Box sx={logoStyles}>
+              <AppIcon />
+            </Box>
 
             <Box sx={burgerIconBoxStyles}>
               <IconButton

@@ -11,9 +11,15 @@ export const headerStyles = {
 };
 
 export const logoStyles = {
+  height: '28px',
+  width: '80px',
   marginRight: {
+    tablet: '32px',
+    desktop: '48px',
+  },
+  marginLeft: {
+    mobile: '16px',
     desktop: '24px',
-    tablet: '16px',
   },
 };
 
