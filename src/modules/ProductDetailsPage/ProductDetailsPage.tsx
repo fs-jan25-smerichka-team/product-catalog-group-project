@@ -3,7 +3,6 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { BackButton } from '../shared/components/BackButton/BackButton';
 import { ProductDetailsInfo } from '../../utils/Types';
-import { titleStyle } from '../CatalogPage/CatalogStyles';
 import { productDetailsStyle } from './ProductDetailsStyles';
 import {
   AboutSection,
@@ -74,9 +73,7 @@ export const ProductDetailsPage: React.FC = () => {
       </Box>
 
       <Box sx={productDetailsStyle.titleContainer}>
-        <Typography variant="h1" sx={titleStyle}>
-          {product.name}
-        </Typography>
+        <Typography variant="h1">{product.name}</Typography>
       </Box>
 
       <Grid

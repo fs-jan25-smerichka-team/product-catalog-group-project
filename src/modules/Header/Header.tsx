@@ -1,13 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  MenuItem,
-  IconButton,
-  Menu,
-} from '@mui/material';
+import React from 'react';
+import { AppBar, Toolbar, Box, IconButton } from '@mui/material';
 
 import { HeaderTabs } from './components/Tabs/Tabs';
 import { AppIcon } from '../shared/components/AppIcon/AppIcon';
@@ -21,19 +13,8 @@ import {
   burgerButtonStyles,
   headerTabsContainer,
 } from './headerStyles';
-import { navigationTitles } from '../../constants/navigation';
 
 export const Header: React.FC = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const handleOpenNavMenu = event => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <>
       <HideOnScroll>
@@ -47,7 +28,6 @@ export const Header: React.FC = () => {
               <IconButton
                 disableRipple
                 aria-controls="menu-appbar"
-                onClick={handleOpenNavMenu}
                 sx={burgerButtonStyles}
               >
                 <img src={burgerMenuIcon} alt="burger menu icon" />
@@ -56,33 +36,6 @@ export const Header: React.FC = () => {
               {/* TODO: Remove Menu when original component will be ready
                 Menu for mobile
               */}
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: {
-                    mobile: 'block',
-                    tablet: 'none',
-                  },
-                }}
-              >
-                {navigationTitles.map(page => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Link to={`/${page}`}>{page}</Link>
-                  </MenuItem>
-                ))}
-              </Menu>
             </Box>
 
             {/* Tabs for larger screens */}
