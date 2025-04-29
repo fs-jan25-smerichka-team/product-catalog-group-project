@@ -3,7 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Divider } from '@mui/material';
+import { CardActionArea, Divider, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { ProductCardInfo } from '../../../utils/Types';
 import { OrangeButton } from '../components/OrangeButton/OrangeButton';
@@ -17,7 +18,6 @@ import {
   fullPriceTypographyStyle,
   imageBoxStyle,
   nameTypographyStyle,
-  priceBoxStyle,
   priceTypographyStyle,
   specsBoxStyle,
 } from './ProductCardStyle';
@@ -33,21 +33,23 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <Card sx={cardStyle}>
-      <Box sx={imageBoxStyle}>
-        <CardMedia
-          component="img"
-          image={image}
-          alt={name}
-          sx={cardMediaStyle}
-        />
-      </Box>
-
       <CardContent sx={cardContentStyle}>
-        <Typography variant="body1" sx={nameTypographyStyle}>
-          {name}
-        </Typography>
+        <Link to={`${product.itemId}`} style={{ textDecoration: 'none' }}>
+          <Box sx={imageBoxStyle}>
+            <CardMedia
+              component="img"
+              image={image}
+              alt={name}
+              sx={cardMediaStyle}
+            />
+          </Box>
 
-        <Box sx={priceBoxStyle}>
+          <Typography variant="body1" sx={nameTypographyStyle}>
+            {name}
+          </Typography>
+        </Link>
+
+        <Stack direction={'row'} spacing={1}>
           <Typography variant="h3" sx={priceTypographyStyle}>
             ${price}
           </Typography>
@@ -56,7 +58,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               ${fullPrice}
             </Typography>
           )}
-        </Box>
+        </Stack>
 
         <Divider sx={dividerStyle} />
 
@@ -64,12 +66,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           <SpecsInfo specs={getCardSpecs(product)} textVariant={'body2'} />
         </Box>
 
-        <Box sx={buttonBoxStyle}>
+        <Stack direction={'row'} spacing={1} sx={buttonBoxStyle}>
           <OrangeButton onClick={() => {}} isSelected={false}>
             <Typography variant="button">Add to cart</Typography>
           </OrangeButton>
+
           <FavoriteButton onClick={() => {}} isSelected={false} />
-        </Box>
+        </Stack>
       </CardContent>
     </Card>
   );
