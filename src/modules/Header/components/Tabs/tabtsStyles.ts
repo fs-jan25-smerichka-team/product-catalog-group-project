@@ -1,3 +1,5 @@
+import { Theme } from '@mui/material';
+
 export const tabsContainer = {
   width: '100%',
 };
@@ -23,7 +25,8 @@ export const iconTabsStyles = {
     tablet: '48px',
     desktop: '64px',
   },
-  boxShadow: theme => `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
+  boxShadow: (theme: Theme) =>
+    `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
   '& img': {
     height: '16px',
   },

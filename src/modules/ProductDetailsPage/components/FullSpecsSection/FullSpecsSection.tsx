@@ -4,7 +4,7 @@ import React from 'react';
 import { ProductDetailsInfo } from '../../../../utils/Types';
 import { SpecsInfo } from '../../../shared/components/SpecsInfo/SpecsInfo';
 import { getFullSpecs } from '../../../../utils/functions/getProductSpecs';
-import { techSpecsStyle } from './FullSpecsSectionStyles';
+import { fullSpecsSectionStyle } from './FullSpecsSectionStyles';
 
 type Props = {
   product: ProductDetailsInfo;
@@ -17,9 +17,9 @@ export const FullSpecsSection: React.FC<Props> = ({ product }) => {
     <Box>
       <Typography variant="h3">Tech specs</Typography>
 
-      <Divider sx={techSpecsStyle.divider} />
+      <Divider sx={fullSpecsSectionStyle.divider} />
 
-      <Box sx={techSpecsStyle.contentContainer}>
+      <Box sx={fullSpecsSectionStyle.specsContainer}>
         <SpecsInfo specs={specs} textVariant="body1" />
       </Box>
     </Box>
