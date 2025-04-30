@@ -11,9 +11,9 @@ import {
   iconButtonStyle,
   logoBoxStyle,
 } from './FooterStyle';
-import upIcon from '../../assets/icons/arrow-up.svg';
-import { footerLinks } from '../../utils/Types';
-import { AppIcon } from '../shared/components/AppIcon';
+import upIcon from '../../../../assets/icons/arrow-up.svg';
+import { footerLinks } from '../../../../utils/Types';
+import { AppIcon } from '../../../shared/components/AppIcon';
 
 export const Footer: React.FC = () => {
   const handleBackToTop = () => {

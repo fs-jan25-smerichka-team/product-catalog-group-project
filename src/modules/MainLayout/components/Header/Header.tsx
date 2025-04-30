@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Box, IconButton, Drawer } from '@mui/material';
 
-import { AppIcon } from '../shared/components/AppIcon/AppIcon';
-import { HideOnScroll } from '../shared/components/HideOnScroll/HideOnScroll';
+import { AppIcon } from '../../../shared/components/AppIcon/AppIcon';
+import { HideOnScroll } from '../../../shared/components/HideOnScroll/HideOnScroll';
 import { NavigationTabs } from './components/Tabs/Tabs';
-import burgerMenuIcon from '../../assets/icons/burger-menu.svg';
-import closeMenuIcon from '../../assets/icons/close.svg';
+import burgerMenuIcon from '../../../../assets/icons/burger-menu.svg';
+import closeMenuIcon from '../../../../assets/icons/close.svg';
 import {
   burgerIconBoxStyles,
   headerStyles,
@@ -20,7 +20,7 @@ import {
   mobileNavigationIconTabsContainerStyles,
   desktopNavContainer,
 } from './headerStyles';
-import { theme } from '../../themes/roundedOrange';
+import { theme } from '../../../../themes/roundedOrange';
 
 export const Header: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

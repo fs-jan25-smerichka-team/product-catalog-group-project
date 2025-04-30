@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 
 import { useActiveTabIndex } from '../../../../../../utils/hooks/useActiveTabIndex';
-import favoriteIcon from '../../../../assets/icons/favorite.svg';
-import cartIcon from '../../../../assets/icons/cart.svg';
+import favoriteIcon from '../../../../../../assets/icons/favorite.svg';
+import cartIcon from '../../../../../../assets/icons/cart.svg';
 import {
   tabStyles,
   tabsContainerStyles,
