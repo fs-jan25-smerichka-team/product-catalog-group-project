@@ -1,7 +1,12 @@
 import Button from '@mui/material/Button';
 import React from 'react';
+import { useTheme } from '@mui/material/styles';
+import { Box } from '@mui/material';
 
-import { selectorColorButtonStyle } from './SelectorColorButtonStyle';
+import {
+  innerCircleBoxStyle,
+  selectorColorButtonStyle,
+} from './SelectorColorButtonStyle';
 
 type Props = {
   value: string;
@@ -12,11 +17,15 @@ export const SelectorColorButton: React.FC<Props> = ({
   value,
   isSelected = false,
 }) => {
+  const theme = useTheme();
+
   return (
     <Button
       value={value}
-      variant={isSelected ? 'contained' : 'outlined'}
-      sx={selectorColorButtonStyle(value, isSelected)}
-    />
+      variant={'outlined'}
+      sx={selectorColorButtonStyle(isSelected, theme)}
+    >
+      <Box sx={innerCircleBoxStyle(value)} />
+    </Button>
   );
 };
