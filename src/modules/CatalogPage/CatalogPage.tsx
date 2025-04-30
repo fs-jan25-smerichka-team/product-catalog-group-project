@@ -37,7 +37,7 @@ export const CatalogPage: React.FC = () => {
       navigate('/not-found', { replace: true });
       return;
     }
-  }, []);
+  }, [currentCategory, navigate]);
 
   return (
     <>
