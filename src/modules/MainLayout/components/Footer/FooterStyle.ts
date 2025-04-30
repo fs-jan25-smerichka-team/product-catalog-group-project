@@ -9,6 +9,11 @@ export const boxStyle: SxProps<Theme> = {
     mobile: '257px',
     tablet: '96px',
   },
+  marginTop: {
+    mobile: '56px',
+    tablet: '64px',
+    desktop: '80px',
+  },
 };
 
 export const flexBoxStyle: SxProps<Theme> = {

@@ -8,11 +8,6 @@ export const containerStyle: SxProps<Theme> = {
     tablet: '40px',
     desktop: '40px',
   },
-  marginBottom: {
-    mobile: '56px',
-    tablet: '64px',
-    desktop: '80px',
-  },
 };
 
 export const titleStyle: SxProps<Theme> = {

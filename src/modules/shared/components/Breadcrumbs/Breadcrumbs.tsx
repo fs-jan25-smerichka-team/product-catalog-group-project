@@ -2,7 +2,7 @@ import { Link as MuiLink, Stack, Typography, Breadcrumbs } from '@mui/material';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
 
 import homeIcon from '../../../../assets/icons/home.svg';
-import rightIcon from '../../../../assets/icons/arrow-right.svg';
+import rightIcon from '../../../../assets/icons/arrow-right-dis.svg';
 import {
   activeBreadcrumb,
   breadcrumbLink,

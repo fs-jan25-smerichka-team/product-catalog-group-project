@@ -116,9 +116,9 @@ export const FavoritesPage: React.FC = () => {
         {/* Title + number of models */}
         <Box sx={{ backgroundColor: '#8FBC8F' }}>
           <Typography variant="h1" sx={titleStyle}>
-            Mobile phones
+            Favourites
           </Typography>
-          <Typography variant="body1">7 items</Typography>
+          <Typography variant="body1">0 items</Typography>
         </Box>
 
         <Box sx={{ backgroundColor: '#E0FFFF' }}>

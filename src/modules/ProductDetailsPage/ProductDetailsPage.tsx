@@ -47,7 +47,7 @@ export const ProductDetailsPage: React.FC = () => {
   }
 
   return (
-    <Stack sx={productDetailsStyle.pageContainer}>
+    <Stack>
       <BreadcrumbsSection />
 
       <Box sx={productDetailsStyle.backButtonContainer}>

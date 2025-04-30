@@ -1,13 +1,5 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const homePageGridStyle: SxProps<Theme> = {
-  marginBottom: {
-    mobile: '56px',
-    tablet: '65px',
-    desktop: '80px',
-  },
-};
-
 export const heroBoxStyle: SxProps<Theme> = {
   bgcolor: '#eee',
   height: {
@@ -26,7 +18,6 @@ export const heroTitleStyle: SxProps<Theme> = {
 };
 
 export const brandNewModelsBoxStyle: SxProps<Theme> = {
-  bgcolor: '#ccc',
   height: {
     mobile: '526px',
     tablet: '577px',
@@ -57,15 +48,9 @@ export const categoryTitleStyle: SxProps<Theme> = {
 };
 
 export const hotPricesBoxStyle: SxProps<Theme> = {
-  bgcolor: '#ccc',
   height: {
     mobile: '495px',
     tablet: '577px',
     desktop: '571px',
   },
-};
-
-export const hotPricesCardWrapperStyle: SxProps<Theme> = {
-  maxWidth: '272px',
-  maxHeight: '439px',
 };
