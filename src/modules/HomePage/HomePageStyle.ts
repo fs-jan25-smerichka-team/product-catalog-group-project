@@ -18,7 +18,6 @@ export const heroTitleStyle: SxProps<Theme> = {
 };
 
 export const brandNewModelsBoxStyle: SxProps<Theme> = {
-  bgcolor: '#ccc',
   height: {
     mobile: '526px',
     tablet: '577px',
@@ -49,7 +48,6 @@ export const categoryTitleStyle: SxProps<Theme> = {
 };
 
 export const hotPricesBoxStyle: SxProps<Theme> = {
-  // bgcolor: '#ccc',
   height: {
     mobile: '495px',
     tablet: '577px',

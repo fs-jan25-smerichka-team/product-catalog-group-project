@@ -6,7 +6,6 @@ export const ArrowButtonStyle = (
 ): SxProps<Theme> => ({
   height: '32px',
   width: '32px',
-  // backgroundColor: theme.palette.background.default,
 
   border: '1px solid',
   borderColor: isBtnDisabled
