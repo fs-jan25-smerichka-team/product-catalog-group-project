@@ -12,7 +12,7 @@ import {
   logoBoxStyle,
 } from './FooterStyle';
 import upIcon from '../../../../assets/icons/arrow-up.svg';
-import { footerLinks } from '../../../../utils/Types';
+import { FOOTER_LINKS } from '../../../../constants/constants';
 import { AppIcon } from '../../../shared/components/AppIcon';
 
 export const Footer: React.FC = () => {
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
 
         {/* Contacts */}
         <Box sx={contactsStyle}>
-          {footerLinks.map(link => (
+          {FOOTER_LINKS.map(link => (
             <Link
               key={link.text}
               href={link.href}

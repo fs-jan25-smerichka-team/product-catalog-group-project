@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
 import { ProductCard } from '../shared/ProductCard/ProductCard';
-import { containerStyle, titleStyle } from './FavoritesStyles';
+import { containerStyle, titleStyle } from './FavouritesStyles';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
 
 const products = [
@@ -106,7 +106,7 @@ const products = [
   },
 ];
 
-export const FavoritesPage: React.FC = () => {
+export const FavouritesPage: React.FC = () => {
   return (
     <>
       <Box sx={containerStyle}>
@@ -118,7 +118,7 @@ export const FavoritesPage: React.FC = () => {
           <Typography variant="h1" sx={titleStyle}>
             Favourites
           </Typography>
-          <Typography variant="body1">0 items</Typography>
+          <Typography variant="body1">7 items</Typography>
         </Box>
 
         <Box sx={{ backgroundColor: '#E0FFFF' }}>

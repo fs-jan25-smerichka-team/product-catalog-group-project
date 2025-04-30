@@ -11,7 +11,7 @@ import { App } from './App';
 import {
   CartPage,
   CatalogPage,
-  FavoritesPage,
+  FavouritesPage,
   NotFoundPage,
   ProductDetailsPage,
   HomePage,
@@ -29,7 +29,7 @@ export const Root = () => {
               <Route index element={<CatalogPage />} />
               <Route path=":productId" element={<ProductDetailsPage />} />
             </Route>
-            <Route path="favorites" element={<FavoritesPage />} />
+            <Route path="favourites" element={<FavouritesPage />} />
             <Route path="cart" element={<CartPage />} />
 
             <Route path="home" element={<Navigate to="/" replace />} />

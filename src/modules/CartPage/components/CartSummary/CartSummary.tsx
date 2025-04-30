@@ -8,7 +8,6 @@ import {
 import Card from '@mui/material/Card';
 import React from 'react';
 
-import { OrangeButton } from '../../../shared/components/OrangeButton/OrangeButton';
 import {
   CartSummaryCardStyle,
   CartSummaryContentStyle,

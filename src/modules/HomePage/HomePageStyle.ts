@@ -1,56 +1,36 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const heroBoxStyle: SxProps<Theme> = {
-  bgcolor: '#eee',
-  height: {
-    mobile: '482px',
-    tablet: '397px',
-    desktop: '600px',
+export const homePageStyle: Record<string, SxProps<Theme>> = {
+  titleContainer: {
+    marginY: {
+      mobile: '24px',
+      tablet: '32px',
+      desktop: '56px',
+    },
   },
-};
 
-export const heroTitleStyle: SxProps<Theme> = {
-  marginY: {
-    mobile: '24px',
-    tablet: '32px',
-    desktop: '56px',
+  contentContainer: {
+    gap: {
+      mobile: '56px',
+      tablet: '64px',
+      desktop: '80px',
+    },
   },
-};
 
-export const brandNewModelsBoxStyle: SxProps<Theme> = {
-  height: {
-    mobile: '526px',
-    tablet: '577px',
-    desktop: '571px',
+  bannerContainer: {
+    backgroundColor: 'grey',
+    height: {
+      mobile: '482px',
+      tablet: '397px',
+      desktop: '600px',
+    },
   },
-};
 
-export const categoryBoxStyle: SxProps<Theme> = {
-  bgcolor: '#ccc',
-  height: {
-    mobile: '1208px',
-    tablet: '327px',
-    desktop: '508px',
-  },
-};
-
-export const categoryItemBoxStyle: SxProps<Theme> = {
-  bgcolor: 'purple',
-  height: {
-    mobile: '363px',
-    tablet: '262px',
-    desktop: '443px',
-  },
-};
-
-export const categoryTitleStyle: SxProps<Theme> = {
-  marginBottom: '24px',
-};
-
-export const hotPricesBoxStyle: SxProps<Theme> = {
-  height: {
-    mobile: '495px',
-    tablet: '577px',
-    desktop: '571px',
+  sliderContainer: {
+    height: {
+      mobile: '495px',
+      tablet: '577px',
+      desktop: '571px',
+    },
   },
 };
