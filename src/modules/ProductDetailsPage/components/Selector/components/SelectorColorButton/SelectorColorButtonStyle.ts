@@ -2,34 +2,31 @@ import { SxProps, Theme } from '@mui/material/styles';
 import '../../../../../shared/colors.css';
 
 export const selectorColorButtonStyle = (
-  value: string,
   isSelected: boolean,
+  theme: Theme,
 ): SxProps<Theme> => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-
+  minWidth: '32px',
   width: '32px',
   height: '32px',
-  minWidth: '32px',
-
+  padding: '0',
   borderRadius: '50%',
-  borderWidth: '1px',
-  borderColor: 'secondary.main',
+  backgroundColor: 'primary.contrastText',
+  border: '1px solid',
+  borderColor: isSelected
+    ? theme.palette.primary.main
+    : theme.palette.secondary.light,
+  '&:hover': isSelected
+    ? {
+        borderColor: theme.palette.primary.main,
+      }
+    : {
+        borderColor: theme.palette.secondary.main,
+      },
+});
+
+export const innerCircleBoxStyle = (value: string): SxProps<Theme> => ({
+  width: '26px',
+  height: '26px',
+  borderRadius: '50%',
   backgroundColor: `var(--color-${value})`,
-  boxShadow: 'none',
-
-  '&:focus': {
-    boxShadow: 'none',
-  },
-
-  '&:hover': {
-    borderColor: 'primary.main',
-    boxShadow: 'none',
-  },
-
-  ...(isSelected && {
-    borderColor: 'primary.main',
-    boxShadow: 'none',
-  }),
 });

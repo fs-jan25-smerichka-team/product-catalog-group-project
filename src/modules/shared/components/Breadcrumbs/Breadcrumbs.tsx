@@ -6,22 +6,20 @@ import rightIcon from '../../../../assets/icons/arrow-right-dis.svg';
 import {
   activeBreadcrumb,
   breadcrumbLink,
+  breadcrumbs,
   breadcrumbsContainer,
   homeLink,
 } from './BreadcrumbsStyle';
-
-const breadcrumbNameMap: Record<string, string> = {
-  phones: 'Phones',
-  tablets: 'Tablets',
-  accessories: 'Accessories',
-  favorites: 'Favorites',
-};
 
 const getBreadcrumbData = (pathnames: string[]) => {
   return pathnames.map((value, index) => {
     const to = `/${pathnames.slice(0, index + 1).join('/')}`;
     const isLast = index === pathnames.length - 1;
-    const displayName = breadcrumbNameMap[value] || decodeURIComponent(value);
+
+    const displayName = value
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
 
     return { to, displayName, isLast };
   });
@@ -38,6 +36,7 @@ export const BreadcrumbsSection = () => {
       <Breadcrumbs
         separator={<img src={rightIcon} alt="separator" />}
         aria-label="breadcrumb"
+        sx={breadcrumbs}
       >
         {/* HomePage */}
         <MuiLink component={RouterLink} to="/" underline="hover" sx={homeLink}>
