@@ -1,7 +1,6 @@
 import { Container, Box } from '@mui/material';
 
-import { Header } from '../Header/Header';
-import { Footer } from '../Footer/Footer';
+import { Header, Footer } from './components';
 
 export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

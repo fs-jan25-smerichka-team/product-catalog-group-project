@@ -2,11 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 
-import { useActiveTabIndex } from '../../../../utils/hooks/useActiveTabIndex';
-import {
-  navigationIcons,
-  navigationTitles,
-} from '../../../../constants/navigation';
+import { useActiveTabIndex } from '../../../../../../utils/hooks/useActiveTabIndex';
 import favoriteIcon from '../../../../assets/icons/favorite.svg';
 import cartIcon from '../../../../assets/icons/cart.svg';
 import {
@@ -18,6 +14,10 @@ import {
   textTabTypographyStyles,
   iconDrawerTabStyles,
 } from './tabtsStyles';
+import {
+  navigationIcons,
+  navigationTitles,
+} from '../../../../../../constants/navigation';
 
 interface NavigationTabsProps {
   orientation?: 'horizontal' | 'vertical';
