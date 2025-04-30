@@ -24,9 +24,8 @@ import {
 export const CatalogPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const activeTitle = CATALOG_TITLES[location.pathname];
-
   const currentCategory = location.pathname.slice(1);
+  const activeTitle = CATALOG_TITLES[currentCategory];
 
   const { data, isPending } = useQuery({
     queryKey: ['products'],

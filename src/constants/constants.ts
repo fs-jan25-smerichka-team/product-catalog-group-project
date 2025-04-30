@@ -4,12 +4,9 @@ import { getAccessories, getPhones, getTablets } from '../utils/api';
 export const DEVICE_SLIDER_ITEMS_MAX = 16;
 
 export const CATALOG_TITLES: Record<string, string> = {
-  '/': 'Welcome to Nice Gadgets store!',
-  '/phones': 'Mobile phones',
-  '/tablets': 'Tablets',
-  '/accessories': 'Accessories',
-  '/favourites': 'Favourites',
-  '/cart': 'Cart',
+  phones: 'Mobile phones',
+  tablets: 'Tablets',
+  accessories: 'Accessories',
 };
 
 export const SORTY_BY_OPTIONS: SortBy[] = [
@@ -27,3 +24,12 @@ export const CATALOG_API_CALLS: Record<
   tablets: getTablets,
   accessories: getAccessories,
 };
+
+export const FOOTER_LINKS = [
+  {
+    text: 'Github',
+    href: 'https://github.com/fs-jan25-smerichka-team/product-catalog-group-project',
+  },
+  { text: 'Contacts', href: '' },
+  { text: 'Rights', href: '' },
+];
