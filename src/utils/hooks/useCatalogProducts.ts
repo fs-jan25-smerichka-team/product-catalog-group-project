@@ -7,18 +7,18 @@ import { ProductCardInfo } from '../Types';
 export const useCatalogProducts = (products: ProductCardInfo[]) => {
   const [searchParams] = useSearchParams();
 
-  const sortBy = searchParams.get('sort') || 'Newest';
+  const sortBy = searchParams.get('sort') || 'newest';
   const currentPage = Number(searchParams.get('page')) || 1;
   const itemsPerPage = Number(searchParams.get('perPage')) || products.length;
 
   const sorted = useMemo(() => {
     return [...products].sort((productA, productB) => {
       switch (sortBy) {
-        case 'Newest':
+        case 'newest':
           return productB.year - productA.year;
-        case 'Alphabetically':
+        case 'alphabetically':
           return productA.name.localeCompare(productB.name);
-        case 'Cheapest':
+        case 'cheapest':
           return productA.price - productB.price;
         default:
           return 0;

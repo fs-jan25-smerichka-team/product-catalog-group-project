@@ -24,13 +24,17 @@ export const ProductDetailsPage: React.FC = () => {
 
   const queryFn = CATALOG_API_CALLS[category];
 
-  const { data: products, isPending } = useQuery({
-    queryKey: [category],
-    queryFn,
-    enabled: !!queryFn,
-  });
+  const { data: products, isPending } = useQuery<ProductDetailsInfo[], boolean>(
+    {
+      queryKey: [category],
+      queryFn,
+      enabled: !!queryFn,
+    },
+  );
 
-  const product: ProductDetailsInfo = products?.find(p => p.id === deviceId);
+  const product: ProductDetailsInfo | undefined = products?.find(
+    p => p.id === deviceId,
+  );
 
   if (isPending || !product) return <Loader />;
 
