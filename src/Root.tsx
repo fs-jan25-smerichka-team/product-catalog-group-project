@@ -27,13 +27,13 @@ export const Root = () => {
             <Route index element={<HomePage />} />
             <Route path=":category">
               <Route index element={<CatalogPage />} />
-              <Route path=":deviceId" element={<ProductDetailsPage />} />
+              <Route path=":productId" element={<ProductDetailsPage />} />
             </Route>
             <Route path="favorites" element={<FavoritesPage />} />
             <Route path="cart" element={<CartPage />} />
 
             <Route path="home" element={<Navigate to="/" replace />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/not-found" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </Router>

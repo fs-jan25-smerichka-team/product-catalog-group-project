@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import { Dropdown } from '../shared/components/Dropdown/Dropdown';
@@ -23,6 +23,7 @@ import {
 } from './CatalogStyles';
 
 export const CatalogPage: React.FC = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const activeTitle = CATALOG_TITLES[location.pathname];
 
@@ -36,6 +37,11 @@ export const CatalogPage: React.FC = () => {
   const products = (data || []).filter(
     product => product.category === currentCategory,
   );
+
+  if (!['phones', 'tablets', 'accessories'].includes(currentCategory)) {
+    navigate('/not-found', { replace: true });
+    return;
+  }
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 
@@ -18,7 +18,8 @@ import { productDetailsStyle } from './ProductDetailsStyles';
 import { CATALOG_API_CALLS } from '../../constants/constants';
 
 export const ProductDetailsPage: React.FC = () => {
-  const { deviceId } = useParams();
+  const { productId } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const category = location.pathname.split('/')[1];
 
@@ -33,10 +34,17 @@ export const ProductDetailsPage: React.FC = () => {
   );
 
   const product: ProductDetailsInfo | undefined = products?.find(
-    p => p.id === deviceId,
+    prod => prod.id === productId,
   );
 
-  if (isPending || !product) return <Loader />;
+  if (isPending) {
+    return <Loader />;
+  }
+
+  if (!product) {
+    navigate('/not-found', { replace: true });
+    return;
+  }
 
   return (
     <Stack sx={productDetailsStyle.pageContainer}>
@@ -61,8 +69,17 @@ export const ProductDetailsPage: React.FC = () => {
           <Gallery product={product} />
         </Grid>
 
-        <Grid size={{ mobile: 4, tablet: 5, desktop: 7 }}>
+        <Grid
+          size={{ mobile: 4, tablet: 5, desktop: 12 }}
+          sx={productDetailsStyle.constrolsGridContainer}
+        >
           <ControlsSection product={product} />
+
+          <Box sx={productDetailsStyle.productIdContainer}>
+            <Typography variant="body2" color="secondary.main">
+              ID: {product.id}
+            </Typography>
+          </Box>
         </Grid>
 
         <Grid size={{ mobile: 4, tablet: 12, desktop: 12 }}>
