@@ -3,8 +3,6 @@ import { Container, Box } from '@mui/material';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 
-// TODO: remove temporary component Footer
-
 export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
