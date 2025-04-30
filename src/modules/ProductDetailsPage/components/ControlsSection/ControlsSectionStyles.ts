@@ -1,6 +1,10 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const colorSelectorAndIdContainerStyle: SxProps<Theme> = {
+export const controlsContainerStyle: SxProps<Theme> = {
+  maxWidth: { tablet: '320px' },
+};
+
+export const colorSelectorContainerStyle: SxProps<Theme> = {
   marginBottom: '24px',
   display: 'flex',
   height: '55px',

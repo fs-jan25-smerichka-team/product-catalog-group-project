@@ -21,4 +21,12 @@ export const productDetailsStyle: Record<string, SxProps<Theme>> = {
   gridContainer: {
     marginTop: { mobile: '32px', tablet: '40px' },
   },
+
+  constrolsGridContainer: { position: 'relative' },
+
+  productIdContainer: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  },
 };

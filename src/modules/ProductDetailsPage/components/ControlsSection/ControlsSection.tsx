@@ -9,7 +9,8 @@ import { FavoriteButton } from '../../../shared/components/FavoriteButton/Favori
 import { SpecsInfo } from '../../../shared/components/SpecsInfo/SpecsInfo';
 import {
   capacitySelectorContainerStyle,
-  colorSelectorAndIdContainerStyle,
+  colorSelectorContainerStyle,
+  controlsContainerStyle,
   dividerControlsStyle,
   PriceAndButtonsStyle,
   specsInfoContainerStyle,
@@ -23,8 +24,8 @@ type Props = {
 };
 
 export const ControlsSection: React.FC<Props> = ({ product }) => (
-  <>
-    <Box sx={colorSelectorAndIdContainerStyle}>
+  <Box sx={controlsContainerStyle}>
+    <Box sx={colorSelectorContainerStyle}>
       <Selector
         label={'Available colors'}
         options={product.colorsAvailable}
@@ -32,12 +33,6 @@ export const ControlsSection: React.FC<Props> = ({ product }) => (
         OptionButton={SelectorColorButton}
         onSelect={() => {}}
       />
-
-      <Box>
-        <Typography variant="body2" color="secondary.main">
-          ID: {product.name}
-        </Typography>
-      </Box>
     </Box>
 
     <Divider sx={dividerControlsStyle} />
@@ -78,5 +73,5 @@ export const ControlsSection: React.FC<Props> = ({ product }) => (
     <Box sx={specsInfoContainerStyle}>
       <SpecsInfo specs={getMainSpecs(product)} textVariant="body2" />
     </Box>
-  </>
+  </Box>
 );
