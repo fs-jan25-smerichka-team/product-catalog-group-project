@@ -39,7 +39,7 @@ export const ProductDetailsPage: React.FC = () => {
   if (isPending || !product) return <Loader />;
 
   return (
-    <Stack sx={productDetailsStyle.pageContainer}>
+    <Stack>
       <BreadcrumbsSection />
 
       <Box sx={productDetailsStyle.backButtonContainer}>

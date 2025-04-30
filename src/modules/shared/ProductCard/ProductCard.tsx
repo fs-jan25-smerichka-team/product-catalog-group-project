@@ -33,17 +33,19 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <Card sx={cardStyle}>
+      <Link to={`${product.itemId}`} style={{ textDecoration: 'none' }}>
+        <Box sx={imageBoxStyle}>
+          <CardMedia
+            component="img"
+            image={image}
+            alt={name}
+            sx={cardMediaStyle}
+          />
+        </Box>
+      </Link>
+
       <CardContent sx={cardContentStyle}>
         <Link to={`${product.itemId}`} style={{ textDecoration: 'none' }}>
-          <Box sx={imageBoxStyle}>
-            <CardMedia
-              component="img"
-              image={image}
-              alt={name}
-              sx={cardMediaStyle}
-            />
-          </Box>
-
           <Typography variant="body1" sx={nameTypographyStyle}>
             {name}
           </Typography>

@@ -1,17 +1,19 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const cardStyle: SxProps<Theme> = {
-  minWidth: '286px',
-  minHeight: '440px',
-
   boxSizing: 'border-box',
   padding: '32px',
-
   borderRadius: '8px',
   border: '1px solid',
   borderColor: 'secondary.light',
   boxShadow: 'none',
-
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  gap: '8px',
+  height: '100%',
+  maxWidth: '288px',
+  minHeight: '440px',
   '&:hover': {
     boxShadow: '0px 2px 16px 0px #0000001A',
   },

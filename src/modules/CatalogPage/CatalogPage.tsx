@@ -14,7 +14,6 @@ import {
   SORTY_BY_OPTIONS,
 } from '../../constants/constants';
 import {
-  pageContainerStyle,
   titleContainerStyle,
   sortingContainerStyle,
   dropdownContainerStyle,
@@ -39,7 +38,7 @@ export const CatalogPage: React.FC = () => {
 
   return (
     <>
-      <Stack sx={pageContainerStyle}>
+      <Stack>
         <BreadcrumbsSection />
 
         {/* Title + number of models */}

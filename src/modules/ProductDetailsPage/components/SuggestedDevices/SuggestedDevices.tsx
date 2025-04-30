@@ -1,10 +1,8 @@
-import { Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import { ProductCard } from '../../../shared/ProductCard/ProductCard';
-import { container } from './SuggestedDevicesStyles';
 import { useSuggestedProducts } from '../../../../utils/hooks/useSuggestedProducts';
 import { ProductCardInfo } from '../../../../utils/Types';
+import { ProductsSlider } from '../../../shared/components/ProductsSlider/ProductsSlider';
 
 const products: ProductCardInfo[] = [
   {
@@ -70,14 +68,10 @@ export const SuggestedProducts: React.FC = () => {
 
   return (
     <>
-      <Typography variant="h1">You may also like</Typography>
-      <Grid container spacing={2} sx={container}>
-        {suggestedProducts.map(product => (
-          <Grid size={{ mobile: 4, tablet: 6, desktop: 6 }} key={product.id}>
-            <ProductCard product={product} />
-          </Grid>
-        ))}
-      </Grid>
+      <ProductsSlider
+        title={'You may also like'}
+        visibleProducts={suggestedProducts}
+      />
     </>
   );
 };

@@ -1,12 +1,5 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const pageContainerStyle: SxProps<Theme> = {
-  marginBottom: {
-    mobile: '64px',
-    desktop: '80px',
-  },
-};
-
 export const titleContainerStyle: SxProps<Theme> = {
   marginTop: { mobile: '24px', tablet: '40px' },
 };
