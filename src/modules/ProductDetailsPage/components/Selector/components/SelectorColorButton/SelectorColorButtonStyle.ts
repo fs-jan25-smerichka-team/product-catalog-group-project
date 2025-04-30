@@ -6,8 +6,8 @@ export const selectorColorButtonStyle = (
   isSelected: boolean,
 ): SxProps<Theme> => ({
   display: 'flex',
-  'align-items': 'center',
-  'justify-content': 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
 
   width: '32px',
   height: '32px',
@@ -25,7 +25,6 @@ export const selectorColorButtonStyle = (
 
   '&:hover': {
     borderColor: 'primary.main',
-    //backgroundColor: 'transparent',
     boxShadow: 'none',
   },
 

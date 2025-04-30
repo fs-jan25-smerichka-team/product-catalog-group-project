@@ -142,12 +142,12 @@ export const theme = createTheme({
       letterSpacing: 0,
     },
   },
-  shape: {
+  /*shape: {
     headerHeight: {
       mobile: 48,
       desktop: 64,
     },
-  },
+  },*/
 });
 
 theme.typography.h1 = {

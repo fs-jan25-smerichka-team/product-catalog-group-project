@@ -2,14 +2,13 @@ import { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import { OrangeButton } from '../../../shared/components/OrangeButton/OrangeButton';
 import { CheckoutButtonStyle, CheckoutDialogStyle } from './CartCheckoutStyles';
 
 export default function CartCheckout() {
   const [open, setOpen] = useState(false);
-  const theme = useTheme();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,7 +33,7 @@ export default function CartCheckout() {
         aria-labelledby="alert-dialog-title"
         slotProps={{
           paper: {
-            sx: CheckoutDialogStyle(theme),
+            sx: CheckoutDialogStyle,
           },
         }}
       >
