@@ -11,7 +11,7 @@ export const useFavouritesItems = () => {
   );
   const { data: allProducts = [] } = useQuery(getProductsQueryOptions());
 
-  const favouritesItems: ProductCardInfo = favouritesStorageItems
+  const favouritesItems: ProductCardInfo[] = favouritesStorageItems
     .map(id => allProducts.find(p => p.itemId === id))
     .filter((item): item is ProductCardInfo => Boolean(item));
 
