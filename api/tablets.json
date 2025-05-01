@@ -144,7 +144,7 @@
     "capacityAvailable": ["128GB", "256GB", "512GB", "1TB", "2TB"],
     "capacity": "1TB",
     "priceRegular": 899,
-    "priceDiscount": 879,
+    "priceDiscount": 899,
     "colorsAvailable": ["spacegray", "silver"],
     "color": "spacegray",
     "images": [
@@ -1165,7 +1165,7 @@
     "capacityAvailable": ["32GB", "128GB"],
     "capacity": "32GB",
     "priceRegular": 329,
-    "priceDiscount": 299,
+    "priceDiscount": 329,
     "colorsAvailable": ["gold", "silver", "spacegray"],
     "color": "gold",
     "images": [
