@@ -3,8 +3,6 @@ import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
-// import { Swiper as SwiperClass } from 'swiper/types';
-
 //@ts-expect-error: Swiper CSS has no TS types
 import 'swiper/css';
 //@ts-expect-error: Swiper CSS has no TS types
