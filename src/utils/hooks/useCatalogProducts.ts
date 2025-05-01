@@ -1,38 +1,45 @@
 import { useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
-import { ProductCardInfo } from '../Types';
+import { getProductsQueryOptions } from '../../queryOptions/getProductsQueryOptions';
 
-//Use products with category from Redux there
-export const useCatalogProducts = (products: ProductCardInfo[]) => {
+export const useCatalogProducts = () => {
+  const location = useLocation();
+  const currentCategory = location.pathname.slice(1);
+
   const [searchParams] = useSearchParams();
-
   const sortBy = searchParams.get('sort') || 'newest';
-  const currentPage = Number(searchParams.get('page')) || 1;
-  const itemsPerPage = Number(searchParams.get('perPage')) || products.length;
+  const currentPage = +(searchParams.get('page') || 1);
+  const perPage = +(searchParams.get('perPage') || 0);
+
+  const { data: allProducts = [], isPending } = useQuery(
+    getProductsQueryOptions(),
+  );
+
+  const filtered = useMemo(
+    () => allProducts.filter(p => p.category === currentCategory),
+    [allProducts, currentCategory],
+  );
 
   const sorted = useMemo(() => {
-    return [...products].sort((productA, productB) => {
-      switch (sortBy) {
-        case 'newest':
-          return productB.year - productA.year;
-        case 'alphabetically':
-          return productA.name.localeCompare(productB.name);
-        case 'cheapest':
-          return productA.price - productB.price;
-        default:
-          return 0;
-      }
+    return [...filtered].sort((a, b) => {
+      if (sortBy === 'newest') return b.year - a.year;
+      if (sortBy === 'alphabetically') return a.name.localeCompare(b.name);
+      if (sortBy === 'cheapest') return a.price - b.price;
+      return 0;
     });
-  }, [products, sortBy]);
+  }, [filtered, sortBy]);
 
-  const visibleProducts = useMemo(() => {
-    const from = (currentPage - 1) * itemsPerPage;
+  const itemsPerPage = perPage > 0 ? perPage : sorted.length || 1;
+  const from = (currentPage - 1) * itemsPerPage;
+  const visibleProducts = sorted.slice(from, from + itemsPerPage);
+  const totalPages = Math.max(1, Math.ceil(sorted.length / itemsPerPage));
 
-    return sorted.slice(from, from + itemsPerPage);
-  }, [sorted, currentPage, itemsPerPage]);
-
-  const totalPages = Math.ceil(sorted.length / itemsPerPage);
-
-  return { visibleProducts, totalPages };
+  return {
+    visibleProducts,
+    totalProductsNumber: filtered.length,
+    totalPages,
+    isPending,
+  };
 };

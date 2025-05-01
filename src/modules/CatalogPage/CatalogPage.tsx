@@ -1,13 +1,10 @@
-import { Box, Stack, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { Box, Stack, Typography } from '@mui/material';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
-import { Dropdown } from '../shared/components/Dropdown/Dropdown';
 import { ProductGrid, Pagination } from './components';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
 import { Loader } from '../shared/components/Loader/Loader';
-import { getProductsQueryOptions } from '../../queryOptions/getProductsQueryOptions';
 import {
   CATALOG_TITLES,
   PER_PAGE_OPTIONS,
@@ -16,76 +13,76 @@ import {
 import {
   titleContainerStyle,
   sortingContainerStyle,
-  dropdownContainerStyle,
   productGridContainerStyle,
   paginationBoxStyle,
 } from './CatalogStyles';
+import { useCatalogProducts } from '../../utils/hooks/useCatalogProducts';
+import { CatalogDropdown } from './components/CatalogDropdown';
+
+const isValidCategory = (category: string) =>
+  ['phones', 'tablets', 'accessories'].includes(category);
 
 export const CatalogPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentCategory = location.pathname.slice(1);
-  const activeTitle = CATALOG_TITLES[currentCategory];
-
-  const { data, isPending } = useQuery(getProductsQueryOptions());
-
-  const products =
-    data?.filter(product => product.category === currentCategory) || [];
 
   useEffect(() => {
-    if (!['phones', 'tablets', 'accessories'].includes(currentCategory)) {
+    if (!isValidCategory(currentCategory)) {
       navigate('/not-found', { replace: true });
-      return;
     }
   }, [currentCategory, navigate]);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeSort = searchParams.get('sort') || 'Newest';
+  const activePerPage = searchParams.get('perPage') || 'All';
+
+  const handleParamChange = (key: string) => (value: string) => {
+    searchParams.set(key, value);
+    searchParams.delete('page');
+    setSearchParams(searchParams);
+  };
+
+  const { visibleProducts, totalProductsNumber, totalPages, isPending } =
+    useCatalogProducts();
+
   return (
-    <>
-      <Stack>
-        <BreadcrumbsSection />
+    <Stack>
+      <BreadcrumbsSection />
 
-        {/* Title + number of models */}
-        <Stack spacing={1} sx={titleContainerStyle}>
-          <Typography variant="h1">{activeTitle}</Typography>
-
-          <Typography variant="body1">{products.length} models</Typography>
-        </Stack>
-
-        {/* Sorting */}
-        <Stack direction={'row'} spacing={2} sx={sortingContainerStyle}>
-          {/* Sort by */}
-          <Box sx={dropdownContainerStyle}>
-            <Typography variant="body2" color="textSecondary">
-              Sort by
-            </Typography>
-            <Dropdown
-              items={SORTY_BY_OPTIONS}
-              activeItem={'newest'}
-              onSelect={() => {}}
-            />
-          </Box>
-
-          {/* Items on page */}
-          <Box sx={dropdownContainerStyle}>
-            <Typography variant="body2" color="textSecondary">
-              Items on page
-            </Typography>
-            <Dropdown
-              items={PER_PAGE_OPTIONS}
-              activeItem={'16'}
-              onSelect={() => {}}
-            />
-          </Box>
-        </Stack>
-
-        <Box sx={productGridContainerStyle}>
-          {isPending ? <Loader /> : <ProductGrid products={products} />}
-        </Box>
-
-        <Box sx={paginationBoxStyle}>
-          <Pagination />
-        </Box>
+      {/* Title */}
+      <Stack spacing={1} sx={titleContainerStyle}>
+        <Typography variant="h1">{CATALOG_TITLES[currentCategory]}</Typography>
+        <Typography variant="body1">
+          {isPending ? 'Loading...' : `${totalProductsNumber} models`}
+        </Typography>
       </Stack>
-    </>
+
+      {/* Dropdowns */}
+      <Stack direction="row" spacing={2} sx={sortingContainerStyle}>
+        <CatalogDropdown
+          label={'Sort by'}
+          items={SORTY_BY_OPTIONS}
+          activeItem={activeSort}
+          onSelect={handleParamChange('sort')}
+        />
+
+        <CatalogDropdown
+          label={'Items on page'}
+          items={PER_PAGE_OPTIONS}
+          activeItem={activePerPage}
+          onSelect={handleParamChange('perPage')}
+        />
+      </Stack>
+
+      {/* Products */}
+      <Box sx={productGridContainerStyle}>
+        {isPending ? <Loader /> : <ProductGrid products={visibleProducts} />}
+      </Box>
+
+      <Box sx={paginationBoxStyle}>
+        <Pagination />
+      </Box>
+    </Stack>
   );
 };
