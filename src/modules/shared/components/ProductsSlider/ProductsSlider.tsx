@@ -48,7 +48,7 @@ export const ProductsSlider: React.FC<Props> = ({ title, visibleProducts }) => {
       <Box sx={sliderHeaderStyle}>
         <Typography variant="h2">{title}</Typography>
 
-        <Stack direction="row" spacing={'16px'}>
+        <Stack height={'32px'} direction="row" spacing={'16px'}>
           <ArrowButton
             direction="left"
             isBtnDisabled={isPrevBtnDisabled}
