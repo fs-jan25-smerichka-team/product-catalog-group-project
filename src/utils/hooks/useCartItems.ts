@@ -43,11 +43,17 @@ export const useCartItems = () => {
     );
   };
 
+  const totalQuantity = cartStorageItems.reduce(
+    (sum, item) => sum + item.quantity,
+    0,
+  );
+
   return {
     cartItems,
     clearCart,
     removeCartItem,
     increaseQuantity,
     decreaseQuantity,
+    totalQuantity,
   };
 };

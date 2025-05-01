@@ -1,10 +1,16 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 
+import { CartIcon } from '../../../../../../assets/svg/CartIcon';
+import { BadgeIcon } from '../../../../../shared/components/BadgeIcon/BadgeIcon';
+import { FavouritesIcon } from '../../../../../../assets/svg/FavouritesIcon';
+import { useFavouritesItems } from '../../../../../../utils/hooks/useFavouritesItems';
+import { useCartItems } from '../../../../../../utils/hooks/useCartItems';
 import { useActiveTabIndex } from '../../../../../../utils/hooks/useActiveTabIndex';
-import favoriteIcon from '../../../../../../assets/icons/favorite.svg';
-import cartIcon from '../../../../../../assets/icons/cart.svg';
+import {
+  navigationIcons,
+  navigationTitles,
+} from '../../../../../../constants/navigation';
 import {
   tabStyles,
   tabsContainerStyles,
@@ -14,10 +20,6 @@ import {
   textTabTypographyStyles,
   iconDrawerTabStyles,
 } from './tabtsStyles';
-import {
-  navigationIcons,
-  navigationTitles,
-} from '../../../../../../constants/navigation';
 
 interface NavigationTabsProps {
   orientation?: 'horizontal' | 'vertical';
@@ -35,10 +37,24 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
   sx = {},
 }) => {
   const value = useActiveTabIndex(navigationTitles, navigationIcons);
+  const { favouritesItems } = useFavouritesItems();
+  const { totalQuantity } = useCartItems();
 
-  const iconMap: Record<string, string> = {
-    favourites: favoriteIcon,
-    cart: cartIcon,
+  const iconMap: Record<
+    string,
+    {
+      icon: JSX.Element;
+      badgeContent: number;
+    }
+  > = {
+    favourites: {
+      icon: <FavouritesIcon />,
+      badgeContent: favouritesItems.length,
+    },
+    cart: {
+      icon: <CartIcon />,
+      badgeContent: totalQuantity,
+    },
   };
 
   const isLargeScreen = orientation === 'horizontal';
@@ -48,8 +64,7 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
 
   const isTabVisible = (tabIndex: number) => {
     if (showTitles && tabIndex < navigationTitles.length) return true;
-    if (showIcons && tabIndex >= navigationTitles.length) return true;
-    return false;
+    return !!(showIcons && tabIndex >= navigationTitles.length);
   };
 
   const correctValue = isTabVisible(value) ? value : false;
@@ -127,7 +142,9 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
                 }}
                 label={
                   <Box component="span">
-                    <img src={iconMap[navEl]} alt={`${navEl} icon`} />
+                    <BadgeIcon badgeContent={iconMap[navEl].badgeContent}>
+                      {iconMap[navEl].icon}
+                    </BadgeIcon>
                   </Box>
                 }
               />
