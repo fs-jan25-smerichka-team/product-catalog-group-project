@@ -62,7 +62,7 @@ export const ProductDetailsPage: React.FC = () => {
         container
         columns={{ mobile: 4, tablet: 12, desktop: 24 }}
         rowSpacing={{ mobile: 7, tablet: 8, desktop: 10 }}
-        columnSpacing={{ mobile: 0, desktop: 8 }}
+        columnSpacing={{ mobile: 0, tablet: 2, desktop: 8 }}
         sx={productDetailsStyle.gridContainer}
       >
         <Grid size={{ mobile: 4, tablet: 7, desktop: 12 }} mb={{ mobile: 3 }}>
