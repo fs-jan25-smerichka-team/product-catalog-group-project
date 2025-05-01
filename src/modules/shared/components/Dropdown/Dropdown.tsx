@@ -15,11 +15,12 @@ interface Props {
 
 export const Dropdown: React.FC<Props> = ({ items, activeItem, onSelect }) => {
   const theme = useTheme();
+  const activeValue = activeItem.toLowerCase();
 
   return (
     <FormControl fullWidth>
       <Select
-        value={activeItem}
+        value={activeValue}
         onChange={event => onSelect(event.target.value)}
         sx={DropdownStyle(theme)}
         MenuProps={{
