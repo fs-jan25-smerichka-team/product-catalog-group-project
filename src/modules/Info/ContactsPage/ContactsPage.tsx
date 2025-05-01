@@ -95,7 +95,7 @@ export const ContactsPage: React.FC = () => {
 
       <Stack sx={ContactsPageStyle.titleContainer}>
         <Typography variant="h2" sx={ContactsPageStyle.titleText}>
-          Meet the team behind Nice Gadgets store!
+          Meet the team behind the Nice Gadgets store!
         </Typography>
 
         <Typography variant="body1" sx={ContactsPageStyle.bodyText}>
@@ -106,7 +106,11 @@ export const ContactsPage: React.FC = () => {
 
       <Grid container sx={ContactsPageStyle.contentContainer}>
         {contactInfos.map(contactInfo => (
-          <Grid key={contactInfo.name}>
+          <Grid
+            key={contactInfo.name}
+            columns={{ mobile: 12, tablet: 6 }}
+            sx={ContactsPageStyle.contactsGridItem}
+          >
             <MemberCard memberInfo={contactInfo} />
           </Grid>
         ))}

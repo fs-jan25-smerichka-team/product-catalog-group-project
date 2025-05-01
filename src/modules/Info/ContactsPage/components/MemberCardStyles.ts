@@ -2,8 +2,12 @@ import { SxProps, Theme } from '@mui/material';
 
 export const cardStyle: Record<string, SxProps<Theme>> = {
   cardContainer: {
-    minWidth: '320px',
+    minWidth: '288px',
     padding: 3,
+
+    '&:hover': {
+      boxShadow: '0px 2px 16px 0px #0000001A',
+    },
   },
 
   contentContainer: {
@@ -37,5 +41,5 @@ export const cardStyle: Record<string, SxProps<Theme>> = {
 
   contactLink: {},
 
-  contactLabelText: {},
+  contactLabelText: { color: 'secondary.dark' },
 };

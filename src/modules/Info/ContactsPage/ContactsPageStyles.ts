@@ -19,6 +19,10 @@ export const ContactsPageStyle: Record<string, SxProps<Theme>> = {
     columnGap: { mobile: 2, tablet: 3, desktop: 4 },
   },
 
+  contactsGridItem: {
+    height: '100%',
+  },
+
   articleContainer: {
     gap: 2,
   },
