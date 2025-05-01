@@ -7,6 +7,7 @@ import { ProductsSlider } from '../shared/components/ProductsSlider/ProductsSlid
 import { ShopByCategorySection } from './components/ShopByCategorySection';
 import { useHotPricesProducts } from '../../utils/hooks/useHotPricesProducts';
 import { useBrandNewProducts } from '../../utils/hooks/useBrandNewProducts';
+import { PicturesSlider } from './components/PicturesSlider';
 
 export const HomePage: React.FC = () => {
   const { data } = useQuery({
@@ -29,8 +30,7 @@ export const HomePage: React.FC = () => {
       <Stack sx={homePageStyle.contentContainer}>
         {/* Banner Section */}
         <Box sx={homePageStyle.bannerContainer}>
-          {/*TODO: Replace Typography and Box with Banner slider component */}
-          <Typography variant="h2">Banner Slider</Typography>
+          <PicturesSlider />
         </Box>
 
         {/* Brand new models */}

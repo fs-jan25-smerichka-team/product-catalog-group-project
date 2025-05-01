@@ -18,11 +18,10 @@ export const homePageStyle: Record<string, SxProps<Theme>> = {
   },
 
   bannerContainer: {
-    backgroundColor: 'grey',
     height: {
-      mobile: '482px',
-      tablet: '397px',
-      desktop: '600px',
+      mobile: '352px',
+      tablet: '221px',
+      desktop: '432px',
     },
   },
 
