@@ -14,10 +14,6 @@ export const titleStyle: SxProps<Theme> = {
   marginBottom: '8px',
 };
 
-export const titleBoxStyle: SxProps<Theme> = {
-  backgroundColor: '#8FBC8F',
-};
-
 export const sortingContainerStyle: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'row',
