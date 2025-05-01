@@ -8,9 +8,10 @@ import { ShopByCategorySection } from './components/ShopByCategorySection';
 import { useHotPricesProducts } from '../../utils/hooks/useHotPricesProducts';
 import { useBrandNewProducts } from '../../utils/hooks/useBrandNewProducts';
 import { PicturesSlider } from './components/PicturesSlider';
+import { Loader } from '../shared/components/Loader/Loader';
 
 export const HomePage: React.FC = () => {
-  const { data } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ['products'],
     queryFn: getProducts,
   });
@@ -34,26 +35,34 @@ export const HomePage: React.FC = () => {
         </Box>
 
         {/* Brand new models */}
-        {brandNewProducts.length > 0 && (
-          <Box sx={homePageStyle.sliderContainer}>
-            <ProductsSlider
-              title={'Brand new models'}
-              visibleProducts={brandNewProducts}
-            />
-          </Box>
+        {isPending ? (
+          <Loader />
+        ) : (
+          brandNewProducts.length > 0 && (
+            <Box sx={homePageStyle.sliderContainer}>
+              <ProductsSlider
+                title={'Brand new models'}
+                visibleProducts={brandNewProducts}
+              />
+            </Box>
+          )
         )}
 
         {/* Shop by category */}
         <ShopByCategorySection />
 
         {/* Hot prices */}
-        {hotPricesProducts.length > 0 && (
-          <Box sx={homePageStyle.sliderContainer}>
-            <ProductsSlider
-              title={'Hot prices'}
-              visibleProducts={hotPricesProducts}
-            />
-          </Box>
+        {isPending ? (
+          <Loader />
+        ) : (
+          hotPricesProducts.length > 0 && (
+            <Box sx={homePageStyle.sliderContainer}>
+              <ProductsSlider
+                title={'Hot prices'}
+                visibleProducts={hotPricesProducts}
+              />
+            </Box>
+          )
         )}
       </Stack>
     </Stack>

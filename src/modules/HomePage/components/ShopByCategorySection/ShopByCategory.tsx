@@ -88,7 +88,7 @@ export const ShopByCategorySection: React.FC = () => {
 
                   <Typography variant="body1" color="secondary.dark">
                     {isPending
-                      ? 'loading'
+                      ? 'loading...'
                       : `${categorisedProducts[category]?.length} models`}
                   </Typography>
                 </Stack>
