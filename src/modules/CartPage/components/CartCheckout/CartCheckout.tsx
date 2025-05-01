@@ -5,9 +5,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Box, Typography } from '@mui/material';
 
 import { OrangeButton } from '../../../shared/components/OrangeButton/OrangeButton';
+import { useCartItems } from '../../../../utils/hooks/useCartItems';
 import { CheckoutButtonStyle, CheckoutDialogStyle } from './CartCheckoutStyles';
 
 export default function CartCheckout() {
+  const { clearCart } = useCartItems();
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -17,8 +19,6 @@ export default function CartCheckout() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  //TODO implement handleClearCart
 
   return (
     <>
@@ -37,17 +37,21 @@ export default function CartCheckout() {
           },
         }}
       >
-        <DialogTitle id="alert-dialog-title">
-          <Typography variant="h3">
-            Checkout is not implemented yet.
-            <br /> Do you wan't to clear the Cart?
-          </Typography>
+        <DialogTitle id="alert-dialog-title" variant="h3">
+          Checkout is not implemented yet.
+          <br /> Do you wan't to clear the Cart?
         </DialogTitle>
         <DialogActions>
           <OrangeButton isSelected={true} onClick={handleClose}>
             <Typography variant="button">Keep cart and close</Typography>
           </OrangeButton>
-          <OrangeButton isSelected={false} onClick={handleClose}>
+          <OrangeButton
+            isSelected={false}
+            onClick={() => {
+              clearCart();
+              handleClose();
+            }}
+          >
             <Typography variant="button">Clear cart and close</Typography>
           </OrangeButton>
         </DialogActions>

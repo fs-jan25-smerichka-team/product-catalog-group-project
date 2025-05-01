@@ -3,14 +3,16 @@ import { useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import {
-  Box,
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
   Typography,
 } from '@mui/material';
 
 import { CartItem } from '../../../../utils/Types';
+import { useCartItems } from '../../../../utils/hooks/useCartItems';
+import { CloseIcon, MinusIcon, PlusIcon } from '../../../../assets/svg';
 import {
   CardActionsStyle,
   CardImageStyle,
@@ -18,6 +20,7 @@ import {
   CardTextStyle,
   CartCardStyle,
   DeleteButtonStyle,
+  CounterButtonStyle,
 } from './CartCardStyles';
 
 interface Props {
@@ -26,6 +29,7 @@ interface Props {
 
 export const CartCard: React.FC<Props> = ({ item }) => {
   const theme = useTheme();
+  const { removeCartItem, increaseQuantity, decreaseQuantity } = useCartItems();
 
   return (
     <Card variant="outlined" sx={CartCardStyle}>
@@ -36,13 +40,16 @@ export const CartCard: React.FC<Props> = ({ item }) => {
         alignItems="center"
       >
         <Grid size="auto">
-          <Box sx={DeleteButtonStyle} />
-          {
-            //TODO - replace placeholder with IconButton
-          }
+          <IconButton
+            onClick={() => removeCartItem(item.id)}
+            sx={{ padding: 0, ...DeleteButtonStyle }}
+            disableRipple
+          >
+            <CloseIcon />
+          </IconButton>
         </Grid>
         <Grid size="auto">
-          <CardMedia component="image" image={item.image} sx={CardImageStyle} />
+          <CardMedia component="div" image={item.image} sx={CardImageStyle} />
         </Grid>
         <Grid size={{ mobile: 2, tablet: 'grow', desktop: 'grow' }}>
           <CardContent sx={CardTextStyle}>
@@ -53,7 +60,28 @@ export const CartCard: React.FC<Props> = ({ item }) => {
         </Grid>
         <Grid size={{ mobile: 2, tablet: 'auto', desktop: 'auto' }}>
           <CardActions sx={CardActionsStyle}>
-            {/* TODO - replace placeholder with iconbuttons */}
+            <IconButton
+              onClick={() => decreaseQuantity(item.id)}
+              sx={{
+                ...CounterButtonStyle,
+                ...(item.quantity <= 1 && {
+                  borderColor: theme.palette.secondary.light,
+                  color: theme.palette.secondary.main,
+                }),
+              }}
+              disableRipple
+            >
+              <MinusIcon />
+            </IconButton>
+
+            <Typography variant="body1">{item.quantity}</Typography>
+            <IconButton
+              onClick={() => increaseQuantity(item.id)}
+              sx={CounterButtonStyle}
+              disableRipple
+            >
+              <PlusIcon />
+            </IconButton>
           </CardActions>
         </Grid>
         <Grid size="auto" offset="auto">

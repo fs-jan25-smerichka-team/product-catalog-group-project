@@ -8,7 +8,17 @@ export const CartCardStyle: SxProps<Theme> = {
 export const DeleteButtonStyle: SxProps<Theme> = {
   width: '16px',
   height: '16px',
-  bgcolor: 'red',
+  color: 'secondary.main',
+};
+
+export const CounterButtonStyle: SxProps<Theme> = {
+  width: '32px',
+  height: '32px',
+  border: '1px solid',
+  borderColor: 'secondary.main',
+  color: 'primary.main',
+  padding: 0,
+  minWidth: 0,
 };
 
 export const CardImageStyle: SxProps<Theme> = {
@@ -26,8 +36,10 @@ export const CardTextStyle: SxProps<Theme> = {
 export const CardActionsStyle: SxProps<Theme> = {
   height: '32px',
   width: '96px',
-  bgcolor: 'navy',
   padding: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
 };
 
 export const CardPriceStyle: SxProps<Theme> = {

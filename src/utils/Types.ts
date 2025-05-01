@@ -41,10 +41,16 @@ export type ProductDetailsInfo = {
   zoom?: string;
   cell: string[];
 };
+
 export type CartItem = {
   id: string;
   name: string;
   image: string;
   price: number;
+  quantity: number;
+};
+
+export type CartStorageItem = {
+  id: string;
   quantity: number;
 };
