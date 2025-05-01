@@ -33,10 +33,6 @@ export const PriceAndButtonsStyle: Record<string, SxProps<Theme>> = {
   },
 
   buttonsContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: '8px',
-    height: '48px',
     marginTop: '16px',
   },
 };
