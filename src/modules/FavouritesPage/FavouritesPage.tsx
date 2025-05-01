@@ -20,7 +20,8 @@ export const FavouritesPage: React.FC = () => {
           <Typography variant="h1" sx={titleStyle}>
             Favourites
           </Typography>
-          <Typography variant="body1">7 items</Typography>
+
+          <Typography variant="body1">{products.length} items</Typography>
         </Box>
 
         <Box>
