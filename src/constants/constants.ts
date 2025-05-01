@@ -29,7 +29,16 @@ export const FOOTER_LINKS = [
   {
     text: 'Github',
     href: 'https://github.com/fs-jan25-smerichka-team/product-catalog-group-project',
+    target: '_blank',
   },
-  { text: 'Contacts', href: '' },
-  { text: 'Rights', href: '' },
+  {
+    text: 'Contacts',
+    href: 'contacts',
+    target: '_self',
+  },
+  {
+    text: 'Rights',
+    href: 'rights',
+    target: '_self',
+  },
 ];

@@ -54,3 +54,11 @@ export type CartStorageItem = {
   id: string;
   quantity: number;
 };
+
+export type MemberInfo = {
+  name: string;
+  photo: string;
+  about: string;
+  responsibleFor: string[];
+  contacts: { label: string; href: string }[];
+};
