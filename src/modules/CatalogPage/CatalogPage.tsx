@@ -80,9 +80,11 @@ export const CatalogPage: React.FC = () => {
         {isPending ? <Loader /> : <ProductGrid products={visibleProducts} />}
       </Box>
 
-      <Box sx={paginationBoxStyle}>
-        <Pagination />
-      </Box>
+      {totalPages > 1 && (
+        <Box sx={paginationBoxStyle}>
+          <Pagination totalPages={totalPages} />
+        </Box>
+      )}
     </Stack>
   );
 };
