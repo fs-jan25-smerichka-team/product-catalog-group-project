@@ -170,7 +170,7 @@
     "capacityAvailable": ["38mm", "42mm"],
     "capacity": "38mm",
     "priceRegular": 199,
-    "priceDiscount": 169,
+    "priceDiscount": 199,
     "colorsAvailable": ["space gray", "silver", "gold"],
     "color": "silver",
     "images": [
@@ -662,7 +662,7 @@
     "capacityAvailable": ["40mm", "44mm"],
     "capacity": "40mm",
     "priceRegular": 399,
-    "priceDiscount": 299,
+    "priceDiscount": 399,
     "colorsAvailable": ["silver", "gold", "space gray"],
     "color": "silver",
     "images": [
