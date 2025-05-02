@@ -10,9 +10,7 @@ export const DeleteButtonStyle: SxProps<Theme> = {
   height: '16px',
   color: 'secondary.main',
   '&:hover': {
-    scale: 1.2,
     color: 'primary.main',
-    bgcolor: 'error.main',
   },
 };
 
@@ -27,12 +25,9 @@ export const CounterButtonStyle: SxProps<Theme> = {
   '&:disabled': {
     borderColor: 'secondary.light',
     color: 'secondary.main',
-    pointerEvents: 'none',
-    cursor: 'none',
   },
   '&:hover': {
-    scale: 1.2,
-    bgcolor: 'warning.main',
+    borderColor: 'primary.main',
   },
 };
 
