@@ -142,11 +142,9 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
                   ...(isMobileDrawerIconsOnly && iconDrawerTabStyles(isActive)),
                 }}
                 label={
-                  <Box component="span">
-                    <BadgeIcon badgeContent={iconMap[navEl].badgeContent}>
-                      {iconMap[navEl].icon}
-                    </BadgeIcon>
-                  </Box>
+                  <BadgeIcon badgeContent={iconMap[navEl].badgeContent}>
+                    {iconMap[navEl].icon}
+                  </BadgeIcon>
                 }
               />
             );
