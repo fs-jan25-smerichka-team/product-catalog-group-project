@@ -46,7 +46,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </Link>
 
       <CardContent sx={cardContentStyle}>
-        <Link to={`${product.itemId}`} style={{ textDecoration: 'none' }}>
+        <Link
+          to={`/${product.category}/${product.itemId}`}
+          style={{ textDecoration: 'none' }}
+        >
           <Typography variant="body1" sx={nameTypographyStyle}>
             {name}
           </Typography>
