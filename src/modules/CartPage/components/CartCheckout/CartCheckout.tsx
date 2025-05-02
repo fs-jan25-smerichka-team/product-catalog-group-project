@@ -39,11 +39,11 @@ export default function CartCheckout() {
       >
         <DialogTitle id="alert-dialog-title" variant="h3">
           Checkout is not implemented yet.
-          <br /> Do you wan't to clear the Cart?
+          <br /> Do you want to clear the Cart?
         </DialogTitle>
         <DialogActions>
           <OrangeButton isSelected={true} onClick={handleClose}>
-            <Typography variant="button">Keep cart and close</Typography>
+            <Typography variant="button">Keep cart</Typography>
           </OrangeButton>
           <OrangeButton
             isSelected={false}
@@ -52,7 +52,7 @@ export default function CartCheckout() {
               handleClose();
             }}
           >
-            <Typography variant="button">Clear cart and close</Typography>
+            <Typography variant="button">Confirm</Typography>
           </OrangeButton>
         </DialogActions>
       </Dialog>

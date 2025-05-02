@@ -24,12 +24,15 @@ export const CounterButtonStyle: SxProps<Theme> = {
 export const CardImageStyle: SxProps<Theme> = {
   width: '66px',
   height: '66px',
-  padding: '12px',
+  padding: '14px',
+  backgroundOrigin: 'content-box',
 };
 
 export const CardTextStyle: SxProps<Theme> = {
   padding: 0,
   minWidth: '128px',
+  textAlign: 'left',
+
   '&:last-child': { pb: 0 },
 };
 

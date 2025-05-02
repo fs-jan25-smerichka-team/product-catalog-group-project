@@ -36,10 +36,10 @@ export const CartCard: React.FC<Props> = ({ item }) => {
       <Grid
         container
         spacing={{ mobile: '16px', tablet: '24px', desktop: '24px' }}
-        justifyContent="center"
+        justifyContent="space-between"
         alignItems="center"
       >
-        <Grid size="auto">
+        <Grid size={{ mobile: 0.2, tablet: 'auto', desktop: 'auto' }}>
           <IconButton
             onClick={() => removeCartItem(item.id)}
             sx={{ padding: 0, ...DeleteButtonStyle }}
@@ -48,17 +48,20 @@ export const CartCard: React.FC<Props> = ({ item }) => {
             <CloseIcon />
           </IconButton>
         </Grid>
-        <Grid size="auto">
+        <Grid
+          size={{ mobile: 1, tablet: 'auto', desktop: 'auto' }}
+          justifySelf="flex-start"
+        >
           <CardMedia component="div" image={item.image} sx={CardImageStyle} />
         </Grid>
-        <Grid size={{ mobile: 2, tablet: 'grow', desktop: 'grow' }}>
+        <Grid size={{ mobile: 2.7, tablet: 'grow', desktop: 'grow' }}>
           <CardContent sx={CardTextStyle}>
             <Typography variant="body1" color={theme.palette.primary.main}>
               {item.name}
             </Typography>
           </CardContent>
         </Grid>
-        <Grid size={{ mobile: 2, tablet: 'auto', desktop: 'auto' }}>
+        <Grid size={{ mobile: 2.5, tablet: 'auto', desktop: 'auto' }}>
           <CardActions sx={CardActionsStyle}>
             <IconButton
               onClick={() => decreaseQuantity(item.id)}
