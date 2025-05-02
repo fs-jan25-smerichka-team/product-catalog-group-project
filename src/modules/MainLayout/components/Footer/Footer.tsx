@@ -1,12 +1,13 @@
 import React from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {
   backToTopStyle,
   backToTopTextStyle,
   boxStyle,
   contactsLinkStyle,
+  contactsLinkTextStyle,
   contactsStyle,
   flexBoxStyle,
   iconButtonStyle,
@@ -32,26 +33,34 @@ export const Footer: React.FC = () => {
         {/* Contacts */}
         <Box sx={contactsStyle}>
           {FOOTER_LINKS.map(link => (
-            <Link
+            <NavLink
               key={link.text}
               to={link.href}
               target={link.target}
+              className={({ isActive }) =>
+                isActive ? 'footer-link active' : 'footer-link'
+              }
               style={contactsLinkStyle}
             >
-              <Typography variant="subtitle1" color="secondary.dark">
+              <Typography variant="subtitle1" sx={contactsLinkTextStyle}>
                 {link.text}
               </Typography>
-            </Link>
+            </NavLink>
           ))}
         </Box>
 
         {/* Back to top */}
-        <Box sx={backToTopStyle}>
-          <Typography variant="body2" sx={backToTopTextStyle}>
+        <Box sx={backToTopStyle} onClick={handleBackToTop} role="button">
+          <Typography
+            variant="body2"
+            className="back-to-top-text"
+            sx={backToTopTextStyle}
+          >
             Back to top
           </Typography>
-          <IconButton onClick={handleBackToTop} sx={iconButtonStyle}>
-            <img src={upIcon} alt="favoriteIcon" width={16} height={16} />
+
+          <IconButton className="back-to-top-button" sx={iconButtonStyle}>
+            <img src={upIcon} alt="up arrow" width={16} height={16} />
           </IconButton>
         </Box>
       </Box>

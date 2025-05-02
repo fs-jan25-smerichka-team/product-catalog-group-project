@@ -25,6 +25,8 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
 
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
+  const perView = Math.min(totalPages, BUTTONS_PER_VIEW);
+
   const setCurrentPage = (page: number) => {
     searchParams.set('page', page.toString());
     setSearchParams(searchParams);
@@ -46,23 +48,25 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
   }, [currentPage]);
 
   return (
-    <Box display="flex" alignItems="center" gap={2} height={'32px'}>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      gap={2}
+      height={'32px'}
+    >
       <ArrowButton
         direction="left"
         isBtnDisabled={prevDisabled}
         handleClickArrow={() => setCurrentPage(currentPage - 1)}
       />
 
-      <Box
-        width={
-          BUTTONS_PER_VIEW * BUTTON_WIDTH + (BUTTONS_PER_VIEW - 1) * SLIDES_GAP
-        }
-      >
+      <Box width={perView * BUTTON_WIDTH + (perView - 1) * SLIDES_GAP}>
         <Swiper
           onSwiper={swiper => {
             swiperRef.current = swiper;
           }}
-          slidesPerView={BUTTONS_PER_VIEW}
+          slidesPerView={perView}
           spaceBetween={SLIDES_GAP}
         >
           {pagesList.map(page => (

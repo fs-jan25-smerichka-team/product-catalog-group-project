@@ -90,7 +90,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Mont',
+    fontFamily: 'Mont, sans-serif',
     h1: {
       fontSize: '48px',
       fontWeight: 800,

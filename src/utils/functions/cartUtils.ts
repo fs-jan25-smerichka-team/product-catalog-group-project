@@ -13,6 +13,7 @@ export const buildCartItems = (
 
       return {
         id: product.itemId,
+        category: product.category,
         name: product.name,
         image: product.image,
         price: product.price,

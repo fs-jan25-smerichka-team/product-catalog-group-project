@@ -20,7 +20,7 @@ import {
   verticalTabsStyles,
   textTabTypographyStyles,
   iconDrawerTabStyles,
-} from './tabtsStyles';
+} from './TabsStyles.tsx';
 
 interface NavigationTabsProps {
   orientation?: 'horizontal' | 'vertical';

@@ -18,12 +18,14 @@ import {
   RightsPage,
   NotFoundPage,
 } from './modules/pagesIndex';
+import { ScrollToTop } from './utils/ScrollToTop';
 
 export const Root = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />

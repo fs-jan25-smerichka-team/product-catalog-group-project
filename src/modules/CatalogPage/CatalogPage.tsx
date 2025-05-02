@@ -35,7 +35,7 @@ export const CatalogPage: React.FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activeSort = searchParams.get('sort') || 'Newest';
-  const activePerPage = searchParams.get('perPage') || 'All';
+  const activePerPage = searchParams.get('perPage') || '16';
 
   const handleParamChange = (key: string) => (value: string) => {
     searchParams.set(key, value);

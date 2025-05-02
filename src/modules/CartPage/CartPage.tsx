@@ -19,7 +19,7 @@ const CartPage: React.FC = () => {
         <Typography variant="h1">Cart</Typography>
       </Grid>
       <Grid size={{ mobile: 4, tablet: 12, desktop: 16 }}>
-        <CartList cart={cartItems} />
+        <CartList cartItems={cartItems} />
       </Grid>
       <Grid size={{ mobile: 4, tablet: 12, desktop: 8 }}>
         <CartSummary
