@@ -24,7 +24,7 @@ export const CounterButtonStyle: SxProps<Theme> = {
 export const CardImageStyle: SxProps<Theme> = {
   width: '66px',
   height: '66px',
-  padding: '12px',
+  padding: '14px',
   backgroundOrigin: 'content-box',
 };
 
