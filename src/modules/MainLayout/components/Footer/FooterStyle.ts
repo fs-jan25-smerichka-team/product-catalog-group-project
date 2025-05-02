@@ -66,7 +66,8 @@ export const logoBoxStyle: SxProps<Theme> = {
   display: 'flex',
 };
 
-export const contactsLinkStyle: SxProps<Theme> = {
+export const contactsLinkStyle = {
+  textDecoration: 'none',
   color: 'secondary.dark',
   '&:hover': {
     color: 'primary.main',

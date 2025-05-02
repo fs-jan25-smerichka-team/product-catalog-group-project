@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
+import { JSX } from 'react';
 
 import { CartIcon } from '../../../../../../assets/svg/CartIcon';
 import { BadgeIcon } from '../../../../../shared/components/BadgeIcon/BadgeIcon';

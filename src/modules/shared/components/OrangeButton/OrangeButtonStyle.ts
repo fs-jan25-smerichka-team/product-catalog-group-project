@@ -4,7 +4,7 @@ export const OrangeButtonStyle = (
   isSelected: boolean,
   theme: Theme,
 ): SxProps<Theme> => ({
-  height: 'auto',
+  height: '100%',
   width: '100%',
   padding: '0',
   borderColor: isSelected

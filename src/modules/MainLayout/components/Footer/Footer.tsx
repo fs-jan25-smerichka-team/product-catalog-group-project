@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography, Link, IconButton } from '@mui/material';
+import { Box, Typography, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import {
   backToTopStyle,
@@ -33,12 +34,13 @@ export const Footer: React.FC = () => {
           {FOOTER_LINKS.map(link => (
             <Link
               key={link.text}
-              href={link.href}
-              underline="none"
-              target="_blank"
-              sx={contactsLinkStyle}
+              to={link.href}
+              target={link.target}
+              style={contactsLinkStyle}
             >
-              <Typography variant="subtitle1">{link.text}</Typography>
+              <Typography variant="subtitle1" color="secondary.dark">
+                {link.text}
+              </Typography>
             </Link>
           ))}
         </Box>

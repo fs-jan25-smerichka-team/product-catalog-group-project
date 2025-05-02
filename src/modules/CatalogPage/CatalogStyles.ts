@@ -30,7 +30,6 @@ export const paginationBoxStyle: SxProps<Theme> = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#BC8F8F',
   height: '32px',
 
   marginTop: {
