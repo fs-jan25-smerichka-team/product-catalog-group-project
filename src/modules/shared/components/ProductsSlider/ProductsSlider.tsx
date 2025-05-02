@@ -66,8 +66,8 @@ export const ProductsSlider: React.FC<Props> = ({ title, visibleProducts }) => {
       <Box sx={swiperBoxStyle(isLastSlideVisible)}>
         <Swiper
           style={{ height: '100%' }}
-          slidesPerView={1}
-          spaceBetween={'16px'}
+          slidesPerView={1.4}
+          spaceBetween={16}
           onSlideChange={swiper => setCurrSlide(swiper.activeIndex)}
           onSwiper={swiper => {
             swiperRef.current = swiper;
@@ -78,7 +78,10 @@ export const ProductsSlider: React.FC<Props> = ({ title, visibleProducts }) => {
           centeredSlides={false}
           breakpoints={{
             [theme.breakpoints.values.mobile]: {
-              slidesPerView: 1.5,
+              slidesPerView: 1.4,
+            },
+            [theme.breakpoints.values.mobileCustom]: {
+              slidesPerView: 2.2,
             },
             [theme.breakpoints.values.tablet]: {
               slidesPerView: 2.5,
@@ -92,7 +95,10 @@ export const ProductsSlider: React.FC<Props> = ({ title, visibleProducts }) => {
           }}
         >
           {visibleProducts.map(product => (
-            <SwiperSlide key={product.id}>
+            <SwiperSlide
+              key={product.id}
+              style={{ width: '100%', marginRight: '16px' }}
+            >
               <ProductCard product={product} />
             </SwiperSlide>
           ))}

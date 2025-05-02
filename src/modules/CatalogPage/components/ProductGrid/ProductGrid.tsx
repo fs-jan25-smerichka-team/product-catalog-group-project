@@ -13,8 +13,16 @@ export const ProductGrid: React.FC<Props> = ({ products }) => {
     <Grid container columnSpacing={2} rowSpacing={5}>
       {products.map(product => (
         <Grid
-          size={{ mobile: 4, tablet: 4, custom: 4, desktop: 6 }}
+          size={{
+            mobile: 4,
+            mobileCustom: 2,
+            tablet: 6,
+            custom: 4,
+            desktop: 6,
+          }}
           key={product.id}
+          display={'flex'}
+          justifyContent={'center'}
         >
           <ProductCard product={product} />
         </Grid>

@@ -4,9 +4,9 @@ import { Header, Footer } from './components';
 
 export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <Header />
-      <Box>
+      <Box sx={{ flexGrow: '1' }}>
         <Container
           maxWidth={false}
           sx={{
@@ -19,7 +19,7 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
         </Container>
       </Box>
       <Footer />
-    </>
+    </Box>
   );
 };
 
