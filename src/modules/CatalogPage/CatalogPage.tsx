@@ -58,32 +58,38 @@ export const CatalogPage: React.FC = () => {
         </Typography>
       </Stack>
 
-      {/* Dropdowns */}
-      <Stack direction="row" spacing={2} sx={sortingContainerStyle}>
-        <CatalogDropdown
-          label={'Sort by'}
-          items={SORTY_BY_OPTIONS}
-          activeItem={activeSort}
-          onSelect={handleParamChange('sort')}
-        />
+      {isPending ? (
+        <Loader />
+      ) : (
+        <>
+          {/* Dropdowns */}
+          <Stack direction="row" spacing={2} sx={sortingContainerStyle}>
+            <CatalogDropdown
+              label={'Sort by'}
+              items={SORTY_BY_OPTIONS}
+              activeItem={activeSort}
+              onSelect={handleParamChange('sort')}
+            />
 
-        <CatalogDropdown
-          label={'Items on page'}
-          items={PER_PAGE_OPTIONS}
-          activeItem={activePerPage}
-          onSelect={handleParamChange('perPage')}
-        />
-      </Stack>
+            <CatalogDropdown
+              label={'Items on page'}
+              items={PER_PAGE_OPTIONS}
+              activeItem={activePerPage}
+              onSelect={handleParamChange('perPage')}
+            />
+          </Stack>
 
-      {/* Products */}
-      <Box sx={productGridContainerStyle}>
-        {isPending ? <Loader /> : <ProductGrid products={visibleProducts} />}
-      </Box>
+          {/* Products */}
+          <Box sx={productGridContainerStyle}>
+            <ProductGrid products={visibleProducts} />
+          </Box>
 
-      {totalPages > 1 && (
-        <Box sx={paginationBoxStyle}>
-          <Pagination totalPages={totalPages} />
-        </Box>
+          {totalPages > 1 && (
+            <Box sx={paginationBoxStyle}>
+              <Pagination totalPages={totalPages} />
+            </Box>
+          )}
+        </>
       )}
     </Stack>
   );
