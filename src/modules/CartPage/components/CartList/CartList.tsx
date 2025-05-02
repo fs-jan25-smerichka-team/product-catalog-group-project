@@ -6,13 +6,13 @@ import { CartItem } from '../../../../utils/Types';
 import { CartCard } from '../CartCard/CartCard';
 
 interface Props {
-  cart: CartItem[];
+  cartItems: CartItem[];
 }
 
-export const CartList: React.FC<Props> = ({ cart }) => {
-  return cart.length ? (
+export const CartList: React.FC<Props> = ({ cartItems }) => {
+  return cartItems.length ? (
     <Stack direction="column" spacing="16px">
-      {cart.map(item => (
+      {cartItems.map(item => (
         <CartCard item={item} key={item.id} />
       ))}
     </Stack>

@@ -44,6 +44,7 @@ export type ProductDetailsInfo = {
 
 export type CartItem = {
   id: string;
+  category: string;
   name: string;
   image: string;
   price: number;

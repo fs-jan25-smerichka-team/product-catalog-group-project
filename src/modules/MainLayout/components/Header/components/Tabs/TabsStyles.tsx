@@ -15,13 +15,14 @@ export const tabStyles = {
   },
   p: 0,
   minWidth: '20px',
-  '&.Mui-selected': {
+  '&.Mui-selected, &:hover': {
     color: 'primary.main',
   },
 };
 
 export const tabIndicatorStyles = {
   height: '3px',
+  transition: 'none',
 };
 
 export const iconTabsStyles = {

@@ -52,8 +52,8 @@ export const RightsPage: React.FC = () => {
       </Stack>
 
       <Stack sx={RightsPageStyle.contentContainer}>
-        {rightsText.map(({ title, text }) => (
-          <Stack sx={RightsPageStyle.articleContainer}>
+        {rightsText.map(({ title, text }, index) => (
+          <Stack key={index} sx={RightsPageStyle.articleContainer}>
             <Typography variant="h4" sx={RightsPageStyle.titleText}>
               {title}
             </Typography>
