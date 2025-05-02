@@ -5,9 +5,12 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { ProductGrid, Pagination } from './components';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
 import { Loader } from '../shared/components/Loader/Loader';
+import { CatalogDropdown } from './components/CatalogDropdown';
+import { useCatalogProducts } from '../../utils/hooks/useCatalogProducts';
 import {
   CATALOG_TITLES,
   PER_PAGE_OPTIONS,
+  PRODUCTS_CATEGORIES,
   SORTY_BY_OPTIONS,
 } from '../../constants/constants';
 import {
@@ -16,11 +19,9 @@ import {
   productGridContainerStyle,
   paginationBoxStyle,
 } from './CatalogStyles';
-import { useCatalogProducts } from '../../utils/hooks/useCatalogProducts';
-import { CatalogDropdown } from './components/CatalogDropdown';
 
 const isValidCategory = (category: string) =>
-  ['phones', 'tablets', 'accessories'].includes(category);
+  PRODUCTS_CATEGORIES.includes(category);
 
 export const CatalogPage: React.FC = () => {
   const navigate = useNavigate();

@@ -28,7 +28,6 @@ export const Selector: React.FC<Props> = ({
 
       <Stack
         direction={'row'}
-        onChange={() => handleChange}
         sx={SelectorStyle.optionsContainer}
         role="group"
         aria-label={label}
@@ -38,6 +37,7 @@ export const Selector: React.FC<Props> = ({
             key={option}
             value={option}
             isSelected={selectedOption === option}
+            onClick={handleChange}
           />
         ))}
       </Stack>

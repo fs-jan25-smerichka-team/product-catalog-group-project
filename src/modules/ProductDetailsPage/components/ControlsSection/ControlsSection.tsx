@@ -1,6 +1,16 @@
 import { Box, Divider, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
+import { SpecsInfo } from '../../../shared/components/SpecsInfo/SpecsInfo';
+import { ProductControlsSection } from '../../../shared/components/ProductControls/ProductControls';
+import { fullPriceTypographyStyle } from '../../../shared/ProductCard/ProductCardStyle';
+import { Selector } from '../Selector/Selector';
+import { SelectorButton } from '../Selector/components/SelectorButton/SelectorButton';
+import { SelectorColorButton } from '../Selector/components/SelectorColorButton/SelectorColorButton';
+import { ProductDetailsInfo } from '../../../../utils/Types';
+import { getMainSpecs } from '../../../../utils/functions/getProductSpecs';
+import { useProductDetails } from '../../../../utils/hooks/useProductDetails';
 import {
   capacitySelectorContainerStyle,
   colorSelectorContainerStyle,
@@ -9,65 +19,95 @@ import {
   PriceAndButtonsStyle,
   specsInfoContainerStyle,
 } from './ControlsSectionStyles';
-import { ProductDetailsInfo } from '../../../../utils/Types';
-import { getMainSpecs } from '../../../../utils/functions/getProductSpecs';
-import { SpecsInfo } from '../../../shared/components/SpecsInfo/SpecsInfo';
-import { ProductControlsSection } from '../../../shared/components/ProductControls/ProductControls';
-import { fullPriceTypographyStyle } from '../../../shared/ProductCard/ProductCardStyle';
-import { Selector } from '../Selector/Selector';
-import { SelectorButton } from '../Selector/components/SelectorButton/SelectorButton';
-import { SelectorColorButton } from '../Selector/components/SelectorColorButton/SelectorColorButton';
 
 type Props = {
   product: ProductDetailsInfo;
 };
 
-export const ControlsSection: React.FC<Props> = ({ product }) => (
-  <Box sx={controlsContainerStyle}>
-    <Box sx={colorSelectorContainerStyle}>
-      <Selector
-        label={'Available colors'}
-        options={product.colorsAvailable}
-        selectedOption={product.color}
-        OptionButton={SelectorColorButton}
-        onSelect={() => {}}
-      />
-    </Box>
+export const ControlsSection: React.FC<Props> = ({ product }) => {
+  const navigate = useNavigate();
+  const { category } = useParams();
+  const { productsBySelectedModel } = useProductDetails();
 
-    <Divider sx={dividerControlsStyle} />
+  const [selectedValue, setSelectedValue] = useState<{
+    color: string;
+    capacity: string;
+  }>({
+    color: product.color,
+    capacity: product.capacity,
+  });
 
-    <Box sx={capacitySelectorContainerStyle}>
-      <Selector
-        label={'Select capacity'}
-        options={product.capacityAvailable}
-        selectedOption={product.capacity}
-        OptionButton={SelectorButton}
-        onSelect={() => {}}
-      />
-    </Box>
+  const getNewProduct = (newProductOptions: {
+    color?: string;
+    capacity?: string;
+  }) => {
+    const [key, value] = Object.entries(newProductOptions)[0];
 
-    <Divider sx={dividerControlsStyle} />
+    setSelectedValue(prev => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
 
-    <Box sx={PriceAndButtonsStyle.container}>
-      <Box sx={PriceAndButtonsStyle.priceContainer}>
-        <Typography variant="h3" color="primary.main">
-          ${product.priceDiscount}
-        </Typography>
+  useEffect(() => {
+    const newProduct = productsBySelectedModel.find(
+      item =>
+        item.capacity === selectedValue.capacity &&
+        item.color === selectedValue.color,
+    );
 
-        {product.priceDiscount !== product.priceRegular && (
-          <Typography variant="h3" sx={fullPriceTypographyStyle}>
-            ${product.priceRegular}
+    if (newProduct && newProduct.id !== product.id) {
+      navigate(`/${category}/${newProduct.id}`, { replace: true });
+    }
+  }, [selectedValue, productsBySelectedModel, navigate, category, product.id]);
+
+  return (
+    <Box sx={controlsContainerStyle}>
+      <Box sx={colorSelectorContainerStyle}>
+        <Selector
+          label={'Available colors'}
+          options={product.colorsAvailable}
+          selectedOption={selectedValue.color}
+          OptionButton={SelectorColorButton}
+          onSelect={newColor => getNewProduct({ color: newColor })}
+        />
+      </Box>
+
+      <Divider sx={dividerControlsStyle} />
+
+      <Box sx={capacitySelectorContainerStyle}>
+        <Selector
+          label={'Select capacity'}
+          options={product.capacityAvailable}
+          selectedOption={selectedValue.capacity}
+          OptionButton={SelectorButton}
+          onSelect={newCapacity => getNewProduct({ capacity: newCapacity })}
+        />
+      </Box>
+
+      <Divider sx={dividerControlsStyle} />
+
+      <Box sx={PriceAndButtonsStyle.container}>
+        <Box sx={PriceAndButtonsStyle.priceContainer}>
+          <Typography variant="h3" color="primary.main">
+            ${product.priceDiscount}
           </Typography>
-        )}
+
+          {product.priceDiscount !== product.priceRegular && (
+            <Typography variant="h3" sx={fullPriceTypographyStyle}>
+              ${product.priceRegular}
+            </Typography>
+          )}
+        </Box>
+
+        <Box sx={PriceAndButtonsStyle.buttonsContainer}>
+          <ProductControlsSection itemId={product.id} size="big" />
+        </Box>
       </Box>
 
-      <Box sx={PriceAndButtonsStyle.buttonsContainer}>
-        <ProductControlsSection itemId={product.id} size="big" />
+      <Box sx={specsInfoContainerStyle}>
+        <SpecsInfo specs={getMainSpecs(product)} textVariant="body2" />
       </Box>
     </Box>
-
-    <Box sx={specsInfoContainerStyle}>
-      <SpecsInfo specs={getMainSpecs(product)} textVariant="body2" />
-    </Box>
-  </Box>
-);
+  );
+};
