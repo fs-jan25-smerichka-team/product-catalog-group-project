@@ -11,17 +11,20 @@ import {
 type Props = {
   value: string;
   isSelected: boolean;
+  onClick: (value: string) => void;
 };
 
 export const SelectorColorButton: React.FC<Props> = ({
   value,
   isSelected = false,
+  onClick,
 }) => {
   const theme = useTheme();
 
   return (
     <Button
       value={value}
+      onClick={() => onClick(value)}
       variant={'outlined'}
       sx={selectorColorButtonStyle(isSelected, theme)}
     >

@@ -1,7 +1,6 @@
 import React from 'react';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Box, Grid, Stack, Typography } from '@mui/material';
-import { useQuery } from '@tanstack/react-query';
 
 import { BackButton } from '../shared/components/BackButton/BackButton';
 import {
@@ -13,29 +12,12 @@ import {
 } from './components';
 import { Loader } from '../shared/components/Loader/Loader';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
-import { ProductDetailsInfo } from '../../utils/Types';
+import { useProductDetails } from '../../utils/hooks/useProductDetails';
 import { productDetailsStyle } from './ProductDetailsStyles';
-import { CATALOG_API_CALLS } from '../../constants/constants';
 
 export const ProductDetailsPage: React.FC = () => {
-  const { productId } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-  const category = location.pathname.split('/')[1];
-
-  const queryFn = CATALOG_API_CALLS[category];
-
-  const { data: products, isPending } = useQuery<ProductDetailsInfo[], boolean>(
-    {
-      queryKey: [category],
-      queryFn,
-      enabled: !!queryFn,
-    },
-  );
-
-  const product: ProductDetailsInfo | undefined = products?.find(
-    prod => prod.id === productId,
-  );
+  const { product, isPending } = useProductDetails();
 
   if (isPending) {
     return <Loader />;

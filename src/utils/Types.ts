@@ -1,3 +1,5 @@
+import { PRODUCTS_CATEGORIES } from '@/constants/constants';
+
 type Description = {
   title: string;
   text: string[];
@@ -20,6 +22,8 @@ export type ProductCardInfo = {
   year: number;
   image: string;
 };
+
+export type ProductCategory = (typeof PRODUCTS_CATEGORIES)[number];
 
 export type ProductDetailsInfo = {
   id: string;
