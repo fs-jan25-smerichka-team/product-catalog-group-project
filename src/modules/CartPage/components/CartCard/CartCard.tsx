@@ -65,13 +65,8 @@ export const CartCard: React.FC<Props> = ({ item }) => {
           <CardActions sx={CardActionsStyle}>
             <IconButton
               onClick={() => decreaseQuantity(item.id)}
-              sx={{
-                ...CounterButtonStyle,
-                ...(item.quantity <= 1 && {
-                  borderColor: theme.palette.secondary.light,
-                  color: theme.palette.secondary.main,
-                }),
-              }}
+              disabled={item.quantity <= 1}
+              sx={CounterButtonStyle}
               disableRipple
             >
               <MinusIcon />
