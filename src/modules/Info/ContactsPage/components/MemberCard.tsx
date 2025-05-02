@@ -55,7 +55,12 @@ export const MemberCard: React.FC<Props> = ({ memberInfo }) => {
 
         <Stack direction={'row'} gap={4} sx={cardStyle.contactsContainer}>
           {contacts.map(({ label, href }, index) => (
-            <Link key={index} href={href} sx={cardStyle.contactLink}>
+            <Link
+              key={index}
+              href={href}
+              target={label == 'Email' ? '_self' : '_blank'}
+              sx={cardStyle.contactLink}
+            >
               <Typography variant="body2" sx={cardStyle.contactLabelText}>
                 {label}
               </Typography>
