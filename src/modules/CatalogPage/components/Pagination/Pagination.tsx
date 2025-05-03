@@ -47,6 +47,10 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
     }
   }, [currentPage]);
 
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Box
       display="flex"
@@ -58,7 +62,10 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
       <ArrowButton
         direction="left"
         isBtnDisabled={prevDisabled}
-        handleClickArrow={() => setCurrentPage(currentPage - 1)}
+        handleClickArrow={() => {
+          setCurrentPage(currentPage - 1);
+          handleBackToTop();
+        }}
       />
 
       <Box width={perView * BUTTON_WIDTH + (perView - 1) * SLIDES_GAP}>
@@ -72,7 +79,10 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
           {pagesList.map(page => (
             <SwiperSlide key={page}>
               <Button
-                onClick={() => setCurrentPage(page)}
+                onClick={() => {
+                  setCurrentPage(page);
+                  handleBackToTop();
+                }}
                 variant={page === currentPage ? 'contained' : 'outlined'}
                 sx={buttonStyle}
               >
@@ -86,7 +96,10 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
       <ArrowButton
         direction="right"
         isBtnDisabled={nextDisabled}
-        handleClickArrow={() => setCurrentPage(currentPage + 1)}
+        handleClickArrow={() => {
+          setCurrentPage(currentPage + 1);
+          handleBackToTop();
+        }}
       />
     </Box>
   );

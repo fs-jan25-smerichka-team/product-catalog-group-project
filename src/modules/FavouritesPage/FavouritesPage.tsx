@@ -32,24 +32,28 @@ export const FavouritesPage: React.FC = () => {
         ) : (
           <Box>
             {/* grid of card */}
-            <Grid container spacing={2}>
-              {products.map(product => (
-                <Grid
-                  size={{
-                    mobile: 4,
-                    mobileCustom: 2,
-                    tablet: 6,
-                    custom: 4,
-                    desktop: 6,
-                  }}
-                  key={product.id}
-                  display={'flex'}
-                  justifyContent={'center'}
-                >
-                  <ProductCard product={product} />
-                </Grid>
-              ))}
-            </Grid>
+            {products.length ? (
+              <Grid container spacing={2}>
+                {products.map(product => (
+                  <Grid
+                    size={{
+                      mobile: 4,
+                      mobileCustom: 2,
+                      tablet: 6,
+                      custom: 4,
+                      desktop: 6,
+                    }}
+                    key={product.id}
+                    display={'flex'}
+                    justifyContent={'center'}
+                  >
+                    <ProductCard product={product} />
+                  </Grid>
+                ))}
+              </Grid>
+            ) : (
+              <Typography variant="h3">Your favourites is empty</Typography>
+            )}
           </Box>
         )}
       </Box>
