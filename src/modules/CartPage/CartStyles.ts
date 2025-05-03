@@ -4,4 +4,5 @@ export const CartGridStyle = (theme: Theme): SxProps<Theme> => ({
   maxWidth: '1136px',
   mx: 'auto',
   bgcolor: theme.palette.secondary.contrastText,
+  mt: { mobile: '24px', tablet: '40px', desktop: '40px' },
 });
