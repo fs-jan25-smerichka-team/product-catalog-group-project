@@ -7,7 +7,7 @@ import { ProductDetailsInfo } from '../Types';
 export const useProductDetails = () => {
   const { productId, category } = useParams();
 
-  const queryFn = CATALOG_API_CALLS[category];
+  const queryFn = CATALOG_API_CALLS[category || ''];
 
   const {
     data: products = [],

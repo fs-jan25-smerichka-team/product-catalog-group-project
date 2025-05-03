@@ -8,11 +8,7 @@ import { getAccessories, getPhones, getTablets } from '../utils/api';
 
 export const DEVICE_SLIDER_ITEMS_MAX = 16;
 
-export const PRODUCTS_CATEGORIES = [
-  'phones',
-  'tablets',
-  'accessories',
-] as const;
+export const PRODUCTS_CATEGORIES = ['phones', 'tablets', 'accessories'];
 
 export const CATALOG_TITLES: Record<ProductCategory, string> = {
   phones: 'Mobile phones',
