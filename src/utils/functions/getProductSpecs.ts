@@ -41,7 +41,9 @@ function buildSpecs<T extends Record<string, unknown>>(
     const value = product[key as keyof T];
 
     if (value !== undefined && value !== null) {
-      const displayName = specsDisplayNames[key];
+      const displayName = value.toString().includes('mm')
+        ? 'Size'
+        : specsDisplayNames[key];
       specs[displayName] = Array.isArray(value)
         ? value.join(', ')
         : String(value);

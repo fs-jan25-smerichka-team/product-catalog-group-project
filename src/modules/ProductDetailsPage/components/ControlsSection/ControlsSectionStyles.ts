@@ -15,7 +15,7 @@ export const capacitySelectorContainerStyle: SxProps<Theme> = {
   flexDirection: 'column',
   gap: '8px',
   marginY: '24px',
-  height: '55px',
+  minHeight: '55px',
 };
 
 export const dividerControlsStyle: SxProps<Theme> = {

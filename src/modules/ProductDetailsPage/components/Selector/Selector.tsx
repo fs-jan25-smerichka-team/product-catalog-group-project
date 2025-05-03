@@ -28,6 +28,7 @@ export const Selector: React.FC<Props> = ({
 
       <Stack
         direction={'row'}
+        flexWrap="wrap"
         sx={SelectorStyle.optionsContainer}
         role="group"
         aria-label={label}

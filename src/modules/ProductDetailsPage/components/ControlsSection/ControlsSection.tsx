@@ -77,7 +77,7 @@ export const ControlsSection: React.FC<Props> = ({ product }) => {
 
       <Box sx={capacitySelectorContainerStyle}>
         <Selector
-          label={'Select capacity'}
+          label={`Select ${category === 'accessories' ? 'size' : 'capacity'}`}
           options={product.capacityAvailable}
           selectedOption={selectedValue.capacity}
           OptionButton={SelectorButton}
