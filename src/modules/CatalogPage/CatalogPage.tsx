@@ -5,9 +5,12 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { ProductGrid, Pagination } from './components';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
 import { Loader } from '../shared/components/Loader/Loader';
+import { CatalogDropdown } from './components/CatalogDropdown';
+import { useCatalogProducts } from '../../utils/hooks/useCatalogProducts';
 import {
   CATALOG_TITLES,
   PER_PAGE_OPTIONS,
+  PRODUCTS_CATEGORIES,
   SORTY_BY_OPTIONS,
 } from '../../constants/constants';
 import {
@@ -16,11 +19,9 @@ import {
   productGridContainerStyle,
   paginationBoxStyle,
 } from './CatalogStyles';
-import { useCatalogProducts } from '../../utils/hooks/useCatalogProducts';
-import { CatalogDropdown } from './components/CatalogDropdown';
 
 const isValidCategory = (category: string) =>
-  ['phones', 'tablets', 'accessories'].includes(category);
+  PRODUCTS_CATEGORIES.includes(category);
 
 export const CatalogPage: React.FC = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ export const CatalogPage: React.FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activeSort = searchParams.get('sort') || 'Newest';
-  const activePerPage = searchParams.get('perPage') || 'All';
+  const activePerPage = searchParams.get('perPage') || '16';
 
   const handleParamChange = (key: string) => (value: string) => {
     searchParams.set(key, value);
@@ -58,32 +59,38 @@ export const CatalogPage: React.FC = () => {
         </Typography>
       </Stack>
 
-      {/* Dropdowns */}
-      <Stack direction="row" spacing={2} sx={sortingContainerStyle}>
-        <CatalogDropdown
-          label={'Sort by'}
-          items={SORTY_BY_OPTIONS}
-          activeItem={activeSort}
-          onSelect={handleParamChange('sort')}
-        />
+      {isPending ? (
+        <Loader />
+      ) : (
+        <>
+          {/* Dropdowns */}
+          <Stack direction="row" spacing={2} sx={sortingContainerStyle}>
+            <CatalogDropdown
+              label={'Sort by'}
+              items={SORTY_BY_OPTIONS}
+              activeItem={activeSort}
+              onSelect={handleParamChange('sort')}
+            />
 
-        <CatalogDropdown
-          label={'Items on page'}
-          items={PER_PAGE_OPTIONS}
-          activeItem={activePerPage}
-          onSelect={handleParamChange('perPage')}
-        />
-      </Stack>
+            <CatalogDropdown
+              label={'Items on page'}
+              items={PER_PAGE_OPTIONS}
+              activeItem={activePerPage}
+              onSelect={handleParamChange('perPage')}
+            />
+          </Stack>
 
-      {/* Products */}
-      <Box sx={productGridContainerStyle}>
-        {isPending ? <Loader /> : <ProductGrid products={visibleProducts} />}
-      </Box>
+          {/* Products */}
+          <Box sx={productGridContainerStyle}>
+            <ProductGrid products={visibleProducts} />
+          </Box>
 
-      {totalPages > 1 && (
-        <Box sx={paginationBoxStyle}>
-          <Pagination totalPages={totalPages} />
-        </Box>
+          {totalPages > 1 && (
+            <Box sx={paginationBoxStyle}>
+              <Pagination totalPages={totalPages} />
+            </Box>
+          )}
+        </>
       )}
     </Stack>
   );

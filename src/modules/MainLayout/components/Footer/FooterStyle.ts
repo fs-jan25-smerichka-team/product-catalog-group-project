@@ -36,7 +36,7 @@ export const flexBoxStyle: SxProps<Theme> = {
 export const contactsStyle: SxProps<Theme> = {
   display: 'flex',
   flexDirection: { mobile: 'column', tablet: 'row' },
-  gap: { mobile: '16px', tablet: '13px', desktop: '106px' },
+  gap: { mobile: '16px', tablet: '16px', desktop: '106px' },
 };
 
 export const backToTopStyle: SxProps<Theme> = {
@@ -44,6 +44,16 @@ export const backToTopStyle: SxProps<Theme> = {
   justifyContent: 'center',
   alignItems: 'center',
   gap: '16px',
+  cursor: 'pointer',
+
+  '&:hover .back-to-top-text': {
+    color: 'text.primary',
+  },
+
+  '&:hover .back-to-top-button': {
+    borderColor: 'primary.main',
+    backgroundColor: 'background.paper',
+  },
 };
 
 export const iconButtonStyle: SxProps<Theme> = {
@@ -51,14 +61,14 @@ export const iconButtonStyle: SxProps<Theme> = {
   height: '32px',
   border: '1px solid',
   borderColor: 'secondary.main',
-  '&:hover': {
-    borderColor: 'primary.main',
-    backgroundColor: 'background.paper',
-  },
 };
 
 export const backToTopTextStyle: SxProps<Theme> = {
   color: 'secondary.dark',
+
+  '&:hover': {
+    color: 'text.primary',
+  },
 };
 
 export const logoBoxStyle: SxProps<Theme> = {
@@ -68,8 +78,14 @@ export const logoBoxStyle: SxProps<Theme> = {
 
 export const contactsLinkStyle = {
   textDecoration: 'none',
+};
+
+export const contactsLinkTextStyle: SxProps<Theme> = {
   color: 'secondary.dark',
   '&:hover': {
+    color: 'primary.main',
+  },
+  '.footer-link.active &': {
     color: 'primary.main',
   },
 };

@@ -9,7 +9,9 @@ export const useFavouritesItems = () => {
   const [favouritesStorageItems, setFavouritesStorageItems] = useAtom<string[]>(
     favouritesStorageItemsAtom,
   );
-  const { data: allProducts = [] } = useQuery(getProductsQueryOptions());
+  const { data: allProducts = [], isPending } = useQuery(
+    getProductsQueryOptions(),
+  );
 
   const favouritesItems: ProductCardInfo[] = favouritesStorageItems
     .map(id => allProducts.find(p => p.itemId === id))
@@ -23,5 +25,6 @@ export const useFavouritesItems = () => {
   return {
     favouritesItems,
     removeItemFromFavourites,
+    isPending,
   };
 };

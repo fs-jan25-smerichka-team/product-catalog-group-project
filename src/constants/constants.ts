@@ -1,9 +1,20 @@
-import { PerPage, ProductDetailsInfo, SortBy } from '../utils/Types';
+import {
+  PerPage,
+  ProductCategory,
+  ProductDetailsInfo,
+  SortBy,
+} from '../utils/Types';
 import { getAccessories, getPhones, getTablets } from '../utils/api';
 
 export const DEVICE_SLIDER_ITEMS_MAX = 16;
 
-export const CATALOG_TITLES: Record<string, string> = {
+export const PRODUCTS_CATEGORIES = [
+  'phones',
+  'tablets',
+  'accessories',
+] as const;
+
+export const CATALOG_TITLES: Record<ProductCategory, string> = {
   phones: 'Mobile phones',
   tablets: 'Tablets',
   accessories: 'Accessories',

@@ -9,9 +9,11 @@ export const DeleteButtonStyle: SxProps<Theme> = {
   width: '16px',
   height: '16px',
   color: 'secondary.main',
+  
   '&:hover': {
     color: 'primary.main',
   },
+
 };
 
 export const CounterButtonStyle: SxProps<Theme> = {

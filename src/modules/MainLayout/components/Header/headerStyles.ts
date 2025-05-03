@@ -95,7 +95,7 @@ export const mobileNavigationIconTabsStyles = {
 };
 
 export const drawerPaperStyles = (theme: Theme) => {
-  const headerHeightMobile = '48px'; /*theme.shape.headerHeight.mobile*/
+  const headerHeightMobile = 48; /*theme.shape.headerHeight.mobile*/
   const headerHeightWithBorder = `${headerHeightMobile + 1}px`;
 
   return {

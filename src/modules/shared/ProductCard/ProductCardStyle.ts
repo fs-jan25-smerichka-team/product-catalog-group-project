@@ -13,6 +13,7 @@ export const cardStyle: SxProps<Theme> = {
   gap: '8px',
   height: '100%',
   maxWidth: '288px',
+  minWidth: '212px',
   minHeight: '440px',
   '&:hover': {
     boxShadow: '0px 2px 16px 0px #0000001A',

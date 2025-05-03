@@ -11,7 +11,7 @@ export const useCatalogProducts = () => {
   const [searchParams] = useSearchParams();
   const sortBy = searchParams.get('sort') || 'newest';
   const currentPage = +(searchParams.get('page') || 1);
-  const perPage = +(searchParams.get('perPage') || 0);
+  const perPage = +(searchParams.get('perPage') || 16);
 
   const { data: allProducts = [], isPending } = useQuery(
     getProductsQueryOptions(),

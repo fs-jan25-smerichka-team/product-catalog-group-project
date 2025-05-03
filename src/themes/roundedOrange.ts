@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
     lg: false;
     xl: false;
     mobile: true;
+    mobileCustom: true;
     tablet: true;
     custom: true;
     desktop: true;
@@ -25,6 +26,7 @@ export const theme = createTheme({
   breakpoints: {
     values: {
       mobile: 320,
+      mobileCustom: 472,
       tablet: 640,
       custom: 768,
       desktop: 1200,
@@ -88,7 +90,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Mont',
+    fontFamily: 'Mont, sans-serif',
     h1: {
       fontSize: '48px',
       fontWeight: 800,

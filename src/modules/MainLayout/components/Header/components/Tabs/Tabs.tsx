@@ -20,7 +20,7 @@ import {
   verticalTabsStyles,
   textTabTypographyStyles,
   iconDrawerTabStyles,
-} from './tabtsStyles';
+} from './TabsStyles.tsx';
 
 interface NavigationTabsProps {
   orientation?: 'horizontal' | 'vertical';
@@ -63,12 +63,23 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
     !showTitles && showIcons && orientation === 'vertical';
   const isMobileScreen = orientation === 'vertical' || isMobileDrawerIconsOnly;
 
-  const isTabVisible = (tabIndex: number) => {
-    if (showTitles && tabIndex < navigationTitles.length) return true;
-    return !!(showIcons && tabIndex >= navigationTitles.length);
-  };
+  const textTabsCount = navigationTitles.length;
+  const iconTabsCount = navigationIcons.length;
 
-  const correctValue = isTabVisible(value) ? value : false;
+  const visibleTabsIndices: number[] = [];
+
+  if (showTitles) {
+    visibleTabsIndices.push(
+      ...Array.from({ length: textTabsCount }, (_, i) => i),
+    );
+  }
+  if (showIcons) {
+    visibleTabsIndices.push(
+      ...Array.from({ length: iconTabsCount }, (_, i) => i + textTabsCount),
+    );
+  }
+
+  const correctValue = visibleTabsIndices.includes(value) ? value : false;
 
   return (
     <Box sx={{ ...tabsContainerStyles, ...sx }}>
@@ -142,11 +153,9 @@ export const NavigationTabs: React.FC<NavigationTabsProps> = ({
                   ...(isMobileDrawerIconsOnly && iconDrawerTabStyles(isActive)),
                 }}
                 label={
-                  <Box component="span">
-                    <BadgeIcon badgeContent={iconMap[navEl].badgeContent}>
-                      {iconMap[navEl].icon}
-                    </BadgeIcon>
-                  </Box>
+                  <BadgeIcon badgeContent={iconMap[navEl].badgeContent}>
+                    {iconMap[navEl].icon}
+                  </BadgeIcon>
                 }
               />
             );

@@ -4,14 +4,14 @@ import { useQuery } from '@tanstack/react-query';
 import { getProductsQueryOptions } from '../../queryOptions/getProductsQueryOptions';
 import { buildCartItems } from '../functions/cartUtils';
 import { cartStorageItemsAtom } from '../../state/cart';
-import { CartStorageItem } from '../Types';
+import { CartItem, CartStorageItem } from '../Types';
 
 export const useCartItems = () => {
   const [cartStorageItems, setCartStorageItems] =
     useAtom<CartStorageItem[]>(cartStorageItemsAtom);
   const { data: allProducts } = useQuery(getProductsQueryOptions());
 
-  const cartItems = buildCartItems(
+  const cartItems: CartItem[] = buildCartItems(
     cartStorageItems as CartStorageItem[],
     allProducts,
   );

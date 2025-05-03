@@ -9,6 +9,7 @@ import {
   IconButton,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { CartItem } from '../../../../utils/Types';
 import { useCartItems } from '../../../../utils/hooks/useCartItems';
@@ -48,26 +49,48 @@ export const CartCard: React.FC<Props> = ({ item }) => {
             <CloseIcon />
           </IconButton>
         </Grid>
-        <Grid
-          size={{ mobile: 1, tablet: 'auto', desktop: 'auto' }}
-          justifySelf="flex-start"
+
+        <Link
+          to={`/${item.category}/${item.id}`}
+          style={{ textDecoration: 'none', display: 'contents' }}
         >
-          <CardMedia component="div" image={item.image} sx={CardImageStyle} />
-        </Grid>
-        <Grid size={{ mobile: 2.7, tablet: 'grow', desktop: 'grow' }}>
-          <CardContent sx={CardTextStyle}>
-            <Typography variant="body1" color={theme.palette.primary.main}>
-              {item.name}
-            </Typography>
-          </CardContent>
-        </Grid>
+          <Grid
+            size={{ mobile: 1, tablet: 'auto', desktop: 'auto' }}
+            justifySelf="flex-start"
+          >
+            <CardMedia
+              component="div"
+              image={item.image}
+              sx={{
+                ...CardImageStyle,
+                '&:hover': {
+                  backgroundColor: '#EEF1F3',
+                  borderRadius: 1,
+                },
+              }}
+            />
+          </Grid>
+
+          <Grid size={{ mobile: 2.7, tablet: 'grow', desktop: 'grow' }}>
+            <CardContent sx={CardTextStyle}>
+              <Typography
+                variant="body1"
+                color={theme.palette.primary.main}
+                sx={{ '&:hover': { textDecoration: 'underline' } }}
+              >
+                {item.name}
+              </Typography>
+            </CardContent>
+          </Grid>
+        </Link>
+
         <Grid size={{ mobile: 2.5, tablet: 'auto', desktop: 'auto' }}>
           <CardActions sx={CardActionsStyle}>
             <IconButton
               onClick={() => decreaseQuantity(item.id)}
-              disabled={item.quantity <= 1}
               sx={CounterButtonStyle}
               disableRipple
+              disabled={item.quantity <= 1}
             >
               <MinusIcon />
             </IconButton>
@@ -82,6 +105,7 @@ export const CartCard: React.FC<Props> = ({ item }) => {
             </IconButton>
           </CardActions>
         </Grid>
+
         <Grid size="auto" offset="auto">
           <CardContent sx={CardPriceStyle}>
             <Typography variant="h2">${item.price}</Typography>

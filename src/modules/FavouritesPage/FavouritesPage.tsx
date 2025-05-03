@@ -5,9 +5,10 @@ import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs
 import { ProductCard } from '../shared/ProductCard/ProductCard';
 import { useFavouritesItems } from '../../utils/hooks/useFavouritesItems';
 import { containerStyle, titleStyle } from './FavouritesStyles';
+import { Loader } from '../shared/components/Loader/Loader';
 
 export const FavouritesPage: React.FC = () => {
-  const { favouritesItems: products } = useFavouritesItems();
+  const { favouritesItems: products, isPending } = useFavouritesItems();
 
   return (
     <>
@@ -21,22 +22,40 @@ export const FavouritesPage: React.FC = () => {
             Favourites
           </Typography>
 
-          <Typography variant="body1">{products.length} items</Typography>
+          <Typography variant="body1">
+            {isPending ? 'Loading...' : `${products.length} items`}
+          </Typography>
         </Box>
 
-        <Box>
-          {/* grid of card */}
-          <Grid container spacing={2}>
-            {products.map(product => (
-              <Grid
-                size={{ mobile: 4, tablet: 6, custom: 4, desktop: 6 }}
-                key={product.id}
-              >
-                <ProductCard product={product} />
+        {isPending ? (
+          <Loader />
+        ) : (
+          <Box>
+            {/* grid of card */}
+            {products.length ? (
+              <Grid container spacing={2}>
+                {products.map(product => (
+                  <Grid
+                    size={{
+                      mobile: 4,
+                      mobileCustom: 2,
+                      tablet: 6,
+                      custom: 4,
+                      desktop: 6,
+                    }}
+                    key={product.id}
+                    display={'flex'}
+                    justifyContent={'center'}
+                  >
+                    <ProductCard product={product} />
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-        </Box>
+            ) : (
+              <Typography variant="h3">Your favourites is empty</Typography>
+            )}
+          </Box>
+        )}
       </Box>
     </>
   );
