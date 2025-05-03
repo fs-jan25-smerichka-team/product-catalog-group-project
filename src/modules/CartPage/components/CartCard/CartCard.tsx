@@ -108,7 +108,7 @@ export const CartCard: React.FC<Props> = ({ item }) => {
 
         <Grid size="auto" offset="auto">
           <CardContent sx={CardPriceStyle}>
-            <Typography variant="h2">${item.price}</Typography>
+            <Typography variant="h3">${item.price}</Typography>
           </CardContent>
         </Grid>
       </Grid>
