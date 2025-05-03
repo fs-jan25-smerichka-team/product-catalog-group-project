@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperCore } from 'swiper/types';
@@ -86,7 +86,7 @@ export const Pagination: React.FC<Props> = ({ totalPages }) => {
                 variant={page === currentPage ? 'contained' : 'outlined'}
                 sx={buttonStyle}
               >
-                {page}
+                <Typography variant="body1">{page}</Typography>
               </Button>
             </SwiperSlide>
           ))}

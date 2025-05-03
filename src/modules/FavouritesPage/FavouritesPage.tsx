@@ -22,7 +22,7 @@ export const FavouritesPage: React.FC = () => {
             Favourites
           </Typography>
 
-          <Typography variant="body1">
+          <Typography variant="body1" color="secondary.dark">
             {isPending ? 'Loading...' : `${products.length} items`}
           </Typography>
         </Box>

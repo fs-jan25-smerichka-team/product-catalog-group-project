@@ -11,12 +11,13 @@ export const DropdownStyle = (theme: Theme): SxProps<Theme> => ({
 export const DropdownElementStyle = (theme: Theme): SxProps<Theme> => ({
   color: theme.palette.secondary.dark,
   bgcolor: theme.palette.primary.contrastText,
+
   '&:hover': {
     color: theme.palette.primary.main,
     bgcolor: theme.palette.secondary.contrastText,
   },
-  '&:active': {
-    color: theme.palette.secondary.dark,
-    bgcolor: theme.palette.primary.contrastText,
+  '&.Mui-selected': {
+    color: theme.palette.primary.main,
+    bgcolor: theme.palette.secondary.light + ' !important',
   },
 });

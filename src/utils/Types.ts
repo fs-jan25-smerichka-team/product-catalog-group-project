@@ -1,5 +1,3 @@
-import { PRODUCTS_CATEGORIES } from '@/constants/constants';
-
 type Description = {
   title: string;
   text: string[];
@@ -23,7 +21,7 @@ export type ProductCardInfo = {
   image: string;
 };
 
-export type ProductCategory = (typeof PRODUCTS_CATEGORIES)[number];
+export type ProductCategoryType = 'phones' | 'tablets' | 'accessories';
 
 export type ProductDetailsInfo = {
   id: string;
@@ -58,6 +56,11 @@ export type CartItem = {
 export type CartStorageItem = {
   id: string;
   quantity: number;
+};
+
+export type NewProductOptions = {
+  color?: string;
+  capacity?: string;
 };
 
 export type MemberInfo = {

@@ -1,6 +1,6 @@
 import {
   PerPage,
-  ProductCategory,
+  ProductCategoryType,
   ProductDetailsInfo,
   SortBy,
 } from '../utils/Types';
@@ -8,9 +8,13 @@ import { getAccessories, getPhones, getTablets } from '../utils/api';
 
 export const DEVICE_SLIDER_ITEMS_MAX = 16;
 
-export const PRODUCTS_CATEGORIES = ['phones', 'tablets', 'accessories'];
+export const PRODUCTS_CATEGORIES: ProductCategoryType[] = [
+  'phones',
+  'tablets',
+  'accessories',
+];
 
-export const CATALOG_TITLES: Record<ProductCategory, string> = {
+export const CATALOG_TITLES: Record<ProductCategoryType, string> = {
   phones: 'Mobile phones',
   tablets: 'Tablets',
   accessories: 'Accessories',

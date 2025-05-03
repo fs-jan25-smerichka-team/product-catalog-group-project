@@ -23,8 +23,10 @@ import {
 } from './PicturesSliderStyle';
 import { ArrowButton } from '../../../shared/components/ArrowButton/ArrowButton';
 
+import { ProductCategoryType } from '@/utils/Types';
+
 type categoryItem = {
-  category: string;
+  category: ProductCategoryType;
   label: string;
   image: string;
 };

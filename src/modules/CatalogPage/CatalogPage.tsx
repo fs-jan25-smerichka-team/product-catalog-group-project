@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { ProductGrid, Pagination } from './components';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
@@ -10,7 +10,6 @@ import { useCatalogProducts } from '../../utils/hooks/useCatalogProducts';
 import {
   CATALOG_TITLES,
   PER_PAGE_OPTIONS,
-  PRODUCTS_CATEGORIES,
   SORTY_BY_OPTIONS,
 } from '../../constants/constants';
 import {
@@ -19,20 +18,17 @@ import {
   productGridContainerStyle,
   paginationBoxStyle,
 } from './CatalogStyles';
-
-const isValidCategory = (category: string) =>
-  PRODUCTS_CATEGORIES.includes(category);
+import { useCategoryFromUrl } from '../../utils/hooks/useCategoryFromUrl';
 
 export const CatalogPage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const currentCategory = location.pathname.slice(1);
+  const { currentCategory, isValidCategory } = useCategoryFromUrl();
 
   useEffect(() => {
-    if (!isValidCategory(currentCategory)) {
+    if (!isValidCategory) {
       navigate('/not-found', { replace: true });
     }
-  }, [currentCategory, navigate]);
+  }, [currentCategory, isValidCategory, navigate]);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activeSort = searchParams.get('sort') || 'Newest';
@@ -54,7 +50,7 @@ export const CatalogPage: React.FC = () => {
       {/* Title */}
       <Stack spacing={1} sx={titleContainerStyle}>
         <Typography variant="h1">{CATALOG_TITLES[currentCategory]}</Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" color="secondary.dark">
           {isPending ? 'Loading...' : `${totalProductsNumber} models`}
         </Typography>
       </Stack>

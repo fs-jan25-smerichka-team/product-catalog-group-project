@@ -14,19 +14,40 @@ import { Loader } from '../shared/components/Loader/Loader';
 import { BreadcrumbsSection } from '../shared/components/Breadcrumbs/Breadcrumbs';
 import { useProductDetails } from '../../utils/hooks/useProductDetails';
 import { productDetailsStyle } from './ProductDetailsStyles';
+import { hashString } from '../../utils/functions/hashString';
+import { useCategoryFromUrl } from '../../utils/hooks/useCategoryFromUrl';
+
+import { NewProductOptions } from '@/utils/Types';
 
 export const ProductDetailsPage: React.FC = () => {
   const navigate = useNavigate();
-  const { product, isPending } = useProductDetails();
+  const { currentCategory, isValidCategory } = useCategoryFromUrl();
+  const { product, productsBySelectedModel, isPending } = useProductDetails();
 
   if (isPending) {
     return <Loader />;
   }
 
-  if (!product) {
+  if (!product || !isValidCategory) {
     navigate('/not-found', { replace: true });
     return;
   }
+
+  const handleProductChange = (options: NewProductOptions) => {
+    const targetProduct = productsBySelectedModel.find(
+      p =>
+        (options.color
+          ? p.color === options.color
+          : p.color === product.color) &&
+        (options.capacity
+          ? p.capacity === options.capacity
+          : p.capacity === product.capacity),
+    );
+
+    if (targetProduct && targetProduct.id !== product.id) {
+      navigate(`/${currentCategory}/${targetProduct.id}`, { replace: true });
+    }
+  };
 
   return (
     <Stack>
@@ -55,11 +76,14 @@ export const ProductDetailsPage: React.FC = () => {
           size={{ mobile: 4, tablet: 5, desktop: 12 }}
           sx={productDetailsStyle.constrolsGridContainer}
         >
-          <ControlsSection product={product} />
+          <ControlsSection
+            product={product}
+            onProductChange={handleProductChange}
+          />
 
           <Box sx={productDetailsStyle.productIdContainer}>
             <Typography variant="body2" color="secondary.main">
-              ID: {product.id}
+              ID: {hashString(product.id).toUpperCase()}
             </Typography>
           </Box>
         </Grid>

@@ -5,7 +5,7 @@ import { CATALOG_API_CALLS } from '../../constants/constants';
 import { ProductDetailsInfo } from '../Types';
 
 export const useProductDetails = () => {
-  const { productId, category } = useParams();
+  const { category, productId } = useParams();
 
   const queryFn = CATALOG_API_CALLS[category || ''];
 
