@@ -41,7 +41,7 @@ export default function CartCheckout() {
           Checkout is not implemented yet.
           <br /> Do you want to clear the Cart?
         </DialogTitle>
-        <DialogActions>
+        <DialogActions sx={CheckoutButtonStyle}>
           <OrangeButton isSelected={true} onClick={handleClose}>
             <Typography variant="button">Keep cart</Typography>
           </OrangeButton>

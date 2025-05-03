@@ -9,8 +9,11 @@ export const DeleteButtonStyle: SxProps<Theme> = {
   width: '16px',
   height: '16px',
   color: 'secondary.main',
+  
+  '&:hover': {
+    color: 'primary.main',
+  },
 
-  '&:hover': { color: 'primary.main' },
 };
 
 export const CounterButtonStyle: SxProps<Theme> = {
@@ -21,8 +24,13 @@ export const CounterButtonStyle: SxProps<Theme> = {
   color: 'primary.main',
   padding: 0,
   minWidth: 0,
-
-  '&:hover': { borderColor: 'primary.main' },
+  '&:disabled': {
+    borderColor: 'secondary.light',
+    color: 'secondary.main',
+  },
+  '&:hover': {
+    borderColor: 'primary.main',
+  },
 };
 
 export const CardImageStyle: SxProps<Theme> = {
