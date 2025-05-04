@@ -20,6 +20,7 @@ const CartPage: React.FC = () => {
       <Grid size={{ mobile: 4, tablet: 12, desktop: 24 }}>
         <Typography variant="h1">Cart</Typography>
       </Grid>
+
       {isPending ? (
         <Loader />
       ) : (
