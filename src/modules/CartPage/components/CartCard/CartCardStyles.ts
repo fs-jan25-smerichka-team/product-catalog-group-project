@@ -8,12 +8,12 @@ export const CartCardStyle: SxProps<Theme> = {
 export const DeleteButtonStyle: SxProps<Theme> = {
   width: '16px',
   height: '16px',
+  p: 0,
   color: 'secondary.main',
-  
+
   '&:hover': {
     color: 'primary.main',
   },
-
 };
 
 export const CounterButtonStyle: SxProps<Theme> = {
@@ -38,6 +38,10 @@ export const CardImageStyle: SxProps<Theme> = {
   height: '66px',
   padding: '14px',
   backgroundOrigin: 'content-box',
+  '&:hover': {
+    backgroundColor: '#EEF1F3',
+    borderRadius: 1,
+  },
 };
 
 export const CardTextStyle: SxProps<Theme> = {

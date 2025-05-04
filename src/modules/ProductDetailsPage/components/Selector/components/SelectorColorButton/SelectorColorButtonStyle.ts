@@ -3,7 +3,6 @@ import '../../../../../shared/colors.css';
 
 export const selectorColorButtonStyle = (
   isSelected: boolean,
-  theme: Theme,
 ): SxProps<Theme> => ({
   minWidth: '32px',
   width: '32px',
@@ -12,15 +11,13 @@ export const selectorColorButtonStyle = (
   borderRadius: '50%',
   backgroundColor: 'primary.contrastText',
   border: '1px solid',
-  borderColor: isSelected
-    ? theme.palette.primary.main
-    : theme.palette.secondary.light,
+  borderColor: isSelected ? 'primary.main' : 'secondary.light',
   '&:hover': isSelected
     ? {
-        borderColor: theme.palette.primary.main,
+        borderColor: 'primary.main',
       }
     : {
-        borderColor: theme.palette.secondary.main,
+        borderColor: 'secondary.main',
       },
 });
 

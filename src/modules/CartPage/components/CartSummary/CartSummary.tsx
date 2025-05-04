@@ -45,9 +45,7 @@ export const CartSummary: React.FC<Props> = ({ cost, quantity }) => {
           Total for {quantity} items
         </Typography>
       </CardContent>
-
-      <Divider variant="middle" sx={CartSummaryDividerStyle(theme)} />
-
+      <Divider variant="middle" sx={CartSummaryDividerStyle} />
       <CardActions>
         <CartCheckout />
       </CardActions>

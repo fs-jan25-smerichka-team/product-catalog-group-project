@@ -1,6 +1,6 @@
 import { SxProps, Theme } from '@mui/material';
 
-export const paginationStyle = (theme: Theme): SxProps<Theme> => ({
+export const paginationStyle: SxProps<Theme> = {
   width: {
     mobile: '42px',
     desktop: '72px',
@@ -13,12 +13,12 @@ export const paginationStyle = (theme: Theme): SxProps<Theme> => ({
   aspectRatio: '1 / 1',
   borderRadius: '4px',
   border: '1px solid',
-  borderColor: theme.palette.secondary.light,
+  borderColor: 'secondary.light',
   objectFit: 'contain',
   '.swiper-slide-thumb-active &': {
-    borderColor: theme.palette.primary.main,
+    borderColor: 'primary.main',
   },
-});
+};
 
 export const containerStyle: SxProps<Theme> = {
   display: 'grid',

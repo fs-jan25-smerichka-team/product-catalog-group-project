@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Box, Typography, IconButton, Stack } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 import {
@@ -16,6 +16,7 @@ import {
 import upIcon from '../../../../assets/icons/arrow-up.svg';
 import { FOOTER_LINKS } from '../../../../constants/constants';
 import { AppIcon } from '../../../shared/components/AppIcon';
+import { ThemeSwitcher } from '../../../../themes/ThemeSwitcher';
 
 export const Footer: React.FC = () => {
   const handleBackToTop = () => {
@@ -50,19 +51,32 @@ export const Footer: React.FC = () => {
         </Box>
 
         {/* Back to top */}
-        <Box sx={backToTopStyle} onClick={handleBackToTop} role="button">
+        <Stack direction="row" gap="8px" alignItems="center" width="240px">
+          <Box sx={backToTopStyle} onClick={handleBackToTop} role="button">
+            <Typography
+              variant="body2"
+              className="back-to-top-text"
+              sx={backToTopTextStyle}
+            >
+              Back to top
+            </Typography>
+
+            <IconButton className="back-to-top-button" sx={iconButtonStyle}>
+              <img src={upIcon} alt="up arrow" width={16} height={16} />
+            </IconButton>
+          </Box>
           <Typography
             variant="body2"
             className="back-to-top-text"
             sx={backToTopTextStyle}
           >
-            Back to top
+            Theme:
           </Typography>
 
-          <IconButton className="back-to-top-button" sx={iconButtonStyle}>
-            <img src={upIcon} alt="up arrow" width={16} height={16} />
-          </IconButton>
-        </Box>
+          <Box sx={{ width: '64px' }}>
+            <ThemeSwitcher />
+          </Box>
+        </Stack>
       </Box>
     </Box>
   );

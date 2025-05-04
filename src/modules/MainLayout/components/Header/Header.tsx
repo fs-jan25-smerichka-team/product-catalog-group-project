@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Box, IconButton, Drawer } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  IconButton,
+  Drawer,
+  useTheme,
+} from '@mui/material';
 
 import { AppIcon } from '../../../shared/components/AppIcon/AppIcon';
 import { HideOnScroll } from '../../../shared/components/HideOnScroll/HideOnScroll';
@@ -20,10 +27,10 @@ import {
   mobileNavigationIconTabsContainerStyles,
   desktopNavContainer,
 } from './headerStyles';
-import { theme } from '../../../../themes/roundedOrange';
 
 export const Header: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const theme = useTheme();
 
   const handleOpenNavMenu = () => setIsDrawerOpen(true);
   const handleCloseNavMenu = () => setIsDrawerOpen(false);
