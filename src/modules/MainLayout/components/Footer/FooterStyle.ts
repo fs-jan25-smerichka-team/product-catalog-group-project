@@ -73,6 +73,7 @@ export const backToTopTextStyle: SxProps<Theme> = {
 
 export const logoBoxStyle: SxProps<Theme> = {
   height: '32px',
+  width: '240px',
   display: 'flex',
 };
 

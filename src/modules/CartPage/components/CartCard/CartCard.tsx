@@ -43,7 +43,7 @@ export const CartCard: React.FC<Props> = ({ item }) => {
         <Grid size={{ mobile: 0.2, tablet: 'auto', desktop: 'auto' }}>
           <IconButton
             onClick={() => removeCartItem(item.id)}
-            sx={{ padding: 0, ...DeleteButtonStyle }}
+            sx={DeleteButtonStyle}
             disableRipple
           >
             <CloseIcon />
@@ -58,17 +58,7 @@ export const CartCard: React.FC<Props> = ({ item }) => {
             size={{ mobile: 1, tablet: 'auto', desktop: 'auto' }}
             justifySelf="flex-start"
           >
-            <CardMedia
-              component="div"
-              image={item.image}
-              sx={{
-                ...CardImageStyle,
-                '&:hover': {
-                  backgroundColor: '#EEF1F3',
-                  borderRadius: 1,
-                },
-              }}
-            />
+            <CardMedia component="div" image={item.image} sx={CardImageStyle} />
           </Grid>
 
           <Grid size={{ mobile: 2.7, tablet: 'grow', desktop: 'grow' }}>

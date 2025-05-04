@@ -111,7 +111,7 @@ export const PicturesSlider = () => {
         )}
       </Box>
 
-      <Box className="custom-swiper-pagination" sx={paginationStyle(theme)} />
+      <Box className="custom-swiper-pagination" sx={paginationStyle} />
     </Stack>
   );
 };

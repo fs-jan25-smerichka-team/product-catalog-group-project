@@ -2,7 +2,7 @@ import { createTheme, Theme } from '@mui/material/styles';
 
 import CommonThemeProps from './commonThemeProps';
 
-export const roundedOrange = createTheme({
+export const roundedBlue = createTheme({
   ...CommonThemeProps,
   palette: {
     primary: {
@@ -16,10 +16,10 @@ export const roundedOrange = createTheme({
       contrastText: '#FAFBFC', // Hover
     },
     warning: {
-      main: '#F86800', // Primary Accent
+      main: '#216CFF', // Primary Accent
     },
     info: {
-      main: '#476DF4', // Secondary Accent
+      main: '#F447AF', // Secondary Accent
     },
     error: {
       main: '#EB5757', // Red

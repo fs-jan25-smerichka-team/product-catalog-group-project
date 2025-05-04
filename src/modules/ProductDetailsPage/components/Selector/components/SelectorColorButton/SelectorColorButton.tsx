@@ -26,7 +26,7 @@ export const SelectorColorButton: React.FC<Props> = ({
       value={value}
       onClick={() => onClick(value)}
       variant={'outlined'}
-      sx={selectorColorButtonStyle(isSelected, theme)}
+      sx={selectorColorButtonStyle(isSelected)}
     >
       <Box sx={innerCircleBoxStyle(value)} />
     </Button>

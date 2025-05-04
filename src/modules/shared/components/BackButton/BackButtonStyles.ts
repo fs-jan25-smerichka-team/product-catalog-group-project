@@ -1,16 +1,14 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-import { theme } from '../../../../themes/roundedOrange';
-
 export const backButtonStyle: SxProps<Theme> = {
-  color: theme.palette.secondary.dark,
+  color: 'secondary.dark',
   padding: 0,
   background: 'none',
   boxShadow: 'none',
   textTransform: 'none',
   minWidth: 'auto',
   '&:hover': {
-    color: theme.palette.primary.main,
+    color: 'primary.main',
     background: 'none',
   },
 };

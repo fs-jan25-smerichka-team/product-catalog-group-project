@@ -30,7 +30,7 @@ export const ArrowButton: React.FC<Props> = ({
   return (
     <IconButton
       onClick={() => handleClickArrow(direction)}
-      sx={ArrowButtonStyle(theme, isBtnDisabled)}
+      sx={ArrowButtonStyle(isBtnDisabled)}
       disabled={isBtnDisabled}
     >
       <img src={getIcon()} alt={`${direction} arrow`} width={16} height={16} />

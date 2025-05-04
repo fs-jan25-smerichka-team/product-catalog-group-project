@@ -22,7 +22,7 @@ export const OrangeButton: React.FC<Props> = ({
       variant={isSelected ? 'outlined' : 'contained'}
       onClick={onClick}
       color="warning"
-      sx={OrangeButtonStyle(isSelected, theme)}
+      sx={OrangeButtonStyle(isSelected)}
     >
       {children}
     </Button>

@@ -25,7 +25,7 @@ export const slideImageStyle: SxProps<Theme> = {
   objectFit: 'cover',
 };
 
-export const paginationStyle = (theme: Theme): SxProps<Theme> => ({
+export const paginationStyle: SxProps<Theme> = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -34,11 +34,11 @@ export const paginationStyle = (theme: Theme): SxProps<Theme> => ({
     width: '14px',
     height: '4px',
     borderRadius: 0,
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: 'secondary.light',
     opacity: 1,
     transition: 'background-color 0.3s',
   },
   '& .swiper-pagination-bullet-active': {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'primary.main',
   },
-});
+};

@@ -7,6 +7,6 @@ export const CartSummaryCardStyle: SxProps<Theme> = {
 
 export const CartSummaryContentStyle: SxProps<Theme> = { p: 0 };
 
-export const CartSummaryDividerStyle = (theme: Theme): SxProps<Theme> => ({
-  color: theme.palette.secondary.light,
-});
+export const CartSummaryDividerStyle: SxProps<Theme> = {
+  color: 'secondary.light',
+};

@@ -30,6 +30,7 @@ export const iconTabsStyles = {
     tablet: '48px',
     desktop: '64px',
   },
+  color: 'primary.main',
   boxShadow: (theme: Theme) =>
     `-1px 0px 0px 0px ${theme.palette.secondary.light}`,
   '& img': {

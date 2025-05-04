@@ -51,12 +51,7 @@ export const Gallery: React.FC<Props> = ({ product }) => {
             style={{ height: 'auto', width: 'auto' }}
             className="thumb-slide"
           >
-            <Box
-              component="img"
-              src={image}
-              alt={image}
-              sx={paginationStyle(theme)}
-            />
+            <Box component="img" src={image} alt={image} sx={paginationStyle} />
           </SwiperSlide>
         ))}
       </Swiper>

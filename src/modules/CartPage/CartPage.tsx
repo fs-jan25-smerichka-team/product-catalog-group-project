@@ -12,7 +12,7 @@ const CartPage: React.FC = () => {
   const { cartItems, isPending } = useCartItems();
 
   return (
-    <Grid container rowSpacing={4} columnSpacing={2} sx={CartGridStyle(theme)}>
+    <Grid container rowSpacing={4} columnSpacing={2} sx={CartGridStyle}>
       <Grid size={{ mobile: 4, tablet: 12, desktop: 24 }}>
         <BackButton />
       </Grid>

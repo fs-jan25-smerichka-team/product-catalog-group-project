@@ -8,14 +8,12 @@ export const FavoriteButtonStyle = (
   minWidth: size === 'small' ? '40px' : '48px',
   minHeight: '40px',
   border: '1px solid',
-  borderColor: isSelected
-    ? theme.palette.secondary.light
-    : theme.palette.secondary.main,
+  borderColor: isSelected ? 'secondary.light' : 'secondary.main',
   '&:hover': isSelected
     ? {
-        borderColor: theme.palette.secondary.light,
+        borderColor: 'secondary.light',
       }
     : {
-        borderColor: theme.palette.primary.main,
+        borderColor: 'primary.main',
       },
 });

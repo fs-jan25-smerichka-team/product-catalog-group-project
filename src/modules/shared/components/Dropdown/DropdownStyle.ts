@@ -1,23 +1,23 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const DropdownStyle = (theme: Theme): SxProps<Theme> => ({
+export const DropdownStyle: SxProps<Theme> = {
   height: '40px',
-  borderColor: theme.palette.secondary.main,
+  borderColor: 'secondary.main',
   '&:hover': {
-    borderColor: theme.palette.secondary.dark,
+    borderColor: 'secondary.dark',
   },
-});
+};
 
-export const DropdownElementStyle = (theme: Theme): SxProps<Theme> => ({
-  color: theme.palette.secondary.dark,
-  bgcolor: theme.palette.primary.contrastText,
+export const DropdownElementStyle: SxProps<Theme> = {
+  color: 'secondary.dark',
+  bgcolor: 'primary.contrastText',
 
   '&:hover': {
-    color: theme.palette.primary.main,
-    bgcolor: theme.palette.secondary.contrastText,
+    color: 'primary.main',
+    bgcolor: 'secondary.contrastText',
   },
   '&.Mui-selected': {
-    color: theme.palette.primary.main,
-    bgcolor: theme.palette.secondary.light + ' !important',
+    color: 'primary.main',
+    bgcolor: 'secondary.light' + ' !important',
   },
-});
+};
