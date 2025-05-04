@@ -1,4 +1,4 @@
-import { Grid, Typography, useTheme } from '@mui/material';
+import { Box, Grid, Typography, useTheme } from '@mui/material';
 
 import { BackButton } from '../shared/components/BackButton/BackButton';
 import { CartList } from './components/CartList/CartList';
@@ -16,24 +16,32 @@ const CartPage: React.FC = () => {
       <Grid size={{ mobile: 4, tablet: 12, desktop: 24 }}>
         <BackButton />
       </Grid>
+
       <Grid size={{ mobile: 4, tablet: 12, desktop: 24 }}>
         <Typography variant="h1">Cart</Typography>
       </Grid>
-      <Grid size={{ mobile: 4, tablet: 12, desktop: 16 }}>
-        {isPending ? <Loader /> : <CartList cartItems={cartItems} />}
-      </Grid>
-      <Grid size={{ mobile: 4, tablet: 12, desktop: 8 }}>
-        <CartSummary
-          cost={cartItems.reduce(
-            (acc: number, item) => acc + item.price * item.quantity,
-            0,
-          )}
-          quantity={cartItems.reduce(
-            (acc: number, item) => acc + item.quantity,
-            0,
-          )}
-        />
-      </Grid>
+      {isPending ? (
+        <Loader />
+      ) : (
+        <Box display={'contents'}>
+          <Grid size={{ mobile: 4, tablet: 12, desktop: 16 }}>
+            {isPending ? <Loader /> : <CartList cartItems={cartItems} />}
+          </Grid>
+
+          <Grid size={{ mobile: 4, tablet: 12, desktop: 8 }}>
+            <CartSummary
+              cost={cartItems.reduce(
+                (acc: number, item) => acc + item.price * item.quantity,
+                0,
+              )}
+              quantity={cartItems.reduce(
+                (acc: number, item) => acc + item.quantity,
+                0,
+              )}
+            />
+          </Grid>
+        </Box>
+      )}
     </Grid>
   );
 };
