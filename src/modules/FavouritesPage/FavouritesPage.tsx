@@ -22,9 +22,13 @@ export const FavouritesPage: React.FC = () => {
             Favourites
           </Typography>
 
-          <Typography variant="body1" color="secondary.dark">
-            {isPending ? 'Loading...' : `${products.length} items`}
-          </Typography>
+          {!isPending && products.length > 0 ? (
+            <Typography variant="body1" color="secondary.dark">
+              {isPending ? 'Loading...' : `${products.length} items`}
+            </Typography>
+          ) : (
+            <></>
+          )}
         </Box>
 
         {isPending ? (
@@ -52,7 +56,9 @@ export const FavouritesPage: React.FC = () => {
                 ))}
               </Grid>
             ) : (
-              <Typography variant="h3">Your favourites is empty</Typography>
+              <Typography variant="h3">
+                You haven’t added any favorites yet
+              </Typography>
             )}
           </Box>
         )}
