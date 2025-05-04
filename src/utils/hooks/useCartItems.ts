@@ -9,7 +9,7 @@ import { CartItem, CartStorageItem } from '../Types';
 export const useCartItems = () => {
   const [cartStorageItems, setCartStorageItems] =
     useAtom<CartStorageItem[]>(cartStorageItemsAtom);
-  const { data: allProducts } = useQuery(getProductsQueryOptions());
+  const { data: allProducts, isPending } = useQuery(getProductsQueryOptions());
 
   const cartItems: CartItem[] = buildCartItems(
     cartStorageItems as CartStorageItem[],
@@ -55,5 +55,6 @@ export const useCartItems = () => {
     increaseQuantity,
     decreaseQuantity,
     totalQuantity,
+    isPending,
   };
 };

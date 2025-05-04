@@ -22,7 +22,9 @@ interface Props {
 
 export const CartSummary: React.FC<Props> = ({ cost, quantity }) => {
   const theme = useTheme();
-  return (
+  return quantity === 0 ? (
+    <></>
+  ) : (
     <Card variant="outlined" sx={CartSummaryCardStyle}>
       <CardContent sx={CartSummaryContentStyle}>
         <Typography
@@ -33,6 +35,7 @@ export const CartSummary: React.FC<Props> = ({ cost, quantity }) => {
           ${cost}
         </Typography>
       </CardContent>
+
       <CardContent sx={CartSummaryContentStyle}>
         <Typography
           variant="body1"
@@ -42,7 +45,9 @@ export const CartSummary: React.FC<Props> = ({ cost, quantity }) => {
           Total for {quantity} items
         </Typography>
       </CardContent>
+
       <Divider variant="middle" sx={CartSummaryDividerStyle(theme)} />
+
       <CardActions>
         <CartCheckout />
       </CardActions>
